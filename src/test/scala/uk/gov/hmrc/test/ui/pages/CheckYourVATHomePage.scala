@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2022 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
 object CheckYourVATHomePage extends BasePage {
-  val url: String     = TestConfiguration.url("example-frontend") + "/vat-return-period"
+ // val url: String     = TestConfiguration.url("example-frontend") + "/vat-return-period"
+ val url: String     ="https://www.google.com"
   val vatReturnPeriod = "Enter your VAT return details - Check your VAT flat rate - GOV.UK"
 
   val annuallyRadioButton  = "vatReturnPeriod"
