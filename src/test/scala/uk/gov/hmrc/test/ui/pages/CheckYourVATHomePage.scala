@@ -28,7 +28,7 @@ object CheckYourVATHomePage extends BasePage {
 
   def loadPage: this.type = {
     driver.navigate().to(url)
-    onPage(vatReturnPeriod)
+    //onPage(vatReturnPeriod)
     this
   }
 

@@ -20,17 +20,29 @@ import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 
+//import javax.xml.bind.WhiteSpaceProcessor.trim
+
 trait BasePage extends BrowserDriver with Matchers {
-  val continueButton = "continue-button"
-
+  val continueButton = "govuk-button"
+val backLink_xpath="//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
   def submitPage(): Unit =
-    driver.findElement(By.id(continueButton)).click()
+    driver.findElement(By.className(continueButton)).click()
 
-  def onPage(pageTitle: String): Unit =
-    if (driver.getTitle != pageTitle)
-      throw PageNotFoundException(
-        s"Expected '$pageTitle' page, but found '${driver.getTitle}' page."
-      )
+  def onPage(ele_PageTitleClass:String,pageTitle: String): Unit = {
+    var actual = driver.findElement(By.className(ele_PageTitleClass)).getText
+    actual=actual.trim
+    println("Actual -"+actual)
+    println("Expected -"+pageTitle)
+    assert(actual==pageTitle)
+//    if (actual != pageTitle)//driver.getTitle != pageTitle)
+//      throw PageNotFoundException(
+//        s"Expected '$pageTitle' page, but found '$actual' page."
+//      )
+  }
+  def clickBack(): Unit= {
+    driver.findElement(By.xpath(backLink_xpath)).click()
+  }
+
 }
 
 case class PageNotFoundException(s: String) extends Exception(s)
