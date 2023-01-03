@@ -22,7 +22,7 @@ object RequiredInformationPage extends BasePage {
   //import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
    // val url1: String = TestConfiguration.url("advance-valuation-rulings-frontend") + "/requiredInformation"
-   val url: String = "http://localhost:9000/advance-valuation-rulings-frontend/requiredInformation"
+
 
   val pageTitle = "Information you need to continue your application"
   val ele_PageTitleClass        = "govuk-fieldset__heading"
@@ -36,17 +36,9 @@ object RequiredInformationPage extends BasePage {
     val checkbox8 = "value_7"
     val Continue = "govuk-button"
 
-
-  //val elm_errorMessage2_xpath="//p[@id='value-error']";
   val errorMsg="Check all the boxes to continue"
- // val elm_errorMessage_xpath="//a[contains(text(),'Check all the boxes to continue')]"
 val CancelApplication=""
   val backPagetitle=""
-  def invokeURL:this.type ={
-    driver.navigate().to(url)
-    onPage(this.ele_PageTitleClass,this.pageTitle)
-    this
-  }
 
     def loadPage: this.type = {
     //  driver.navigate().to(url)
@@ -70,7 +62,7 @@ val CancelApplication=""
       this
     }
 
-    def notSelectAllCheckbox() :this.type ={
+    def notSelectAllCheckbox()  {
       val rand = new scala.util.Random
       val i=rand.nextInt(7)
 
@@ -83,19 +75,7 @@ val CancelApplication=""
       if (i!=6)driver.findElement(By.id(checkbox7)).click()
       if (i!=7)driver.findElement(By.id(checkbox8)).click()
       submitPage()
-      this
+
     }
-
-
-    def clickBackLink(): Unit = {
-      clickBack()
-      //onPage(backPagetitle)
-    }
-
-    def clickCancelApplication(): Unit = {
-      driver.findElement(By.id(CancelApplication)).click()
-      //onPage(backPagetitle)
-    }
-
 
 }

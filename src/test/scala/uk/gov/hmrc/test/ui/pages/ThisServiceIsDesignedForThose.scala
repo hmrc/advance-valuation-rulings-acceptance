@@ -36,5 +36,6 @@ object ThisServiceIsDesignedForThose extends BasePage {
   def linkNavigationValidation(): Unit ={
     assert(driver.findElement(By.id(ele_AdvanceTariffruling)).getAttribute("href")==AdvanceTariffruling)
     assert(driver.findElement(By.id(ele_AdvanceOriginruling)).getAttribute("href")==AdvanceOriginruling)
+    assert(driver.findElement(By.id(ele_Bindingvalueinformation)).getAttribute("href")==Bindingvalueinformation)
   }
 }

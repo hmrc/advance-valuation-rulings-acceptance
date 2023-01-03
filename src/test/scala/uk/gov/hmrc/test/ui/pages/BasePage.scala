@@ -31,11 +31,21 @@ val backLink_xpath="//a[@class='govuk-back-link  js-visible' and contains(text()
   val GoodsName="Coffee"
   val CommodityCode="T123"
   val radioOptionYes="(//input[@type='radio'])[1]"
-  val radioOptionNo="(//input[@type='radio'])[2]"
-
+  val radioOptionNo="value-no"
+  val ele_CancelApplication="cancel_application"
+val arsHomePageTitle="govuk-heading-xl"
+  val arsHomePageText="Your applications and rulings"
+  val ele_StartNewApplication="csrfToken"
+  val URL_nameOfTheGoods: String = "http://localhost:9000/advance-valuation-rulings-frontend/nameOfGoods"
+  val URL_requiredInformation: String = "http://localhost:9000/advance-valuation-rulings-frontend/requiredInformation"
+  val invalidGoodsName="abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
   def submitPage(): Unit =
     driver.findElement(By.className(continueButton)).click()
 
+
+  def invokeURL(URL:String){
+    driver.navigate().to(URL)
+  }
   def onPage(ele_PageTitleClass:String,pageTitle: String): Unit = {
     var actual = driver.findElement(By.className(ele_PageTitleClass)).getText
     actual=actual.trim
@@ -50,6 +60,13 @@ val backLink_xpath="//a[@class='govuk-back-link  js-visible' and contains(text()
   def clickBack(): Unit= {
     driver.findElement(By.xpath(backLink_xpath)).click()
   }
+  def cancelApplication(): Unit ={
+    driver.findElement(By.id(ele_CancelApplication)).click()
+  }
+  def arsHomePageValidation(): Unit ={
+    onPage(this.arsHomePageTitle,this.arsHomePageText)
+    assert(driver.findElement(By.name(ele_StartNewApplication)).isDisplayed)
+  }
   def thereIsAProblemErrorMessageValidation(errorMessage: String): Unit ={
     assert(driver.findElement(By.id(elm_errorMessageTitle)).getText==error_msgText)
     assert(driver.findElement(By.xpath(elm_errorMessage2)).isDisplayed)
@@ -59,7 +76,7 @@ val backLink_xpath="//a[@class='govuk-back-link  js-visible' and contains(text()
 
     radioOption match {
       case "Yes" =>driver.findElement(By.xpath(radioOptionYes)).click()
-      case "No" => driver.findElement(By.xpath(radioOptionNo)).click()
+      case "No" => driver.findElement(By.id(radioOptionNo)).click()
       case _=>Thread.sleep(1000)
     }
     submitPage()

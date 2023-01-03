@@ -27,4 +27,5 @@ import org.junit.runner.RunWith
   plugin = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
   tags = "@GoodsInformation"
 )
-class Runner {}
+class Runner
+object Runner extends Runner

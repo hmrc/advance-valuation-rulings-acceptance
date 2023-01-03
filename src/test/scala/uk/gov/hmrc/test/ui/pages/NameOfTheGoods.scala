@@ -21,12 +21,12 @@ import org.openqa.selenium.By
 object NameOfTheGoods extends BasePage {
 
 
-  val PageTile = "What is the name of the goods?"
-  val ele_PageTitleClass        = "govuk-label"
+  val pageTitle = "What is the name of the goods?"
+  val ele_PageTitleClass        = "govuk-heading-xl"
   val ele_GoodsName="value"
 
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.PageTile)
+    onPage(this.ele_PageTitleClass,this.pageTitle)
     this
   }
   def enterGoodsName(GoodsName: String ): Unit = {
