@@ -70,7 +70,7 @@ val CancelApplication=""
       this
     }
 
-    def notSelectAllCheckbox() :this.type ={
+    def notSelectAllCheckbox()  {
       val rand = new scala.util.Random
       val i=rand.nextInt(7)
 
@@ -83,7 +83,7 @@ val CancelApplication=""
       if (i!=6)driver.findElement(By.id(checkbox7)).click()
       if (i!=7)driver.findElement(By.id(checkbox8)).click()
       submitPage()
-      this
+
     }
 
 
