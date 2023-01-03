@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,9 +19,9 @@ package uk.gov.hmrc.test.ui.pages
 object RequiredInformationPage extends BasePage {
 
   import org.openqa.selenium.By
-  import uk.gov.hmrc.test.ui.conf.TestConfiguration
+  //import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-    val url1: String = TestConfiguration.url("advance-valuation-rulings-frontend") + "/requiredInformation"
+   // val url1: String = TestConfiguration.url("advance-valuation-rulings-frontend") + "/requiredInformation"
    val url: String = "http://localhost:9000/advance-valuation-rulings-frontend/requiredInformation"
 
   val pageTitle = "Information you need to continue your application"
@@ -36,11 +36,10 @@ object RequiredInformationPage extends BasePage {
     val checkbox8 = "value_7"
     val Continue = "govuk-button"
 
-  val elm_errorMessage1="error-summary-title"
-  val errorMessage1="There is a problem";
-  val elm_errorMessage2_xpath="//p[@id='value-error']";
-  val errorMessage2="Check all the boxes to continue"
-  val elm_errorMessage3_xpath="//a[contains(text(),'Check all the boxes to continue')]"
+
+  //val elm_errorMessage2_xpath="//p[@id='value-error']";
+  val errorMsg="Check all the boxes to continue"
+ // val elm_errorMessage_xpath="//a[contains(text(),'Check all the boxes to continue')]"
 val CancelApplication=""
   val backPagetitle=""
   def invokeURL:this.type ={
@@ -58,14 +57,14 @@ val CancelApplication=""
     def selectAllCheckbox() :this.type ={
 
 
-      driver.findElement(By.id(checkbox1)).click()
-     driver.findElement(By.id(checkbox2)).click()
-      driver.findElement(By.id(checkbox3)).click()
-     driver.findElement(By.id(checkbox4)).click()
-    driver.findElement(By.id(checkbox5)).click()
-      driver.findElement(By.id(checkbox6)).click()
-     driver.findElement(By.id(checkbox7)).click()
-      driver.findElement(By.id(checkbox8)).click()
+      if (!driver.findElement(By.id(checkbox1)).isSelected) driver.findElement(By.id(checkbox1)).click()
+      if (!driver.findElement(By.id(checkbox2)).isSelected) driver.findElement(By.id(checkbox2)).click()
+      if (!driver.findElement(By.id(checkbox3)).isSelected) driver.findElement(By.id(checkbox3)).click()
+      if (!driver.findElement(By.id(checkbox4)).isSelected) driver.findElement(By.id(checkbox4)).click()
+      if (!driver.findElement(By.id(checkbox5)).isSelected) driver.findElement(By.id(checkbox5)).click()
+      if (!driver.findElement(By.id(checkbox6)).isSelected) driver.findElement(By.id(checkbox6)).click()
+      if (!driver.findElement(By.id(checkbox7)).isSelected) driver.findElement(By.id(checkbox7)).click()
+      if (!driver.findElement(By.id(checkbox8)).isSelected) driver.findElement(By.id(checkbox8)).click()
       submitPage()
       //PlanningToImportGoods
       this
@@ -86,17 +85,10 @@ val CancelApplication=""
       submitPage()
       this
     }
-  def errorMessageValidation() : this.type ={
 
-    assert(driver.findElement(By.xpath(elm_errorMessage3_xpath)).isDisplayed)
-     assert(driver.findElement(By.id(elm_errorMessage1)).getText==errorMessage1);
-    assert(driver.findElement(By.xpath(elm_errorMessage2_xpath)).isDisplayed);
-
-    this
-  }
 
     def clickBackLink(): Unit = {
-      clickBack();
+      clickBack()
       //onPage(backPagetitle)
     }
 

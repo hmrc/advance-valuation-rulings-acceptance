@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.cucumber.runner
+package uk.gov.hmrc.test.ui.pages
 
-import io.cucumber.junit.Cucumber
-import io.cucumber.junit.CucumberOptions
-import org.junit.runner.RunWith
+import org.openqa.selenium.By
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("src/test/resources/features"),
-  glue = Array("uk.gov.hmrc.test.ui.cucumber.stepdefs"),
-  plugin =
-    Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/ZapRunner.xml"),
-  tags = "@ZAP"
-)
-class ZapRunner {}
+object WhatIsTheCommodityCode extends BasePage {
+
+
+  val PageTile = "What is the commodity code for the "+GoodsName+"?"
+  val ele_PageTitleClass = "govuk-label"
+val ele_CommodityCode="value"
+
+  def loadPage: this.type = {
+    onPage(this.ele_PageTitleClass, this.PageTile)
+    this
+  }
+  def enterCommodityCode(Code:String ): Unit ={
+    driver.findElement(By.id(ele_CommodityCode)).clear()
+    driver.findElement(By.id(ele_CommodityCode)).sendKeys(Code)
+  }
+}

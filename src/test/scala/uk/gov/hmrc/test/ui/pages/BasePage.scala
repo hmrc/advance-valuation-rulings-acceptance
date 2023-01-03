@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,14 @@ import uk.gov.hmrc.test.ui.driver.BrowserDriver
 trait BasePage extends BrowserDriver with Matchers {
   val continueButton = "govuk-button"
 val backLink_xpath="//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
+  val elm_errorMessageTitle="error-summary-title"
+  val error_msgText="There is a problem"
+  val elm_errorMessage2="//p[@id='value-error']"
+  val GoodsName="Coffee"
+  val CommodityCode="T123"
+  val radioOptionYes="(//input[@type='radio'])[1]"
+  val radioOptionNo="(//input[@type='radio'])[2]"
+
   def submitPage(): Unit =
     driver.findElement(By.className(continueButton)).click()
 
@@ -41,6 +49,20 @@ val backLink_xpath="//a[@class='govuk-back-link  js-visible' and contains(text()
   }
   def clickBack(): Unit= {
     driver.findElement(By.xpath(backLink_xpath)).click()
+  }
+  def thereIsAProblemErrorMessageValidation(errorMessage: String): Unit ={
+    assert(driver.findElement(By.id(elm_errorMessageTitle)).getText==error_msgText)
+    assert(driver.findElement(By.xpath(elm_errorMessage2)).isDisplayed)
+    assert(driver.findElement(By.xpath("//a[contains(text(),'"+errorMessage+"')]")).isDisplayed)
+  }
+  def radioOptionSelect(radioOption: String){
+
+    radioOption match {
+      case "Yes" =>driver.findElement(By.xpath(radioOptionYes)).click()
+      case "No" => driver.findElement(By.xpath(radioOptionNo)).click()
+      case _=>Thread.sleep(1000)
+    }
+    submitPage()
   }
 
 }
