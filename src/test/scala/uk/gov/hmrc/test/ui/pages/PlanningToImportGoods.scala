@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,34 +16,19 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
 object PlanningToImportGoods extends BasePage {
-  //val turnover      = "Are you planning to import goods into Great Britain?"
+
 
   val PageTile   = "Are you planning to import goods into Great Britain?"
   val ele_PageTitleClass        = "govuk-fieldset__heading"
-val radioOptionYes="(//input[@type='radio'])[1]"
-  val radioOptionNo="(//input[@type='radio'])[2]"
-  val backLink=""
-  val cancelApplication=""
 
-  def result: String = {
-    onPage(ele_PageTitleClass,PageTile)
-   driver.findElement(By.className(ele_PageTitleClass)).getText
 
-  }
+  val errorMsg="Select Yes if you have intention to move goods"
+
   def loadPage: this.type = {
     onPage(this.ele_PageTitleClass,this.PageTile)
     this
   }
-  def radioOptionSelect(radioOption: String){
 
-    radioOption match {
-      case "Yes" =>driver.findElement(By.xpath(radioOptionYes)).click()
-      case "No" => driver.findElement(By.xpath(radioOptionNo)).click()
-      case _=>Thread.sleep(1000)
-    }
-    submitPage()
-  }
+
 }
