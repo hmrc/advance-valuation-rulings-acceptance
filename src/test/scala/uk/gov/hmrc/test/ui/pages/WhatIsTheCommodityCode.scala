@@ -21,12 +21,12 @@ import org.openqa.selenium.By
 object WhatIsTheCommodityCode extends BasePage {
 
 
-  val PageTile = "What is the commodity code for the "+GoodsName+"?"
-  val ele_PageTitleClass = "govuk-label"
+  val pageTile = "What is the commodity code for the "+GoodsName+"?"
+  val ele_PageTitleClass = "govuk-heading-xl"
 val ele_CommodityCode="value"
 
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass, this.PageTile)
+    onPage(this.ele_PageTitleClass, this.pageTile)
     this
   }
   def enterCommodityCode(Code:String ): Unit ={

@@ -29,7 +29,7 @@ val backLink_xpath="//a[@class='govuk-back-link  js-visible' and contains(text()
   val error_msgText="There is a problem"
   val elm_errorMessage2="//p[@id='value-error']"
   val GoodsName="Coffee"
-  val CommodityCode="T123"
+  val CommodityCode="1234"
   val radioOptionYes="(//input[@type='radio'])[1]"
   val radioOptionNo="value-no"
   val ele_CancelApplication="cancel_application"
@@ -39,6 +39,7 @@ val arsHomePageTitle="govuk-heading-xl"
   val URL_nameOfTheGoods: String = "http://localhost:9000/advance-valuation-rulings-frontend/nameOfGoods"
   val URL_requiredInformation: String = "http://localhost:9000/advance-valuation-rulings-frontend/requiredInformation"
   val invalidGoodsName="abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
+  val URL_ARSHomePage="http://localhost:9000/advance-valuation-rulings-frontend/accountHome"
   def submitPage(): Unit =
     driver.findElement(By.className(continueButton)).click()
 
@@ -49,7 +50,7 @@ val arsHomePageTitle="govuk-heading-xl"
   def onPage(ele_PageTitleClass:String,pageTitle: String): Unit = {
     var actual = driver.findElement(By.className(ele_PageTitleClass)).getText
     actual=actual.trim
-    println("Actual -"+actual)
+    println("Actual   -"+actual)
     println("Expected -"+pageTitle)
     assert(actual==pageTitle)
 //    if (actual != pageTitle)//driver.getTitle != pageTitle)

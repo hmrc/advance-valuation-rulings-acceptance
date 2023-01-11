@@ -21,16 +21,16 @@ import org.openqa.selenium.By
 object MethodSelectionPage extends BasePage {
 
 
-  val PageTile = "Select the method you will use to value your goods"
+  val pageTile = "Select the method you will use to value your goods"
   val ele_PageTitleClass        = "govuk-fieldset__heading"
   val ele_Method1="value_0"
   val ele_Method2="value_1"
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.PageTile)
+    onPage(this.ele_PageTitleClass,this.pageTile)
     this
   }
-  def SelectMethod(MethodNumber: Int ): Unit = {
-    MethodNumber match {
+  def selectMethod(methodNumber: Int ): Unit = {
+    methodNumber match {
       case 1 => driver.findElement(By.id(ele_Method1)).click()
       case 2 => driver.findElement(By.id(ele_Method2)).click()
       case _ => Thread.sleep(1000)

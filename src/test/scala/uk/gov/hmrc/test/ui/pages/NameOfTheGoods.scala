@@ -29,8 +29,8 @@ object NameOfTheGoods extends BasePage {
     onPage(this.ele_PageTitleClass,this.pageTitle)
     this
   }
-  def enterGoodsName(GoodsName: String ): Unit = {
+  def enterGoodsName(goodsName: String ): Unit = {
     driver.findElement(By.id(ele_GoodsName)).clear()
-    driver.findElement(By.id(ele_GoodsName)).sendKeys(GoodsName)
+    driver.findElement(By.id(ele_GoodsName)).sendKeys(goodsName)
   }
 }

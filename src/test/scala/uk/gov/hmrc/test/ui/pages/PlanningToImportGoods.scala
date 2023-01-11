@@ -19,14 +19,11 @@ package uk.gov.hmrc.test.ui.pages
 object PlanningToImportGoods extends BasePage {
 
 
-  val PageTile   = "Are you planning to import goods into Great Britain?"
+  val pageTile   = "Are you planning to import goods into Great Britain?"
   val ele_PageTitleClass        = "govuk-fieldset__heading"
 
-
-  val errorMsg="Select Yes if you have intention to move goods"
-
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.PageTile)
+    onPage(this.ele_PageTitleClass,this.pageTile)
     this
   }
 

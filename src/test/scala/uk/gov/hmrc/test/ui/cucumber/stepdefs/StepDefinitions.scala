@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
-import uk.gov.hmrc.test.ui.pages.Turnover.{CommodityCode, GoodsName, URL_nameOfTheGoods, URL_requiredInformation, clickBack, invalidGoodsName, invokeURL, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation}
+import uk.gov.hmrc.test.ui.pages.Turnover.{CommodityCode, GoodsName, URL_ARSHomePage, URL_nameOfTheGoods, URL_requiredInformation, clickBack, invalidGoodsName, invokeURL, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation}
 import uk.gov.hmrc.test.ui.pages._
 
 class StepDefinitions extends BaseStepDef {
@@ -26,6 +26,9 @@ class StepDefinitions extends BaseStepDef {
   }
   Given("I am on the Name Of the Goods"){()=>
     invokeURL(URL_nameOfTheGoods)
+  }
+  Given("I am on the ARS Home Page"){()=>
+    invokeURL(URL_ARSHomePage)
   }
   When("I check all the checkboxes and click continue"){()=>
     RequiredInformationPage.loadPage
@@ -38,7 +41,7 @@ class StepDefinitions extends BaseStepDef {
   When("I check not all the checkboxes and click continue"){()=>
     RequiredInformationPage.notSelectAllCheckbox()
   }
-  Then("I will be see error message") { () =>
+  Then("I will be see error message in Required Information Page") { () =>
     //result should be(PageTileElementClassName)
     RequiredInformationPage.loadPage
     thereIsAProblemErrorMessageValidation("Check all check boxes to continue")
@@ -85,11 +88,14 @@ ThisServiceIsDesignedForThose.linkNavigationValidation()
   Then("I will be navigated to How We Contact You page"){()=>
     HowWeContactYou.loadPage
   }
+  Then("I will be navigated to Address page"){()=>
+    AddressPage.loadPage
+  }
   Then("I will be navigated to Method selection page"){()=>
     MethodSelectionPage.loadPage
   }
   When("I select Method and Click continue"){()=>
-    MethodSelectionPage.SelectMethod(1)
+    MethodSelectionPage.selectMethod(1)
     submitPage()
   }
  Then("I will be navigated to Name of the Goods page") { () =>
@@ -107,7 +113,7 @@ ThisServiceIsDesignedForThose.linkNavigationValidation()
     NameOfTheGoods.enterGoodsName(invalidGoodsName)
     submitPage()
   }
-  Then ("I will be see error message - Name for the goods must be 100 characters or less"){()=>
+  Then("I will be see error message - Name for the goods must be 100 characters or less"){()=>
     NameOfTheGoods.loadPage
     thereIsAProblemErrorMessageValidation("Name for the goods must be 100 characters or less")
   }
@@ -127,7 +133,7 @@ WhatIsTheCommodityCode.loadPage
     submitPage()
   }
   Then("I will be navigated to Which country are the goods coming from"){()=>
-    //need to update
+    WhichCountryAreTheGoodsComingFrom.loadPage
   }
   When("I enter less than 4 digits commodity code and continue"){()=>
     WhatIsTheCommodityCode.enterCommodityCode("123")
@@ -147,6 +153,15 @@ WhatIsTheCommodityCode.loadPage
   }
   Then("I will be navigated to You must have a commodity code"){()=>
     YouMustHaveACommodityCode.loadPage
+    YouMustHaveACommodityCode.linkNavigationValidation()
+  }
+  When("I enter alphabets in commodity code and continue"){()=>
+    WhatIsTheCommodityCode.enterCommodityCode("ABCDEF")
+    submitPage()
+  }
+  Then("I will be see error message Commodity codes must only include numbers in What is the commodity code page"){()=>
+    WhatIsTheCommodityCode.loadPage
+    thereIsAProblemErrorMessageValidation("Commodity codes must only include numbers")
   }
 
 }

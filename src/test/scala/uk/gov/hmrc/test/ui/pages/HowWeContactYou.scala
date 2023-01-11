@@ -19,10 +19,10 @@ package uk.gov.hmrc.test.ui.pages
 object HowWeContactYou extends BasePage {
 
 
-  val PageTile = "How we contact you about your application"
+  val pageTile = "How we contact you about your application"
   val ele_PageTitleClass        = "govuk-heading-xl"
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.PageTile)
+    onPage(this.ele_PageTitleClass,this.pageTile)
     this
   }
 }
