@@ -18,14 +18,13 @@ package uk.gov.hmrc.test.ui.pages
 
 object SomeOfTheInfo extends BasePage {
 
+  // import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-  //import uk.gov.hmrc.test.ui.conf.TestConfiguration
-
-
-  val pageTile = "Some of the information you provide in this application may appear on a public website"
-  val ele_PageTitleClass        = "govuk-heading-xl"
+  val pageTile            =
+    "Some of the information you provide in this application may appear on a public website"
+  val ele_PageTitleClass  = "govuk-heading-xl"
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.pageTile)
+    onPage(this.ele_PageTitleClass, this.pageTile)
     this
   }
 }

@@ -18,14 +18,12 @@ package uk.gov.hmrc.test.ui.pages
 
 object HaveYouFoundTheCommodityCode extends BasePage {
 
-
-  val pageTile = "Have you found the commodity code for the "+GoodsName+" ?"
+  val pageTile           = "Have you found the commodity code for the " + GoodsName + " ?"
   val ele_PageTitleClass = "govuk-heading-xl"
 
   def loadPage: this.type = {
     onPage(this.ele_PageTitleClass, this.pageTile)
     this
   }
-
 
 }

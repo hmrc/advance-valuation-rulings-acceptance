@@ -20,27 +20,41 @@ import org.openqa.selenium.By
 
 object YouMustHaveACommodityCode extends BasePage {
 
+  val pageTile           = "You must have a commodity code in order to carry on with your application"
+  val ele_PageTitleClass = "govuk-heading-xl"
 
-  val pageTile = "You must have a commodity code in order to carry on with your application"
-  val ele_PageTitleClass        = "govuk-heading-xl"
-
-  val ele_ImportingGoodsIntoUk="commodity_code_link_one"
-  val ele_CustomValueOfYourImportedGoods="commodity_code_link_two"
-val ele_GetALegallyBindingDecision="commodity_code_link_three"
-  val link_ImportingGoodsIntoUk = "https://www.gov.uk/import-goods-into-uk"
-   val link_CustomValueOfYourImportedGoods = "https://www.gov.uk/guidance/prepare-to-work-out-the-customs-value-of-your-imported-goods"
-   val link_GetALegallyBindingDecision = "https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling"
-  val btn_FindYourCommodityCode="//form[@method='GET' and @action='https://www.gov.uk/trade-tariff']"
-  val ele_FindYourCommodityCode="https://www.gov.uk/trade-tariff"
-  def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.pageTile)
+  val ele_ImportingGoodsIntoUk            = "commodity_code_link_one"
+  val ele_CustomValueOfYourImportedGoods  = "commodity_code_link_two"
+  val ele_GetALegallyBindingDecision      = "commodity_code_link_three"
+  val link_ImportingGoodsIntoUk           = "https://www.gov.uk/import-goods-into-uk"
+  val link_CustomValueOfYourImportedGoods =
+    "https://www.gov.uk/guidance/prepare-to-work-out-the-customs-value-of-your-imported-goods"
+  val link_GetALegallyBindingDecision     =
+    "https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling"
+  val btn_FindYourCommodityCode           =
+    "//form[@method='GET' and @action='https://www.gov.uk/trade-tariff']"
+  val ele_FindYourCommodityCode           = "https://www.gov.uk/trade-tariff"
+  def loadPage: this.type                 = {
+    onPage(this.ele_PageTitleClass, this.pageTile)
     this
   }
 
-  def linkNavigationValidation(): Unit ={
-    assert(driver.findElement(By.id(ele_ImportingGoodsIntoUk)).getAttribute("href")==link_ImportingGoodsIntoUk)
-    assert(driver.findElement(By.id(ele_CustomValueOfYourImportedGoods)).getAttribute("href")==link_CustomValueOfYourImportedGoods)
-    assert(driver.findElement(By.id(ele_GetALegallyBindingDecision)).getAttribute("href")==link_GetALegallyBindingDecision)
-  assert(driver.findElement(By.xpath(btn_FindYourCommodityCode)).isDisplayed)
+  def linkNavigationValidation(): Unit = {
+    assert(
+      driver
+        .findElement(By.id(ele_ImportingGoodsIntoUk))
+        .getAttribute("href") == link_ImportingGoodsIntoUk
+    )
+    assert(
+      driver
+        .findElement(By.id(ele_CustomValueOfYourImportedGoods))
+        .getAttribute("href") == link_CustomValueOfYourImportedGoods
+    )
+    assert(
+      driver
+        .findElement(By.id(ele_GetALegallyBindingDecision))
+        .getAttribute("href") == link_GetALegallyBindingDecision
+    )
+    assert(driver.findElement(By.xpath(btn_FindYourCommodityCode)).isDisplayed)
   }
 }

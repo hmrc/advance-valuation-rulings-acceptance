@@ -20,16 +20,15 @@ import org.openqa.selenium.By
 
 object NameOfTheGoods extends BasePage {
 
+  val pageTitle          = "What is the name of the goods?"
+  val ele_PageTitleClass = "govuk-heading-xl"
+  val ele_GoodsName      = "value"
 
-  val pageTitle = "What is the name of the goods?"
-  val ele_PageTitleClass        = "govuk-heading-xl"
-  val ele_GoodsName="value"
-
-  def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.pageTitle)
+  def loadPage: this.type                     = {
+    onPage(this.ele_PageTitleClass, this.pageTitle)
     this
   }
-  def enterGoodsName(goodsName: String ): Unit = {
+  def enterGoodsName(goodsName: String): Unit = {
     driver.findElement(By.id(ele_GoodsName)).clear()
     driver.findElement(By.id(ele_GoodsName)).sendKeys(goodsName)
   }

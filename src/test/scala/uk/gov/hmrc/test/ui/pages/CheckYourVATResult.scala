@@ -25,9 +25,8 @@ object CheckYourVATResult extends BasePage {
   val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
   val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
 
-  def result: String = {
-    //onPage(checkYourVatResult)
+  def result: String =
+    // onPage(checkYourVatResult)
     driver.findElement(By.id(resultOutcome)).getText
-  }
 
 }

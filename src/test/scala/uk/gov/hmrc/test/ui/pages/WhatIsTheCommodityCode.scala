@@ -20,16 +20,15 @@ import org.openqa.selenium.By
 
 object WhatIsTheCommodityCode extends BasePage {
 
-
-  val pageTile = "What is the commodity code for the "+GoodsName+"?"
+  val pageTile           = "What is the commodity code for the " + GoodsName + "?"
   val ele_PageTitleClass = "govuk-heading-xl"
-val ele_CommodityCode="value"
+  val ele_CommodityCode  = "value"
 
-  def loadPage: this.type = {
+  def loadPage: this.type                    = {
     onPage(this.ele_PageTitleClass, this.pageTile)
     this
   }
-  def enterCommodityCode(Code:String ): Unit ={
+  def enterCommodityCode(Code: String): Unit = {
     driver.findElement(By.id(ele_CommodityCode)).clear()
     driver.findElement(By.id(ele_CommodityCode)).sendKeys(Code)
   }

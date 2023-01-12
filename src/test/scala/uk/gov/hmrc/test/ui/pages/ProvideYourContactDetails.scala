@@ -20,19 +20,18 @@ import org.openqa.selenium.By
 
 object ProvideYourContactDetails extends BasePage {
 
+  val pageTile           = "Provide the contact details for this application"
+  val ele_PageTitleClass = "govuk-heading-xl"
 
-  val pageTile = "Provide the contact details for this application"
-  val ele_PageTitleClass        = "govuk-heading-xl"
-
-  val ele_name=""
-  val ele_email=""
-  val ele_contact=""
-  def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.pageTile)
+  val ele_name                                                                = ""
+  val ele_email                                                               = ""
+  val ele_contact                                                             = ""
+  def loadPage: this.type                                                     = {
+    onPage(this.ele_PageTitleClass, this.pageTile)
     this
   }
-  def enterContactDetails(name:String,email:String,contact:String): Unit ={
-driver.findElement(By.id(ele_name)).clear()
+  def enterContactDetails(name: String, email: String, contact: String): Unit = {
+    driver.findElement(By.id(ele_name)).clear()
     driver.findElement(By.id(ele_name)).sendKeys(name)
     driver.findElement(By.id(ele_email)).clear()
     driver.findElement(By.id(ele_email)).sendKeys(email)

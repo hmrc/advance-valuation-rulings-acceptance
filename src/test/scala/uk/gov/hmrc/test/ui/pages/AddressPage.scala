@@ -18,11 +18,10 @@ package uk.gov.hmrc.test.ui.pages
 
 object AddressPage extends BasePage {
 
-
-  val pageTile = "Check the name and address for EORI number GB123456789000"
-  val ele_PageTitleClass        = "govuk-heading-xl"
+  val pageTile            = "Check the name and address for EORI number GB123456789000"
+  val ele_PageTitleClass  = "govuk-heading-xl"
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass,this.pageTile)
+    onPage(this.ele_PageTitleClass, this.pageTile)
     this
   }
 }

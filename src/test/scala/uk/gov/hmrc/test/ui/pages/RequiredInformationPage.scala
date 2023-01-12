@@ -19,61 +19,65 @@ package uk.gov.hmrc.test.ui.pages
 object RequiredInformationPage extends BasePage {
 
   import org.openqa.selenium.By
-  //import uk.gov.hmrc.test.ui.conf.TestConfiguration
+  // import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-   // val url1: String = TestConfiguration.url("advance-valuation-rulings-frontend") + "/requiredInformation"
+  // val url1: String = TestConfiguration.url("advance-valuation-rulings-frontend") + "/requiredInformation"
 
+  val pageTitle          = "Information you need to continue your application"
+  val ele_PageTitleClass = "govuk-fieldset__heading"
+  val ele_Checkbox1      = "value_0"
+  val ele_Checkbox2      = "value_1"
+  val ele_Checkbox3      = "value_2"
+  val ele_Checkbox4      = "value_3"
+  val ele_Checkbox5      = "value_4"
+  val ele_Checkbox6      = "value_5"
+  val ele_Checkbox7      = "value_6"
+  val ele_Checkbox8      = "value_7"
+  val ele_Continue       = "govuk-button"
 
-  val pageTitle = "Information you need to continue your application"
-  val ele_PageTitleClass        = "govuk-fieldset__heading"
-    val ele_Checkbox1 = "value_0"
-    val ele_Checkbox2 = "value_1"
-    val ele_Checkbox3 = "value_2"
-    val ele_Checkbox4 = "value_3"
-    val ele_Checkbox5 = "value_4"
-    val ele_Checkbox6 = "value_5"
-    val ele_Checkbox7 = "value_6"
-    val ele_Checkbox8 = "value_7"
-    val ele_Continue = "govuk-button"
-
-
-
-    def loadPage: this.type = {
+  def loadPage: this.type = {
     //  driver.navigate().to(url)
-      onPage(this.ele_PageTitleClass,this.pageTitle)
-      this
-    }
+    onPage(this.ele_PageTitleClass, this.pageTitle)
+    this
+  }
 
-    def selectAllCheckbox() :this.type ={
+  def selectAllCheckbox(): this.type = {
 
+    if (!driver.findElement(By.id(ele_Checkbox1)).isSelected)
+      driver.findElement(By.id(ele_Checkbox1)).click()
+    if (!driver.findElement(By.id(ele_Checkbox2)).isSelected)
+      driver.findElement(By.id(ele_Checkbox2)).click()
+    if (!driver.findElement(By.id(ele_Checkbox3)).isSelected)
+      driver.findElement(By.id(ele_Checkbox3)).click()
+    if (!driver.findElement(By.id(ele_Checkbox4)).isSelected)
+      driver.findElement(By.id(ele_Checkbox4)).click()
+    if (!driver.findElement(By.id(ele_Checkbox5)).isSelected)
+      driver.findElement(By.id(ele_Checkbox5)).click()
+    if (!driver.findElement(By.id(ele_Checkbox6)).isSelected)
+      driver.findElement(By.id(ele_Checkbox6)).click()
+    if (!driver.findElement(By.id(ele_Checkbox7)).isSelected)
+      driver.findElement(By.id(ele_Checkbox7)).click()
+    if (!driver.findElement(By.id(ele_Checkbox8)).isSelected)
+      driver.findElement(By.id(ele_Checkbox8)).click()
+    submitPage()
+    // PlanningToImportGoods
+    this
+  }
 
-      if (!driver.findElement(By.id(ele_Checkbox1)).isSelected) driver.findElement(By.id(ele_Checkbox1)).click()
-      if (!driver.findElement(By.id(ele_Checkbox2)).isSelected) driver.findElement(By.id(ele_Checkbox2)).click()
-      if (!driver.findElement(By.id(ele_Checkbox3)).isSelected) driver.findElement(By.id(ele_Checkbox3)).click()
-      if (!driver.findElement(By.id(ele_Checkbox4)).isSelected) driver.findElement(By.id(ele_Checkbox4)).click()
-      if (!driver.findElement(By.id(ele_Checkbox5)).isSelected) driver.findElement(By.id(ele_Checkbox5)).click()
-      if (!driver.findElement(By.id(ele_Checkbox6)).isSelected) driver.findElement(By.id(ele_Checkbox6)).click()
-      if (!driver.findElement(By.id(ele_Checkbox7)).isSelected) driver.findElement(By.id(ele_Checkbox7)).click()
-      if (!driver.findElement(By.id(ele_Checkbox8)).isSelected) driver.findElement(By.id(ele_Checkbox8)).click()
-      submitPage()
-      //PlanningToImportGoods
-      this
-    }
+  def notSelectAllCheckbox() {
+    val rand = new scala.util.Random
+    val i    = rand.nextInt(7)
 
-    def notSelectAllCheckbox()  {
-      val rand = new scala.util.Random
-      val i=rand.nextInt(7)
+    if (i != 0) driver.findElement(By.id(ele_Checkbox1)).click()
+    if (i != 1) driver.findElement(By.id(ele_Checkbox2)).click()
+    if (i != 2) driver.findElement(By.id(ele_Checkbox3)).click()
+    if (i != 3) driver.findElement(By.id(ele_Checkbox4)).click()
+    if (i != 4) driver.findElement(By.id(ele_Checkbox5)).click()
+    if (i != 5) driver.findElement(By.id(ele_Checkbox6)).click()
+    if (i != 6) driver.findElement(By.id(ele_Checkbox7)).click()
+    if (i != 7) driver.findElement(By.id(ele_Checkbox8)).click()
+    submitPage()
 
-      if (i!=0) driver.findElement(By.id(ele_Checkbox1)).click()
-      if (i!=1)driver.findElement(By.id(ele_Checkbox2)).click()
-      if (i!=2)driver.findElement(By.id(ele_Checkbox3)).click()
-      if (i!=3)driver.findElement(By.id(ele_Checkbox4)).click()
-      if (i!=4)driver.findElement(By.id(ele_Checkbox5)).click()
-      if (i!=5)driver.findElement(By.id(ele_Checkbox6)).click()
-      if (i!=6)driver.findElement(By.id(ele_Checkbox7)).click()
-      if (i!=7)driver.findElement(By.id(ele_Checkbox8)).click()
-      submitPage()
-
-    }
+  }
 
 }

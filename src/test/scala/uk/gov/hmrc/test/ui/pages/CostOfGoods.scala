@@ -20,11 +20,11 @@ import org.openqa.selenium.By
 
 object CostOfGoods extends BasePage {
 
-  val title_costOfGoods      = "Enter your cost of goods - Check your VAT flat rate - GOV.UK"
+  val title_costOfGoods   = "Enter your cost of goods - Check your VAT flat rate - GOV.UK"
   val ele_CstOfGoodsInput = "costOfGoods"
 
   def provideCostOfGoodsAmount(amount: String): this.type = {
-   // onPage(costOfGoods)
+    // onPage(costOfGoods)
     driver.findElement(By.id(ele_CstOfGoodsInput)).sendKeys(amount)
     this
   }
