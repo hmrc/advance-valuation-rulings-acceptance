@@ -40,8 +40,10 @@ val arsHomePageTitle="govuk-heading-xl"
   val URL_requiredInformation: String = "http://localhost:9000/advance-valuation-rulings-frontend/requiredInformation"
   val invalidGoodsName="abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
   val URL_ARSHomePage="http://localhost:9000/advance-valuation-rulings-frontend/accountHome"
-  def submitPage(): Unit =
+  def submitPage(): Unit = {
     driver.findElement(By.className(continueButton)).click()
+    Thread.sleep(1000)
+  }
 
 
   def invokeURL(URL:String){
