@@ -19,7 +19,6 @@ package uk.gov.hmrc.test.ui.pages
 object RequiredInformationPage extends BasePage {
 
   import org.openqa.selenium.By
-  // import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
   // val url1: String = TestConfiguration.url("advance-valuation-rulings-frontend") + "/requiredInformation"
 

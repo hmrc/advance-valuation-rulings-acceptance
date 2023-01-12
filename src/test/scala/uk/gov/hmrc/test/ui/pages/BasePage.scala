@@ -16,34 +16,35 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 
 import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
 
-//import javax.xml.bind.WhiteSpaceProcessor.trim
-
 trait BasePage extends BrowserDriver with Matchers {
-  val continueButton                  = "govuk-button"
-  val backLink_xpath                  = "//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
-  val elm_errorMessageTitle           = "error-summary-title"
-  val error_msgText                   = "There is a problem"
-  val elm_errorMessage2               = "//p[@id='value-error']"
-  val GoodsName                       = "Coffee"
-  val CommodityCode                   = "1234"
-  val radioOptionYes                  = "(//input[@type='radio'])[1]"
-  val radioOptionNo                   = "value-no"
-  val ele_CancelApplication           = "cancel_application"
-  val arsHomePageTitle                = "govuk-heading-xl"
-  val arsHomePageText                 = "Your applications and rulings"
-  val ele_StartNewApplication         = "csrfToken"
+  val continueButton          = "govuk-button"
+  val backLink_xpath          = "//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
+  val elm_errorMessageTitle   = "error-summary-title"
+  val error_msgText           = "There is a problem"
+  val elm_errorMessage2       = "//p[@id='value-error']"
+  val GoodsName               = "Coffee"
+  val CommodityCode           = "1234"
+  val radioOptionYes          = "(//input[@type='radio'])[1]"
+  val radioOptionNo           = "value-no"
+  val ele_CancelApplication   = "cancel_application"
+  val arsHomePageTitle        = "govuk-heading-xl"
+  val arsHomePageText         = "Your applications and rulings"
+  val ele_StartNewApplication = "csrfToken"
+  lazy val baseUrl            = TestConfiguration.environmentHost
+
   val URL_nameOfTheGoods: String      =
-    "http://localhost:9000/advance-valuation-rulings-frontend/nameOfGoods"
+    s"$baseUrl/advance-valuation-rulings-frontend/nameOfGoods"
   val URL_requiredInformation: String =
-    "http://localhost:9000/advance-valuation-rulings-frontend/requiredInformation"
+    s"$baseUrl/advance-valuation-rulings-frontend/requiredInformation"
   val invalidGoodsName                =
     "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
-  val URL_ARSHomePage                 = "http://localhost:9000/advance-valuation-rulings-frontend/accountHome"
+  val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-rulings-frontend/accountHome"
   def submitPage(): Unit              = {
     driver.findElement(By.className(continueButton)).click()
     Thread.sleep(1000)
