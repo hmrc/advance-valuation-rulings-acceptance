@@ -32,8 +32,8 @@ Feature: ARS Home,Required Information,Planning to Import Goods,Some of the Info
     Then I will be navigated to ARS Home page
     When I Click on Continue
     Then I will be navigated to Required information page
-#    When I click on Cancel application button
-#    Then I will be navigated to ARS Home page
+    When I click on Cancel application button
+    Then I will be navigated to ARS Home page
 
 
   Scenario: Planning to import Goods - Without Selecting Yes or No - ARS-358 - 6/11
@@ -56,8 +56,8 @@ Feature: ARS Home,Required Information,Planning to Import Goods,Some of the Info
     Then I will be navigated to Required information page
     When I check all the checkboxes and click continue
     Then I will be navigated to Planning to Import Goods page
-#     When I click on Cancel application button
-#    Then I will be navigated to ARS Home page
+     When I click on Cancel application button
+    Then I will be navigated to ARS Home page
 
   Scenario: Planning to import Goods - Yes - ARS-358 - 4/11
     Given I am on the ARS Home Page
@@ -102,8 +102,8 @@ Feature: ARS Home,Required Information,Planning to Import Goods,Some of the Info
     Then I will be navigated to Planning to Import Goods page
       When I select Yes and continue
       Then I will be navigated to Some of the information you provide
-#      When I click on Cancel application button
-#    Then I will be navigated to ARS Home page
+      When I click on Cancel application button
+    Then I will be navigated to ARS Home page
 
 
   Scenario: How We Contact You - continue - ARS-358 - 10/11
@@ -133,5 +133,127 @@ Feature: ARS Home,Required Information,Planning to Import Goods,Some of the Info
     Then I will be navigated to Some of the information you provide
     When I Click on Continue
     Then I will be navigated to How We Contact You page
+    When I click on Cancel application button
+    Then I will be navigated to ARS Home page
+
+#
+#  Scenario: Address Page - without selecting Yes or No  - ARS-363
+#    Given I am on the ARS Home Page
+#    When I Click on Continue
+#    Then I will be navigated to Required information page
+#    When I check all the checkboxes and click continue
+#    Then I will be navigated to Planning to Import Goods page
+#    When I select Yes and continue
+#    Then I will be navigated to Some of the information you provide
+#    When I Click on Continue
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I Click on Continue
+#    Then I will see error message Select Yes shown if the address is correct in Address page
+#
+#
+#  Scenario: Address Page - Yes  - ARS-363
+#    Given I am on the ARS Home Page
+#    When I Click on Continue
+#    Then I will be navigated to Required information page
+#    When I check all the checkboxes and click continue
+#    Then I will be navigated to Planning to Import Goods page
+#    When I select Yes and continue
+#    Then I will be navigated to Some of the information you provide
+#    When I Click on Continue
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I select Yes and continue
+#    Then I will be navigating to Provide your contact details
+#
+#  Scenario: Address Page - No  - ARS-363
+#    Given I am on the ARS Home Page
+#    When I Click on Continue
+#    Then I will be navigated to Required information page
+#    When I check all the checkboxes and click continue
+#    Then I will be navigated to Planning to Import Goods page
+#    When I select Yes and continue
+#    Then I will be navigated to Some of the information you provide
+#    When I Click on Continue
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I select No and continue
+#    Then I will be navigating to Your EORI must be up to date
+#
+#  Scenario: Address Page - Back and Cancel application  - ARS-363
+#    Given I am on the ARS Home Page
+#    When I Click on Continue
+#    Then I will be navigated to Required information page
+#    When I check all the checkboxes and click continue
+#    Then I will be navigated to Planning to Import Goods page
+#    When I select Yes and continue
+#    Then I will be navigated to Some of the information you provide
+#    When I Click on Continue
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I click on Back link
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I click on Cancel application button
+#    Then I will be navigated to ARS Home page
+#
+#  Scenario: Provide your contact details - Without data continue  - ARS-363
+#    Given I am on the ARS Home Page
+#    When I Click on Continue
+#    Then I will be navigated to Required information page
+#    When I check all the checkboxes and click continue
+#    Then I will be navigated to Planning to Import Goods page
+#    When I select Yes and continue
+#    Then I will be navigated to Some of the information you provide
+#    When I Click on Continue
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I select Yes and continue
+#    Then I will be navigating to Provide your contact details
+#    When I Click on Continue
+#    Then I will see error message in Provide your contact details page
+#
+#
+#  Scenario: Provide your contact details - Yes  - ARS-363
+#    Given I am on the ARS Home Page
+#    When I Click on Continue
+#    Then I will be navigated to Required information page
+#    When I check all the checkboxes and click continue
+#    Then I will be navigated to Planning to Import Goods page
+#    When I select Yes and continue
+#    Then I will be navigated to Some of the information you provide
+#    When I Click on Continue
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I select Yes and continue
+#    Then I will be navigating to Provide your contact details
+#    When I enter details and continue in Provide your contact details page
+#    Then I will be navigated to Method selection page
+#
+#  Scenario: Provide your contact details - Back and Cancel application  - ARS-363
+#    Given I am on the ARS Home Page
+#    When I Click on Continue
+#    Then I will be navigated to Required information page
+#    When I check all the checkboxes and click continue
+#    Then I will be navigated to Planning to Import Goods page
+#    When I select Yes and continue
+#    Then I will be navigated to Some of the information you provide
+#    When I Click on Continue
+#    Then I will be navigated to How We Contact You page
+#    When I Click on Continue
+#    Then I will be navigated to Address page
+#    When I select Yes and continue
+#    Then I will be navigating to Provide your contact details
+#    When I click on Back link
+#    Then I will be navigated to Address page
+#    When I select Yes and continue
+#    Then I will be navigating to Provide your contact details
 #    When I click on Cancel application button
 #    Then I will be navigated to ARS Home page

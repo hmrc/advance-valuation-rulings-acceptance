@@ -23,19 +23,29 @@ object ThisServiceIsDesignedForThose extends BasePage {
 
   val pageTile = "This service is designed for those who are importing goods into Great Britain"
   val ele_PageTitleClass        = "govuk-heading-xl"
- val ele_Bindingvalueinformation=""
-  val ele_AdvanceTariffruling="advance_tariff_rulings_link"
-  val ele_AdvanceOriginruling="advance_origin_rulings_link"
-  val Bindingvalueinformation = "https://www.gov.uk/guidance/moving-qualifying-goods-from-northern-ireland-to-the-rest-of-the-uk"
-   val AdvanceTariffruling = "https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling"
-   val AdvanceOriginruling = "https://www.gov.uk/guidance/apply-for-an-advance-origin-ruling"
+
+
+  val ele_link_AdvanceTariffRulings="advance_tariff_rulings_link"
+  val ele_link_AdvanceOriginRulings="advance_origin_rulings_link"
+  val ele_link_StepByStepGuide="step_by_step_guide_link"
+  val ele_link_GeneralInformation="general_information_link"
+  val ele_link_HelpAndSupport="help_and_support_link"
+
+  val link_AdvanceTariffRulings = "https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling"
+   val link_AdvanceOriginRulings = "https://www.gov.uk/guidance/apply-for-an-advance-origin-ruling"
+   val link_StepByStepGuide = "https://www.gov.uk/import-goods-into-uk"
+val link_GeneralInformation="https://www.gov.uk/topic/business-tax/import-export"
+val link_HelpAndSupport="https://www.gov.uk/guidance/hmrc-email-alerts-videos-and-webinars-about-importing-and-exporting"
+
   def loadPage: this.type = {
     onPage(this.ele_PageTitleClass,this.pageTile)
     this
   }
   def linkNavigationValidation(): Unit ={
-    assert(driver.findElement(By.id(ele_AdvanceTariffruling)).getAttribute("href")==AdvanceTariffruling)
-    assert(driver.findElement(By.id(ele_AdvanceOriginruling)).getAttribute("href")==AdvanceOriginruling)
-    assert(driver.findElement(By.id(ele_Bindingvalueinformation)).getAttribute("href")==Bindingvalueinformation)
+    assert(driver.findElement(By.id(ele_link_AdvanceTariffRulings)).getAttribute("href")==link_AdvanceTariffRulings)
+    assert(driver.findElement(By.id(ele_link_AdvanceOriginRulings)).getAttribute("href")==link_AdvanceOriginRulings)
+    assert(driver.findElement(By.id(ele_link_StepByStepGuide)).getAttribute("href")==link_StepByStepGuide)
+    assert(driver.findElement(By.id(ele_link_GeneralInformation)).getAttribute("href")==link_GeneralInformation)
+    assert(driver.findElement(By.id(ele_link_HelpAndSupport)).getAttribute("href")==link_HelpAndSupport)
   }
 }

@@ -163,5 +163,30 @@ WhatIsTheCommodityCode.loadPage
     WhatIsTheCommodityCode.loadPage
     thereIsAProblemErrorMessageValidation("Commodity codes must only include numbers")
   }
+  Then("I will see error message Select Yes shown if the address is correct in Address page"){()=>
+    AddressPage.loadPage
+    thereIsAProblemErrorMessageValidation("Select Yes shown if the address is correct")
+  }
+  Then("I will be navigating to Provide your contact details"){()=>
+    ProvideYourContactDetails.loadPage
+  }
+  Then("I will be navigating to Your EORI must be up to date"){()=>
+    YourEORIMustBeUpToDate.loadPage
+  }
+  When("I enter details and continue in Provide your contact details page"){()=>
+    ProvideYourContactDetails.loadPage
+    ProvideYourContactDetails.enterContactDetails("Name","abcd@test.com","9876543211")
+    submitPage()
+  }
+  Then("I will see error message in Provide your contact details page"){()=>
+    ProvideYourContactDetails.loadPage
+    thereIsAProblemErrorMessageValidation("")
+  }
+  When("I click on Find Your Commodity Page button"){()=>
+    submitPage()
+  }
+  Then("I will be navigated to Find Your Commodity Code page"){()=>
+    FindYourCommodity.loadPage
+  }
 
 }
