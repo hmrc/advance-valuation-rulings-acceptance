@@ -16,12 +16,11 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.conf.TestConfiguration
-
 import org.openqa.selenium.By
 
 object CheckYourVATHomePage extends BasePage {
-  val url: String     = TestConfiguration.url("example-frontend") + "/vat-return-period"
+  // val url: String     = TestConfiguration.url("example-frontend") + "/vat-return-period"
+  val url: String     = "https://www.google.com"
   val vatReturnPeriod = "Enter your VAT return details - Check your VAT flat rate - GOV.UK"
 
   val annuallyRadioButton  = "vatReturnPeriod"
@@ -29,7 +28,7 @@ object CheckYourVATHomePage extends BasePage {
 
   def loadPage: this.type = {
     driver.navigate().to(url)
-    onPage(vatReturnPeriod)
+    // onPage(vatReturnPeriod)
     this
   }
 

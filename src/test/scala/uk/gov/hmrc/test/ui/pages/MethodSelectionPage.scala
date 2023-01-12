@@ -18,16 +18,20 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object Turnover extends BasePage {
+object MethodSelectionPage extends BasePage {
 
-  val turnover      = "Enter your turnover - Check your VAT flat rate - GOV.UK"
-  val turnoverInput = "turnover"
-
-  def provideTurnoverAmount(amount: String): CostOfGoods.type = {
-    // onPage(turnover)
-    driver.findElement(By.id(turnoverInput)).sendKeys(amount)
-    submitPage()
-    CostOfGoods
+  val pageTile                              = "Select the method you will use to value your goods"
+  val ele_PageTitleClass                    = "govuk-fieldset__heading"
+  val ele_Method1                           = "value_0"
+  val ele_Method2                           = "value_1"
+  def loadPage: this.type                   = {
+    onPage(this.ele_PageTitleClass, this.pageTile)
+    this
   }
-
+  def selectMethod(methodNumber: Int): Unit =
+    methodNumber match {
+      case 1 => driver.findElement(By.id(ele_Method1)).click()
+      case 2 => driver.findElement(By.id(ele_Method2)).click()
+      case _ => Thread.sleep(1000)
+    }
 }

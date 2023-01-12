@@ -18,15 +18,18 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object CheckYourVATResult extends BasePage {
+object WhatIsTheCommodityCode extends BasePage {
 
-  val checkYourVatResult   = "Your VAT calculation - Check your VAT flat rate - GOV.UK"
-  val resultOutcome        = "resultOutcome"
-  val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
-  val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
+  val pageTile           = "What is the commodity code for the " + GoodsName + "?"
+  val ele_PageTitleClass = "govuk-heading-xl"
+  val ele_CommodityCode  = "value"
 
-  def result: String =
-    // onPage(checkYourVatResult)
-    driver.findElement(By.id(resultOutcome)).getText
-
+  def loadPage: this.type                    = {
+    onPage(this.ele_PageTitleClass, this.pageTile)
+    this
+  }
+  def enterCommodityCode(Code: String): Unit = {
+    driver.findElement(By.id(ele_CommodityCode)).clear()
+    driver.findElement(By.id(ele_CommodityCode)).sendKeys(Code)
+  }
 }

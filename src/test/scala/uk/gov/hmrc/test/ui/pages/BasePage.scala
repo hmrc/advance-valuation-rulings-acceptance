@@ -16,22 +16,77 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 
 import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
 
 trait BasePage extends BrowserDriver with Matchers {
-  val continueButton = "continue-button"
+  val continueButton          = "govuk-button"
+  val backLink_xpath          = "//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
+  val elm_errorMessageTitle   = "error-summary-title"
+  val error_msgText           = "There is a problem"
+  val elm_errorMessage2       = "//p[@id='value-error']"
+  val GoodsName               = "Coffee"
+  val CommodityCode           = "1234"
+  val radioOptionYes          = "(//input[@type='radio'])[1]"
+  val radioOptionNo           = "value-no"
+  val ele_CancelApplication   = "cancel_application"
+  val arsHomePageTitle        = "govuk-heading-xl"
+  val arsHomePageText         = "Your applications and rulings"
+  val ele_StartNewApplication = "csrfToken"
+  lazy val baseUrl            = TestConfiguration.environmentHost
 
-  def submitPage(): Unit =
-    driver.findElement(By.id(continueButton)).click()
+  val URL_nameOfTheGoods: String      =
+    s"$baseUrl/advance-valuation-rulings-frontend/nameOfGoods"
+  val URL_requiredInformation: String =
+    s"$baseUrl/advance-valuation-rulings-frontend/requiredInformation"
+  val invalidGoodsName                =
+    "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
+  val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-rulings-frontend/accountHome"
+  def submitPage(): Unit              = {
+    driver.findElement(By.className(continueButton)).click()
+    Thread.sleep(1000)
+  }
 
-  def onPage(pageTitle: String): Unit =
-    if (driver.getTitle != pageTitle)
-      throw PageNotFoundException(
-        s"Expected '$pageTitle' page, but found '${driver.getTitle}' page."
-      )
+  def invokeURL(URL: String) {
+    driver.navigate().to(URL)
+  }
+  def onPage(ele_PageTitleClass: String, pageTitle: String): Unit       = {
+    var actual = driver.findElement(By.className(ele_PageTitleClass)).getText
+    actual = actual.trim
+    println("Actual   -" + actual)
+    println("Expected -" + pageTitle)
+    assert(actual == pageTitle)
+//    if (actual != pageTitle)//driver.getTitle != pageTitle)
+//      throw PageNotFoundException(
+//        s"Expected '$pageTitle' page, but found '$actual' page."
+//      )
+  }
+  def clickBack(): Unit                                                 =
+    driver.findElement(By.xpath(backLink_xpath)).click()
+  def cancelApplication(): Unit                                         =
+    driver.findElement(By.id(ele_CancelApplication)).click()
+  def arsHomePageValidation(): Unit                                     = {
+    onPage(this.arsHomePageTitle, this.arsHomePageText)
+    assert(driver.findElement(By.name(ele_StartNewApplication)).isDisplayed)
+  }
+  def thereIsAProblemErrorMessageValidation(errorMessage: String): Unit = {
+    assert(driver.findElement(By.id(elm_errorMessageTitle)).getText == error_msgText)
+    assert(driver.findElement(By.xpath(elm_errorMessage2)).isDisplayed)
+    assert(driver.findElement(By.xpath("//a[contains(text(),'" + errorMessage + "')]")).isDisplayed)
+  }
+  def radioOptionSelect(radioOption: String) {
+
+    radioOption match {
+      case "Yes" => driver.findElement(By.xpath(radioOptionYes)).click()
+      case "No"  => driver.findElement(By.id(radioOptionNo)).click()
+      case _     => Thread.sleep(1000)
+    }
+    submitPage()
+  }
+
 }
 
 case class PageNotFoundException(s: String) extends Exception(s)
