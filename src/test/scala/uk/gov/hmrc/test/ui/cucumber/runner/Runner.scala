@@ -30,6 +30,7 @@ import org.junit.runner.RunWith
     "json:target/cucumber.json",
     "junit:target/test-reports/Runner.xml"
   ),
-  tags = "@Example"
+  tags = "@GoodsInformation"
 )
-class Runner {}
+class Runner
+object Runner extends Runner

@@ -16,22 +16,13 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+object HowWeContactYou extends BasePage {
 
-object CostOfGoods extends BasePage {
 
-  val title_costOfGoods      = "Enter your cost of goods - Check your VAT flat rate - GOV.UK"
-  val ele_CstOfGoodsInput = "costOfGoods"
-
-  def provideCostOfGoodsAmount(amount: String): this.type = {
-   // onPage(costOfGoods)
-    driver.findElement(By.id(ele_CstOfGoodsInput)).sendKeys(amount)
+  val pageTile = "How we contact you about your application"
+  val ele_PageTitleClass        = "govuk-heading-xl"
+  def loadPage: this.type = {
+    onPage(this.ele_PageTitleClass,this.pageTile)
     this
   }
-
-  def submitVATInformation: CheckYourVATResult.type = {
-    submitPage()
-    CheckYourVATResult
-  }
-
 }

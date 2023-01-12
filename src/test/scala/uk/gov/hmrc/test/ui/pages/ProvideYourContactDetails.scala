@@ -18,26 +18,25 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 
-object CheckYourVATHomePage extends BasePage {
- // val url: String     = TestConfiguration.url("example-frontend") + "/vat-return-period"
- val url: String     ="https://www.google.com"
-  val vatReturnPeriod = "Enter your VAT return details - Check your VAT flat rate - GOV.UK"
+object ProvideYourContactDetails extends BasePage {
 
-  val annuallyRadioButton  = "vatReturnPeriod"
-  val quarterlyRadioButton = "vatReturnPeriod-2"
 
+  val pageTile = "Provide the contact details for this application"
+  val ele_PageTitleClass        = "govuk-heading-xl"
+
+  val ele_name=""
+  val ele_email=""
+  val ele_contact=""
   def loadPage: this.type = {
-    driver.navigate().to(url)
-    //onPage(vatReturnPeriod)
+    onPage(this.ele_PageTitleClass,this.pageTile)
     this
   }
-
-  def provideVATPeriod(period: String): Turnover.type = {
-    period match {
-      case "Annually" => driver.findElement(By.id(annuallyRadioButton)).click()
-      case _          => driver.findElement(By.id(quarterlyRadioButton)).click()
-    }
-    submitPage()
-    Turnover
+  def enterContactDetails(name:String,email:String,contact:String): Unit ={
+driver.findElement(By.id(ele_name)).clear()
+    driver.findElement(By.id(ele_name)).sendKeys(name)
+    driver.findElement(By.id(ele_email)).clear()
+    driver.findElement(By.id(ele_email)).sendKeys(email)
+    driver.findElement(By.id(ele_contact)).clear()
+    driver.findElement(By.id(ele_contact)).sendKeys(contact)
   }
 }

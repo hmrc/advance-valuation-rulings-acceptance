@@ -24,7 +24,7 @@ object Turnover extends BasePage {
   val turnoverInput = "turnover"
 
   def provideTurnoverAmount(amount: String): CostOfGoods.type = {
-    onPage(turnover)
+   // onPage(turnover)
     driver.findElement(By.id(turnoverInput)).sendKeys(amount)
     submitPage()
     CostOfGoods
