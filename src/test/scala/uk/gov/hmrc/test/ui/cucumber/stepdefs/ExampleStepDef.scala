@@ -22,44 +22,44 @@ import uk.gov.hmrc.test.ui.pages.CheckYourVATResult.{result, useSetVATFlatRate, 
 
 class ExampleStepDef extends BaseStepDef {
 
-  Given("I am on the Check your VAT flat rate service") { () =>
-    CheckYourVATHomePage.loadPage
+  Given("I am on the Check your VAT flat rate service")(() => CheckYourVATHomePage.loadPage)
+
+  When("I submit my VAT for goods under £1000 for the year") {
+    () =>
+      provideVATPeriod("Annually")
+        .provideTurnoverAmount("1000")
+        .provideCostOfGoodsAmount("999")
+        .submitVATInformation
   }
 
-  When("I submit my VAT for goods under £1000 for the year") { () =>
-    provideVATPeriod("Annually")
-      .provideTurnoverAmount("1000")
-      .provideCostOfGoodsAmount("999")
-      .submitVATInformation
+  When("I submit my VAT information for goods over £1000 for the year") {
+    () =>
+      provideVATPeriod("Annually")
+        .provideTurnoverAmount("1000")
+        .provideCostOfGoodsAmount("1000")
+        .submitVATInformation
   }
 
-  When("I submit my VAT information for goods over £1000 for the year") { () =>
-    provideVATPeriod("Annually")
-      .provideTurnoverAmount("1000")
-      .provideCostOfGoodsAmount("1000")
-      .submitVATInformation
+  When("I submit my VAT information for goods under £250 for the quarter") {
+    () =>
+      provideVATPeriod("Quarterly")
+        .provideTurnoverAmount("1000")
+        .provideCostOfGoodsAmount("249")
+        .submitVATInformation
   }
 
-  When("I submit my VAT information for goods under £250 for the quarter") { () =>
-    provideVATPeriod("Quarterly")
-      .provideTurnoverAmount("1000")
-      .provideCostOfGoodsAmount("249")
-      .submitVATInformation
+  When("I submit my VAT information for goods for £250 for the quarter") {
+    () =>
+      provideVATPeriod("Quarterly")
+        .provideTurnoverAmount("1000")
+        .provideCostOfGoodsAmount("250")
+        .submitVATInformation
   }
 
-  When("I submit my VAT information for goods for £250 for the quarter") { () =>
-    provideVATPeriod("Quarterly")
-      .provideTurnoverAmount("1000")
-      .provideCostOfGoodsAmount("250")
-      .submitVATInformation
+  Then("I will be asked to use the 16.5% VAT flat rate") {
+    () => result should be(useSetVATFlatRate)
   }
 
-  Then("I will be asked to use the 16.5% VAT flat rate") { () =>
-    result should be(useSetVATFlatRate)
-  }
-
-  Then("I will be asked to use the VAT flat rate") { () =>
-    result should be(useUniqueVATFlatRate)
-  }
+  Then("I will be asked to use the VAT flat rate")(() => result should be(useUniqueVATFlatRate))
 
 }

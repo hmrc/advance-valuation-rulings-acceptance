@@ -16,9 +16,10 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.driver.BrowserDriver
+
 import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
-import uk.gov.hmrc.test.ui.driver.BrowserDriver
 
 trait BasePage extends BrowserDriver with Matchers {
   val continueButton = "continue-button"

@@ -16,8 +16,9 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
+
+import org.openqa.selenium.By
 
 object CheckYourVATHomePage extends BasePage {
   val url: String     = TestConfiguration.url("example-frontend") + "/vat-return-period"

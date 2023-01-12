@@ -36,5 +36,6 @@ object TestConfiguration {
 
   def servicePort(serviceName: String): String = envConfig.getString(s"services.$serviceName.port")
 
-  def serviceRoute(serviceName: String): String = envConfig.getString(s"services.$serviceName.productionRoute")
+  def serviceRoute(serviceName: String): String =
+    envConfig.getString(s"services.$serviceName.productionRoute")
 }
