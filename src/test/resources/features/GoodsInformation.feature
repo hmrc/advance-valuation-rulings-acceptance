@@ -2,7 +2,6 @@
 
 Feature: Goods Information
 
-
   Scenario: Name Of the Goods  -ARS-364 -Scenario 2 – Does not provide the name of goods
     Given I am on the Name Of the Goods
 #    When I check all the checkboxes and click continue

@@ -20,14 +20,16 @@ import org.openqa.selenium.By
 
 object ProvideYourContactDetails extends BasePage {
 
-  val pageTile           = "Provide the contact details for this application"
-  val ele_PageTitleClass = "govuk-heading-xl"
+  val pageTile       =
+    "Provide the contact details for this application - Advance Ruling Service - GOV.UK"
+  val error_PageTile =
+    "Error: Provide the contact details for this application - Advance Ruling Service - GOV.UK"
 
   val ele_name                                                                = ""
   val ele_email                                                               = ""
   val ele_contact                                                             = ""
   def loadPage: this.type                                                     = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+    onPage(this.pageTile)
     this
   }
   def enterContactDetails(name: String, email: String, contact: String): Unit = {

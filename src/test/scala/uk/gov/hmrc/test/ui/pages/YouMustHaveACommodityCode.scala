@@ -20,8 +20,8 @@ import org.openqa.selenium.By
 
 object YouMustHaveACommodityCode extends BasePage {
 
-  val pageTile           = "You must have a commodity code in order to carry on with your application"
-  val ele_PageTitleClass = "govuk-heading-xl"
+  val pageTitle =
+    "You must have a commodity code in order to carry on with your application - Advance Ruling Service - GOV.UK"
 
   val ele_ImportingGoodsIntoUk            = "commodity_code_link_one"
   val ele_CustomValueOfYourImportedGoods  = "commodity_code_link_two"
@@ -35,7 +35,7 @@ object YouMustHaveACommodityCode extends BasePage {
     "//form[@method='GET' and @action='https://www.gov.uk/trade-tariff']"
   val ele_FindYourCommodityCode           = "https://www.gov.uk/trade-tariff"
   def loadPage: this.type                 = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+    onPage(this.pageTitle)
     this
   }
 

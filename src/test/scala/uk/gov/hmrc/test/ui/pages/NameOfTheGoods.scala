@@ -20,12 +20,16 @@ import org.openqa.selenium.By
 
 object NameOfTheGoods extends BasePage {
 
-  val pageTitle          = "What is the name of the goods?"
-  val ele_PageTitleClass = "govuk-heading-xl"
-  val ele_GoodsName      = "value"
+  val pageTitle      = "About the goods - Advance Ruling Service - GOV.UK"
+  val errorPageTitle = "Error: About the goods - Advance Ruling Service - GOV.UK"
+  val ele_GoodsName  = "value"
 
   def loadPage: this.type                     = {
-    onPage(this.ele_PageTitleClass, this.pageTitle)
+    onPage(this.pageTitle)
+    this
+  }
+  def errorLoadPage: this.type                = {
+    onPage(this.errorPageTitle)
     this
   }
   def enterGoodsName(goodsName: String): Unit = {

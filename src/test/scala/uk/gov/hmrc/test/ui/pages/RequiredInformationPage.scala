@@ -20,23 +20,29 @@ object RequiredInformationPage extends BasePage {
 
   import org.openqa.selenium.By
 
-  // val url1: String = TestConfiguration.url("advance-valuation-rulings-frontend") + "/requiredInformation"
-
-  val pageTitle          = "Information you need to continue your application"
-  val ele_PageTitleClass = "govuk-fieldset__heading"
-  val ele_Checkbox1      = "value_0"
-  val ele_Checkbox2      = "value_1"
-  val ele_Checkbox3      = "value_2"
-  val ele_Checkbox4      = "value_3"
-  val ele_Checkbox5      = "value_4"
-  val ele_Checkbox6      = "value_5"
-  val ele_Checkbox7      = "value_6"
-  val ele_Checkbox8      = "value_7"
-  val ele_Continue       = "govuk-button"
+  val pageTitle      =
+    "Information you need to complete an application - Advance Ruling Service - GOV.UK"
+  val errorPageTitle =
+    "Error: Information you need to complete an application - Advance Ruling Service - GOV.UK"
+  val ele_Checkbox1  = "value_0"
+  val ele_Checkbox2  = "value_1"
+  val ele_Checkbox3  = "value_2"
+  val ele_Checkbox4  = "value_3"
+  val ele_Checkbox5  = "value_4"
+  val ele_Checkbox6  = "value_5"
+  val ele_Checkbox7  = "value_6"
+  val ele_Checkbox8  = "value_7"
+  val ele_Continue   = "govuk-button"
 
   def loadPage: this.type = {
     //  driver.navigate().to(url)
-    onPage(this.ele_PageTitleClass, this.pageTitle)
+    onPage(this.pageTitle)
+    this
+  }
+
+  def error_LoadPage: this.type = {
+    //  driver.navigate().to(url)
+    onPage(this.errorPageTitle)
     this
   }
 

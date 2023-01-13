@@ -20,12 +20,18 @@ import org.openqa.selenium.By
 
 object MethodSelectionPage extends BasePage {
 
-  val pageTile                              = "Select the method you will use to value your goods"
-  val ele_PageTitleClass                    = "govuk-fieldset__heading"
+  val pageTile                              =
+    "Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
+  val error_PageTile                        =
+    "Error: Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
   val ele_Method1                           = "value_0"
   val ele_Method2                           = "value_1"
   def loadPage: this.type                   = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+    onPage(this.pageTile)
+    this
+  }
+  def errorLoadPage: this.type              = {
+    onPage(this.error_PageTile)
     this
   }
   def selectMethod(methodNumber: Int): Unit =

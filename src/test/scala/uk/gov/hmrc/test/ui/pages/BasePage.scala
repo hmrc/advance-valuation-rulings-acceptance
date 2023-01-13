@@ -25,8 +25,8 @@ import org.scalatest.matchers.should.Matchers
 trait BasePage extends BrowserDriver with Matchers {
   val continueButton          = "govuk-button"
   val backLink_xpath          = "//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
-  val elm_errorMessageTitle   = "error-summary-title"
-  val error_msgText           = "There is a problem"
+  // val elm_errorMessageTitle   = "govuk-error-summary__title"
+  val error_msgText           = "//h2[contains(text(),'There is a problem')]"
   val elm_errorMessage2       = "//p[@id='value-error']"
   val GoodsName               = "Coffee"
   val CommodityCode           = "1234"
@@ -34,7 +34,7 @@ trait BasePage extends BrowserDriver with Matchers {
   val radioOptionNo           = "value-no"
   val ele_CancelApplication   = "cancel_application"
   val arsHomePageTitle        = "govuk-heading-xl"
-  val arsHomePageText         = "Your applications and rulings"
+  val arsHomePageText         = "Your applications and rulings - Advance Ruling Service - GOV.UK"
   val ele_StartNewApplication = "csrfToken"
   lazy val baseUrl            = TestConfiguration.environmentHost
 
@@ -53,27 +53,28 @@ trait BasePage extends BrowserDriver with Matchers {
   def invokeURL(URL: String) {
     driver.navigate().to(URL)
   }
-  def onPage(ele_PageTitleClass: String, pageTitle: String): Unit       = {
-    var actual = driver.findElement(By.className(ele_PageTitleClass)).getText
+  def onPage(pageTitle: String): Unit                                   = {
+    var actual: String = driver.getTitle
     actual = actual.trim
+
     println("Actual   -" + actual)
     println("Expected -" + pageTitle)
-    assert(actual == pageTitle)
-//    if (actual != pageTitle)//driver.getTitle != pageTitle)
-//      throw PageNotFoundException(
-//        s"Expected '$pageTitle' page, but found '$actual' page."
-//      )
+//    assert(actual == pageTitle)
+    if (driver.getTitle != pageTitle)
+      throw PageNotFoundException(
+        s"Expected '$pageTitle' page, but found '$actual' page."
+      )
   }
   def clickBack(): Unit                                                 =
     driver.findElement(By.xpath(backLink_xpath)).click()
   def cancelApplication(): Unit                                         =
     driver.findElement(By.id(ele_CancelApplication)).click()
   def arsHomePageValidation(): Unit                                     = {
-    onPage(this.arsHomePageTitle, this.arsHomePageText)
+    onPage(this.arsHomePageText)
     assert(driver.findElement(By.name(ele_StartNewApplication)).isDisplayed)
   }
   def thereIsAProblemErrorMessageValidation(errorMessage: String): Unit = {
-    assert(driver.findElement(By.id(elm_errorMessageTitle)).getText == error_msgText)
+    assert(driver.findElement(By.xpath(error_msgText)).isDisplayed)
     assert(driver.findElement(By.xpath(elm_errorMessage2)).isDisplayed)
     assert(driver.findElement(By.xpath("//a[contains(text(),'" + errorMessage + "')]")).isDisplayed)
   }

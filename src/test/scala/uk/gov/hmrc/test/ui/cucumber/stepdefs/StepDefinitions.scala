@@ -40,9 +40,8 @@ class StepDefinitions extends BaseStepDef {
   Then("I will be see error message in Required Information Page") {
     () =>
       // result should be(PageTileElementClassName)
-      RequiredInformationPage.loadPage
+      RequiredInformationPage.error_LoadPage
       thereIsAProblemErrorMessageValidation("Check all check boxes to continue")
-
   }
   When("I click on Back link")(() => clickBack())
   When("I click on Cancel application button") {
@@ -74,7 +73,7 @@ class StepDefinitions extends BaseStepDef {
   }
   Then("I will see Error message in Planning to Import Goods page") {
     ()
-    PlanningToImportGoods.loadPage
+    PlanningToImportGoods.error_LoadPage
     thereIsAProblemErrorMessageValidation("Select Yes if you have intention to move goods")
 
   }
@@ -104,12 +103,12 @@ class StepDefinitions extends BaseStepDef {
   }
   Then("I will be see error message - Name for the goods must be 100 characters or less") {
     () =>
-      NameOfTheGoods.loadPage
+      NameOfTheGoods.errorLoadPage
       thereIsAProblemErrorMessageValidation("Name for the goods must be 100 characters or less")
   }
   Then("I will be see error message - Enter a short name to describe the goods") {
     () =>
-      NameOfTheGoods.loadPage
+      NameOfTheGoods.errorLoadPage
       thereIsAProblemErrorMessageValidation("Enter a short name to describe the goods")
   }
   Then("I will be navigated to What is the commodity code with Goods name") {
@@ -117,7 +116,7 @@ class StepDefinitions extends BaseStepDef {
   }
   Then("I will be see error message in Have you found the commodity code page") {
     () =>
-      HaveYouFoundTheCommodityCode.loadPage
+      HaveYouFoundTheCommodityCode.errorLoadPage
       thereIsAProblemErrorMessageValidation("Select Yes if you know the commodity code")
   }
   When("I enter commodity code and continue") {
@@ -140,12 +139,12 @@ class StepDefinitions extends BaseStepDef {
   }
   Then("I will be see error message less than 4 digits in What is the commodity code page") {
     () =>
-      WhatIsTheCommodityCode.loadPage
+      WhatIsTheCommodityCode.errorLoadPage
       thereIsAProblemErrorMessageValidation("Commodity code must include minimum 4 digit numbers")
   }
   Then("I will be see error message more than 10 digits in What is the commodity code page") {
     () =>
-      WhatIsTheCommodityCode.loadPage
+      WhatIsTheCommodityCode.errorLoadPage
       thereIsAProblemErrorMessageValidation("Commodity code cannot exceed 10 digit")
   }
   Then("I will be navigated to You must have a commodity code") {
@@ -162,12 +161,12 @@ class StepDefinitions extends BaseStepDef {
     "I will be see error message Commodity codes must only include numbers in What is the commodity code page"
   ) {
     () =>
-      WhatIsTheCommodityCode.loadPage
+      WhatIsTheCommodityCode.errorLoadPage
       thereIsAProblemErrorMessageValidation("Commodity codes must only include numbers")
   }
   Then("I will see error message Select Yes shown if the address is correct in Address page") {
     () =>
-      AddressPage.loadPage
+      AddressPage.error_LoadPage
       thereIsAProblemErrorMessageValidation("Select Yes shown if the address is correct")
   }
   Then("I will be navigating to Provide your contact details") {
@@ -189,5 +188,7 @@ class StepDefinitions extends BaseStepDef {
   }
   When("I click on Find Your Commodity Page button")(() => submitPage())
   Then("I will be navigated to Find Your Commodity Code page")(() => FindYourCommodity.loadPage)
-
+  Then("I will be navigated to Your EORI details must be up to date to use this service")(
+    () => YourEORIMustBeUpToDate.loadPage
+  )
 }

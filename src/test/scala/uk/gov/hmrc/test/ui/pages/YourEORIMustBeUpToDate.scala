@@ -18,10 +18,10 @@ package uk.gov.hmrc.test.ui.pages
 
 object YourEORIMustBeUpToDate extends BasePage {
 
-  val pageTile            = "Your EORI details must be up to date to use this service"
-  val ele_PageTitleClass  = "govuk-heading-xl"
+  val pageTitle           =
+    "Your EORI details must be up to date to use this service - Advance Ruling Service - GOV.UK"
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+    onPage(this.pageTitle)
     this
   }
 }
