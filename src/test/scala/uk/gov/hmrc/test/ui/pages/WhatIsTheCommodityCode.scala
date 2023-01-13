@@ -20,12 +20,20 @@ import org.openqa.selenium.By
 
 object WhatIsTheCommodityCode extends BasePage {
 
-  val pageTile           = "What is the commodity code for the " + GoodsName + "?"
-  val ele_PageTitleClass = "govuk-heading-xl"
-  val ele_CommodityCode  = "value"
+  val goodsNameDisplay  = "What is the commodity code for the " + GoodsName + "?"
+  val pageTitle         = "What is the commodity code for the {0}? - Advance Ruling Service - GOV.UK"
+  val errorPageTitle    =
+    "Error: What is the commodity code for the {0}? - Advance Ruling Service - GOV.UK"
+  val ele_CommodityCode = "value"
 
   def loadPage: this.type                    = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+    onPage(this.pageTitle)
+    assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisplay)
+    this
+  }
+  def errorLoadPage: this.type               = {
+    onPage(this.errorPageTitle)
+    assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisplay)
     this
   }
   def enterCommodityCode(Code: String): Unit = {

@@ -20,10 +20,9 @@ object WhichCountryAreTheGoodsComingFrom extends BasePage {
 
   // import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-  val pageTile            = "Which country are the goods coming from"
-  val ele_PageTitleClass  = "govuk-heading-xl"
+  val pageTitle           = "Which country are the goods coming from - Advance Ruling Service - GOV.UK"
   def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+    onPage(this.pageTitle)
     this
   }
 }

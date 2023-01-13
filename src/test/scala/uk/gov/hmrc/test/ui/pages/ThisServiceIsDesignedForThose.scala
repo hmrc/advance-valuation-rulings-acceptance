@@ -20,8 +20,8 @@ import org.openqa.selenium.By
 
 object ThisServiceIsDesignedForThose extends BasePage {
 
-  val pageTile           = "This service is designed for those who are importing goods into Great Britain"
-  val ele_PageTitleClass = "govuk-heading-xl"
+  val pageTitle =
+    "This service is designed for those who are importing goods into Great Britain - Advance Ruling Service - GOV.UK"
 
   val ele_link_AdvanceTariffRulings = "advance_tariff_rulings_link"
   val ele_link_AdvanceOriginRulings = "advance_origin_rulings_link"
@@ -37,7 +37,7 @@ object ThisServiceIsDesignedForThose extends BasePage {
     "https://www.gov.uk/guidance/hmrc-email-alerts-videos-and-webinars-about-importing-and-exporting"
 
   def loadPage: this.type              = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+    onPage(this.pageTitle)
     this
   }
   def linkNavigationValidation(): Unit = {

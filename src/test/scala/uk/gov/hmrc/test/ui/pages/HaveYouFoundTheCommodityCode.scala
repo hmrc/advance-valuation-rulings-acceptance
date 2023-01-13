@@ -16,13 +16,22 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import org.openqa.selenium.By
+
 object HaveYouFoundTheCommodityCode extends BasePage {
 
-  val pageTile           = "Have you found the commodity code for the " + GoodsName + " ?"
-  val ele_PageTitleClass = "govuk-heading-xl"
-
-  def loadPage: this.type = {
-    onPage(this.ele_PageTitleClass, this.pageTile)
+  val goodsNameDisaply         = "Have you found the commodity code for the " + GoodsName + " ?"
+  val pageTitle                = "Have you found the commodity code for the - Advance Ruling Service - GOV.UK"
+  val errorPageTitle           =
+    "Error: Have you found the commodity code for the - Advance Ruling Service - GOV.UK"
+  def loadPage: this.type      = {
+    onPage(this.pageTitle)
+    assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisaply)
+    this
+  }
+  def errorLoadPage: this.type = {
+    onPage(this.errorPageTitle)
+    assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisaply)
     this
   }
 
