@@ -17,7 +17,7 @@
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
 import uk.gov.hmrc.test.ui.pages._
-import uk.gov.hmrc.test.ui.pages.Turnover.{clickBack, invalidGoodsName, invokeURL, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation, CommodityCode, GoodsName, URL_ARSHomePage, URL_nameOfTheGoods, URL_requiredInformation}
+import uk.gov.hmrc.test.ui.pages.Turnover.{clickBack, email, invalidGoodsName, invokeURL, name, phone, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation, CommodityCode, GoodsName, URL_ARSHomePage, URL_nameOfTheGoods, URL_requiredInformation}
 
 class StepDefinitions extends BaseStepDef {
 
@@ -84,6 +84,11 @@ class StepDefinitions extends BaseStepDef {
   When("I select Method and Click continue") {
     () =>
       MethodSelectionPage.selectMethod(1)
+      submitPage()
+  }
+  When("I select Method 2 and Click continue") {
+    () =>
+      MethodSelectionPage.selectMethod(2)
       submitPage()
   }
   Then("I will be navigated to Name of the Goods page")(() => NameOfTheGoods.loadPage)
@@ -178,7 +183,7 @@ class StepDefinitions extends BaseStepDef {
   When("I enter details and continue in Provide your contact details page") {
     () =>
       ProvideYourContactDetails.loadPage
-      ProvideYourContactDetails.enterContactDetails("Name", "abcd@test.com", "9876543211")
+      ProvideYourContactDetails.enterContactDetails(name, email, phone)
       submitPage()
   }
   Then("I will see error message in Provide your contact details page") {

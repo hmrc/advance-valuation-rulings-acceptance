@@ -25,9 +25,9 @@ object ProvideYourContactDetails extends BasePage {
   val error_PageTile =
     "Error: Provide the contact details for this application - Advance Ruling Service - GOV.UK"
 
-  val ele_name                                                                = ""
-  val ele_email                                                               = ""
-  val ele_contact                                                             = ""
+  val ele_name                                                                = "name"
+  val ele_email                                                               = "email"
+  val ele_contact                                                             = "phone"
   def loadPage: this.type                                                     = {
     onPage(this.pageTile)
     this
