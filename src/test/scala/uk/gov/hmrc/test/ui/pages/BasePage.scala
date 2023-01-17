@@ -31,12 +31,15 @@ trait BasePage extends BrowserDriver with Matchers {
   val GoodsName               = "Coffee"
   val CommodityCode           = "1234"
   val radioOptionYes          = "(//input[@type='radio'])[1]"
-  val radioOptionNo           = "value-no"
+  val radioOptionNo           = "(//input[@type='radio'])[2]"
   val ele_CancelApplication   = "cancel_application"
   val arsHomePageTitle        = "govuk-heading-xl"
   val arsHomePageText         = "Your applications and rulings - Advance Ruling Service - GOV.UK"
   val ele_StartNewApplication = "csrfToken"
   lazy val baseUrl            = TestConfiguration.environmentHost
+  val name                    = "Automation test"
+  val email                   = "automation@test.com"
+  val phone                   = "9876543210"
 
   val URL_nameOfTheGoods: String      =
     s"$baseUrl/advance-valuation-rulings-frontend/nameOfGoods"
@@ -82,7 +85,7 @@ trait BasePage extends BrowserDriver with Matchers {
 
     radioOption match {
       case "Yes" => driver.findElement(By.xpath(radioOptionYes)).click()
-      case "No"  => driver.findElement(By.id(radioOptionNo)).click()
+      case "No"  => driver.findElement(By.xpath(radioOptionNo)).click()
       case _     => Thread.sleep(1000)
     }
     submitPage()

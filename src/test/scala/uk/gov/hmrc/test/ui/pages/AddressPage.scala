@@ -18,10 +18,9 @@ package uk.gov.hmrc.test.ui.pages
 
 object AddressPage extends BasePage {
 
-  val pageTitle                 = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
-  val errorPageTitle            = {
+  val pageTitle      = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+  val errorPageTitle =
     "Error: Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
-  }
 
   def loadPage: this.type       = {
     onPage(this.pageTitle)
@@ -31,4 +30,5 @@ object AddressPage extends BasePage {
     onPage(this.errorPageTitle)
     this
   }
+
 }
