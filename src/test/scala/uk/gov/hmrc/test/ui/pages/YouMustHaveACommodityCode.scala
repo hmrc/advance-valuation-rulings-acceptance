@@ -32,8 +32,7 @@ object YouMustHaveACommodityCode extends BasePage {
   val link_GetALegallyBindingDecision     =
     "https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling"
   val btn_FindYourCommodityCode           =
-    "//form[@method='GET' and @action='https://www.gov.uk/trade-tariff']"
-  val ele_FindYourCommodityCode           = "https://www.gov.uk/trade-tariff"
+    "//a[@href='https://www.gov.uk/trade-tariff']"
   def loadPage: this.type                 = {
     onPage(this.pageTitle)
     this

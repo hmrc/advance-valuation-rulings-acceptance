@@ -75,8 +75,8 @@ Scenario: Your EORI details must be up to date to use this service
     Then I will be navigated to Have you found the commodity code with Goods name
     When I select Yes and continue
     Then I will be navigated to What is the commodity code with Goods name
-#    When I enter commodity code and continue
-#    Then I will be navigated to Which country are the goods coming from
+    When I enter commodity code and continue
+    Then I will be navigated to Which country are the goods coming from
 
 
   Scenario: Method 2 flow
@@ -101,5 +101,5 @@ Scenario: Your EORI details must be up to date to use this service
     Then I will be navigated to Have you found the commodity code with Goods name
     When I select Yes and continue
     Then I will be navigated to What is the commodity code with Goods name
-#    When I enter commodity code and continue
-#    Then I will be navigated to Which country are the goods coming from
+    When I enter commodity code and continue
+    Then I will be navigated to Which country are the goods coming from
