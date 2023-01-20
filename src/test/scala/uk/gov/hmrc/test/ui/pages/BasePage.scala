@@ -59,13 +59,13 @@ trait BasePage extends BrowserDriver with Matchers {
   def onPage(pageTitle: String): Unit                                   = {
     var actual: String = driver.getTitle
     actual = actual.trim
-
+    var exp            = pageTitle.trim
     println("Actual   -" + actual)
-    println("Expected -" + pageTitle)
+    println("Expected -" + exp)
 //    assert(actual == pageTitle)
-    if (driver.getTitle != pageTitle)
+    if (driver.getTitle != exp)
       throw PageNotFoundException(
-        s"Expected '$pageTitle' page, but found '$actual' page."
+        s"Expected '$exp' page, but found '$actual' page."
       )
   }
   def clickBack(): Unit                                                 =

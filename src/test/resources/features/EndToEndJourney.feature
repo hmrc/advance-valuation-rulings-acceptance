@@ -70,6 +70,10 @@ Scenario: Your EORI details must be up to date to use this service
     When I enter details and continue in Provide your contact details page
     Then I will be navigated to Method selection page
     When I select Method and Click continue
+    #Does the sale involve goods being imported into Great Britain
+    #Is the sale between related parties?
+    #Are there any restrictions on the use or resale of the goods which might affect their value?
+    #Is the sale subject to any conditions which might affect the value of the goods?
     Then I will be navigated to Name of the Goods page
     When I enter the Goods Name and continue
     Then I will be navigated to Have you found the commodity code with Goods name
