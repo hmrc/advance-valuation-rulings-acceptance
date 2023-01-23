@@ -130,6 +130,48 @@ Scenario: Your EORI details must be up to date to use this service
     Then I will be navigated to Do you want to upload any supporting documents
     When I select Yes and continue
     Then I will be navigated to Upload supporting documents page
+
+  Scenario: Upload Supporting documents No flow
+    Given I am on the ARS Home Page
+    When I Click on Continue
+    Then I will be navigated to Required information page
+    When I check all the checkboxes and click continue
+    Then I will be navigated to Planning to Import Goods page
+    When I select Yes and continue
+    Then I will be navigated to Some of the information you provide
+    When I Click on Continue
+    Then I will be navigated to How We Contact You page
+    When I Click on Continue
+    Then I will be navigated to Address page
+    When I select Yes and continue
+    Then I will be navigating to Provide your contact details
+    When I enter details and continue in Provide your contact details page
+    Then I will be navigated to Method selection page
+    When I select Method and Click continue
+    Then I will be navigated to Name of the Goods page
+    When I enter the Goods Name and continue
+    Then I will be navigated to Have you found the commodity code with Goods name
+    When I select Yes and continue
+    Then I will be navigated to What is the commodity code with Goods name
+    When I enter commodity code and continue
+    Then I will be navigated to Which country are the goods coming from
+    When I enter country name and click continue
+    Then I will be navigated to Are the Goods being shipped directly page
+    When I select Yes and continue
+    # No also same flow
+    Then I will be navigated to How would you describe the
+    When I enter the Goods Description and continue
+    Then I will be navigated to How are the Goods made page
+    When I enter How it made description and continue
+    Then I will be navigated to  Do you want to add any confidential information page
+    When I select Yes and continue
+    Then I will be navigated to What confidential information would you like to add
+    When I enter confidential information and continue
+    Then I will be navigated to Do you want to upload any supporting documents
+    When I select No and continue
+  #  Then I will be navigated to Have there been any legal challenges relating to the goods
+
+
 #
 #  Scenario: Method 2 flow
 #    Given I am on the ARS Home Page
