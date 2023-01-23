@@ -86,12 +86,17 @@ Scenario: Your EORI details must be up to date to use this service
     Then I will be navigated to How are the Goods made page
     When I enter How it made description and continue
     Then I will be navigated to  Do you want to add any confidential information page
+    #from here
     When I select Yes and continue
     Then I will be navigated to What confidential information would you like to add
     When I enter confidential information and continue
   Then I will be navigated to Do you want to upload any supporting documents
   When I select Yes and continue
   Then I will be navigated to Upload supporting documents page
+  When I enter or select document and continue
+  Then I will be navigated to Do you want this file to be marked as confidential page
+  When I select Yes and continue
+    Then I will be navigated to You have uploaded supporting document
 
   Scenario: Confidential information No flow
     Given I am on the ARS Home Page
@@ -126,10 +131,16 @@ Scenario: Your EORI details must be up to date to use this service
     Then I will be navigated to How are the Goods made page
     When I enter How it made description and continue
     Then I will be navigated to  Do you want to add any confidential information page
+    #from here
     When I select No and continue
     Then I will be navigated to Do you want to upload any supporting documents
     When I select Yes and continue
     Then I will be navigated to Upload supporting documents page
+    When I enter or select document and continue
+    Then I will be navigated to Do you want this file to be marked as confidential page
+    When I select Yes and continue
+    Then I will be navigated to You have uploaded supporting document
+
 
   Scenario: Upload Supporting documents No flow
     Given I am on the ARS Home Page

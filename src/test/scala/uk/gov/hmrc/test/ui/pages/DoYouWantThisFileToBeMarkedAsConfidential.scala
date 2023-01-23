@@ -16,23 +16,13 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
-object UploadSupportingDocuments extends BasePage {
+object DoYouWantThisFileToBeMarkedAsConfidential extends BasePage {
 
   val pageTitle           =
-    "Upload supporting documents for the " + GoodsName + " - Advance Ruling Service - GOV.UK"
-  val ele_UpliadDocument  = "//input[@id='file-upload-1']"
+    "Do you want this file to be marked as confidential? - Advance Ruling Service - GOV.UK"
   def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
-  def uploadDocument() {
-    // driver.findElement(By.xpath(ele_UpliadDocument)).click()
-    Thread.sleep(1000)
 
-    driver
-      .findElement(By.xpath(ele_UpliadDocument))
-      .sendKeys("/Users/sitaramireddytanunboddi/Desktop/ARS/ARS-365.xlsx")
-  }
 }

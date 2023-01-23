@@ -17,13 +17,14 @@
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
 import uk.gov.hmrc.test.ui.pages._
-import uk.gov.hmrc.test.ui.pages.Turnover.{clickBack, confidentailInformation, countryName, email, howITMadeDescription, invalidGoodsName, invokeURL, name, phone, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation, CommodityCode, GoodsDescription, GoodsName, URL_ARSHomePage, URL_nameOfTheGoods, URL_requiredInformation}
+import uk.gov.hmrc.test.ui.pages.Turnover.{clickBack, confidentailInformation, countryName, email, howITMadeDescription, invalidGoodsName, invokeURL, name, phone, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation, CommodityCode, GoodsDescription, GoodsName, URL_ARSHomePage, URL_nameOfTheGoods, URL_requiredInformation, URL_Upload}
 
 class StepDefinitions extends BaseStepDef {
 
   Given("I am on the Required Information Page")(() => invokeURL(URL_requiredInformation))
   Given("I am on the Name Of the Goods")(() => invokeURL(URL_nameOfTheGoods))
   Given("I am on the ARS Home Page")(() => invokeURL(URL_ARSHomePage))
+  Given("I am on the Upload document page")(() => invokeURL(URL_Upload))
   When("I check all the checkboxes and click continue") {
     () =>
       RequiredInformationPage.loadPage
@@ -234,6 +235,17 @@ class StepDefinitions extends BaseStepDef {
   }
   Then("I will be navigated to Upload supporting documents page") {
     () => UploadSupportingDocuments.loadPage
+  }
+  When("I enter or select document and continue") {
+    () =>
+      UploadSupportingDocuments.uploadDocument()
+      submitPage()
+  }
+  Then("I will be navigated to Do you want this file to be marked as confidential page") {
+    () => DoYouWantThisFileToBeMarkAsConfidential.loadPage
+  }
+  Then("I will be navigated to You have uploaded supporting document") {
+    () => YouHaveUploadedSupportingDocument.loadPage
   }
 
 }
