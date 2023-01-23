@@ -17,7 +17,7 @@
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
 import uk.gov.hmrc.test.ui.pages._
-import uk.gov.hmrc.test.ui.pages.Turnover.{clickBack, email, invalidGoodsName, invokeURL, name, phone, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation, CommodityCode, GoodsName, URL_ARSHomePage, URL_nameOfTheGoods, URL_requiredInformation}
+import uk.gov.hmrc.test.ui.pages.Turnover.{clickBack, confidentailInformation, countryName, email, howITMadeDescription, invalidGoodsName, invokeURL, name, phone, radioOptionSelect, submitPage, thereIsAProblemErrorMessageValidation, CommodityCode, GoodsDescription, GoodsName, URL_ARSHomePage, URL_nameOfTheGoods, URL_requiredInformation}
 
 class StepDefinitions extends BaseStepDef {
 
@@ -196,4 +196,44 @@ class StepDefinitions extends BaseStepDef {
   Then("I will be navigated to Your EORI details must be up to date to use this service")(
     () => YourEORIMustBeUpToDate.loadPage
   )
+  When("I enter country name and click continue") {
+    () =>
+      WhichCountryAreTheGoodsComingFrom.enterCountry(countryName)
+      submitPage()
+  }
+  Then("I will be navigated to Are the Goods being shipped directly page") {
+    () => AreTheGoodsBeingShippedDirectly.loadPage
+  }
+  Then("I will be navigated to How would you describe the") {
+    () => HowWouldYouDescribeTheGoods.loadPage
+  }
+  When("I enter the Goods Description and continue") {
+    () =>
+      HowWouldYouDescribeTheGoods.enterGoodsDescription(GoodsDescription)
+      submitPage()
+  }
+  Then("I will be navigated to How are the Goods made page")(() => HowAreTheGoodsMade.loadPage)
+  When("I enter How it made description and continue") {
+    () =>
+      HowAreTheGoodsMade.enterHowItMade(howITMadeDescription)
+      submitPage()
+  }
+  Then("I will be navigated to  Do you want to add any confidential information page") {
+    () => DoYouWantToAddAnyConfidentialInformation.loadPage
+  }
+  Then("I will be navigated to What confidential information would you like to add") {
+    () => WhatConfidentialInformationWouldYouLikeToAdd.loadPage
+  }
+  When("I enter confidential information and continue") {
+    () =>
+      WhatConfidentialInformationWouldYouLikeToAdd.enterConfidentialInfo(confidentailInformation)
+      submitPage()
+  }
+  Then("I will be navigated to Do you want to upload any supporting documents") {
+    () => DoYouWantToUploadAnySupportingDocuments.loadPage
+  }
+  Then("I will be navigated to Upload supporting documents page") {
+    () => UploadSupportingDocuments.loadPage
+  }
+
 }

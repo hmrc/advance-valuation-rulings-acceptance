@@ -23,24 +23,27 @@ import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
 
 trait BasePage extends BrowserDriver with Matchers {
-  val continueButton          = "govuk-button"
-  val backLink_xpath          = "//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
+  val continueButton                  = "govuk-button"
+  val backLink_xpath                  = "//a[@class='govuk-back-link  js-visible' and contains(text(),'Back')]"
   // val elm_errorMessageTitle   = "govuk-error-summary__title"
-  val error_msgText           = "//h2[contains(text(),'There is a problem')]"
-  val elm_errorMessage2       = "//p[@id='value-error']"
-  val GoodsName               = "Coffee"
-  val CommodityCode           = "1234"
-  val radioOptionYes          = "(//input[@type='radio'])[1]"
-  val radioOptionNo           = "(//input[@type='radio'])[2]"
-  val ele_CancelApplication   = "cancel_application"
-  val arsHomePageTitle        = "govuk-heading-xl"
-  val arsHomePageText         = "Your applications and rulings - Advance Ruling Service - GOV.UK"
-  val ele_StartNewApplication = "csrfToken"
-  lazy val baseUrl            = TestConfiguration.environmentHost
-  val name                    = "Automation test"
-  val email                   = "automation@test.com"
-  val phone                   = "9876543210"
-
+  val error_msgText                   = "//h2[contains(text(),'There is a problem')]"
+  val elm_errorMessage2               = "//p[@id='value-error']"
+  val GoodsName                       = "Coffee"
+  val CommodityCode                   = "1234"
+  val radioOptionYes                  = "(//input[@type='radio'])[1]"
+  val radioOptionNo                   = "(//input[@type='radio'])[2]"
+  val ele_CancelApplication           = "cancel_application"
+  val arsHomePageTitle                = "govuk-heading-xl"
+  val arsHomePageText                 = "Your applications and rulings - Advance Ruling Service - GOV.UK"
+  val ele_StartNewApplication         = "csrfToken"
+  lazy val baseUrl                    = TestConfiguration.environmentHost
+  val name                            = "Automation test"
+  val email                           = "automation@test.com"
+  val phone                           = "9876543210"
+  val countryName                     = "India"
+  val GoodsDescription                = "Description of the goods"
+  val howITMadeDescription            = "Description"
+  val confidentailInformation         = "confidential info"
   val URL_nameOfTheGoods: String      =
     s"$baseUrl/advance-valuation-rulings-frontend/nameOfGoods"
   val URL_requiredInformation: String =
@@ -59,11 +62,11 @@ trait BasePage extends BrowserDriver with Matchers {
   def onPage(pageTitle: String): Unit                                   = {
     var actual: String = driver.getTitle
     actual = actual.trim
-
+    val expected       = driver.getTitle.trim
     println("Actual   -" + actual)
     println("Expected -" + pageTitle)
 //    assert(actual == pageTitle)
-    if (driver.getTitle != pageTitle)
+    if (expected != pageTitle)
       throw PageNotFoundException(
         s"Expected '$pageTitle' page, but found '$actual' page."
       )

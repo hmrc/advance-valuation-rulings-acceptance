@@ -16,14 +16,25 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import org.openqa.selenium.{By, Keys}
+
 object WhichCountryAreTheGoodsComingFrom extends BasePage {
 
   // import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
   // val pageTitle           = "Which country are the goods coming from - Advance Ruling Service - GOV.UK"
-  val pageTitle           = "whatCountryAreGoodsFrom - Advance Ruling Service - GOV.UK"
-  def loadPage: this.type = {
+  val pageTitle                               = "Which country are the {0} coming from? - Advance Ruling Service - GOV.UK"
+  val countryId                               = "countryId"
+  def loadPage: this.type                     = {
     onPage(this.pageTitle)
     this
+  }
+  def enterCountry(countryName: String): Unit = {
+    driver.findElement(By.id(countryId)).clear()
+    driver.findElement(By.id(countryId)).sendKeys(countryName)
+    Thread.sleep(1000)
+    // driver.findElement(By.id(countryId)).sendKeys(Keys.ARROW_DOWN)
+    driver.findElement(By.id(countryId)).sendKeys(Keys.ENTER)
+    Thread.sleep(1000)
   }
 }

@@ -16,24 +16,14 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+object UploadSupportingDocuments extends BasePage {
 
-object NameOfTheGoods extends BasePage {
+  val pageTitle =
+    "Upload supporting documents for the " + GoodsName + " - Advance Ruling Service - GOV.UK"
 
-  val pageTitle      = "What is the name of the goods? - Advance Ruling Service - GOV.UK"
-  val errorPageTitle = "Error: What is the name of the goods? - Advance Ruling Service - GOV.UK"
-  val ele_GoodsName  = "value"
-
-  def loadPage: this.type                     = {
+  def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
-  def errorLoadPage: this.type                = {
-    onPage(this.errorPageTitle)
-    this
-  }
-  def enterGoodsName(goodsName: String): Unit = {
-    driver.findElement(By.id(ele_GoodsName)).clear()
-    driver.findElement(By.id(ele_GoodsName)).sendKeys(goodsName)
-  }
+
 }
