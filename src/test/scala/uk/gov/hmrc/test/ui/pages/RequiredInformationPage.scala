@@ -64,7 +64,7 @@ object RequiredInformationPage extends BasePage {
       driver.findElement(By.id(ele_Checkbox7)).click()
     if (!driver.findElement(By.id(ele_Checkbox8)).isSelected)
       driver.findElement(By.id(ele_Checkbox8)).click()
-    submitPage()
+
     // PlanningToImportGoods
     this
   }

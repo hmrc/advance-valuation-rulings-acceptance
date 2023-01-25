@@ -17,176 +17,12 @@
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
 import uk.gov.hmrc.test.ui.pages._
-import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
-import uk.gov.hmrc.test.ui.pages.Turnover.{arsHomePageText, email, name, phone, radioOptionSelect, GoodsName}
+import uk.gov.hmrc.test.ui.pages.Turnover.{invokeURL, URL_ARSHomePage}
 
-class StepDefinitions extends BaseStepDef {
+class StepDefinitionsBasics extends BaseStepDef {
 
-  When("I click on Start new application in ARS Home") {
-    () =>
-      onPage(arsHomePageText)
-      submitPage()
-  }
-  And(
-    "I check all the checkboxes and click continue in Information you need to complete an application page"
-  ) {
-    () =>
-      RequiredInformationPage.loadPage
-        .selectAllCheckbox()
-      submitPage()
-  }
-  And("I select No and continue in Are you planning to import goods page") {
-    () =>
-      PlanningToImportGoods.loadPage
-      radioOptionSelect("No")
-  }
-  And("I select Yes and continue in Are you planning to import goods page") {
-    () =>
-      PlanningToImportGoods.loadPage
-      radioOptionSelect("Yes")
-      submitPage()
-  }
-  And("I click on Continue in Some of the information you provide") {
-    () =>
-      SomeOfTheInfo.loadPage
-      submitPage()
-  }
-  And("I click on continue in How We Contact You page") {
-    () =>
-      HowWeContactYou.loadPage
-      submitPage()
-  }
-  And("I select No and continue in Check the name and address") {
-    () =>
-      AddressPage.loadPage
-      radioOptionSelect("No")
-      submitPage()
-  }
-  And("I enter Name,Email,Phone details and continue in Provide your contact details page") {
-    () =>
-      ProvideYourContactDetails.loadPage
-      ProvideYourContactDetails.enterContactDetails(name, email, phone)
-      submitPage()
-  }
-  And("I select Method and continue in Select the method page") {
-    () =>
-      MethodSelectionPage.loadPage
-      MethodSelectionPage.selectMethod(1)
-      submitPage()
-  }
-  And("I enter Name of the Goods and continue in What is the name of the goods page") {
-    () =>
-      NameOfTheGoods.loadPage
-        .enterGoodsName(GoodsName)
-      submitPage()
-  }
-  And("I select No and continue in Have you found the commodity code") {
-    () =>
-      HaveYouFoundTheCommodityCode.loadPage
-      radioOptionSelect("No")
-      submitPage()
-  }
-  And("I select Yes and continue in Check the name and address page") {
-    () =>
-      AddressPage.loadPage
-      radioOptionSelect("Yes")
-      submitPage()
-  }
-  And("I select Yes and continue in Have you found the commodity code page") {
-    () =>
-      HaveYouFoundTheCommodityCode.loadPage
-      radioOptionSelect("Yes")
-      submitPage()
-  }
-  And("I enter the commodity code and continue in What is the commodity code page") {
-    () =>
-      WhatIsTheCommodityCode.loadPage
-        .enterCommodityCode("1234")
-      submitPage()
-  }
-  And("I enter country and continue in Which country are the Goods coming from page") {
-    () =>
-      WhichCountryAreTheGoodsComingFrom.loadPage
-        .enterCountry("India")
-      submitPage()
-  }
-  And("I select Yes and continue in Are the Goods being shipped directly page") {
-    () =>
-      AreTheGoodsBeingShippedDirectly.loadPage
-      radioOptionSelect("Yes")
-      submitPage()
-  }
-  And("I enter description and continue in How would you describe the Goods page") {
-    () =>
-      HowWouldYouDescribeTheGoods.loadPage
-        .enterGoodsDescription("Goods Description")
-      submitPage()
-  }
-  And("I enter description and continue in How are the Goods made page") {
-    () =>
-      HowAreTheGoodsMade.loadPage
-        .enterHowItMade("How it Made Description")
-      submitPage()
-  }
-  And("I select Yes and continue in Do you want to add any confidential information page") {
-    () =>
-      DoYouWantToAddAnyConfidentialInformation.loadPage
-      radioOptionSelect("Yes")
-      submitPage()
-  }
-  And("I select No and continue in Do you want to add any confidential information page") {
-    () =>
-      DoYouWantToAddAnyConfidentialInformation.loadPage
-      radioOptionSelect("No")
-      submitPage()
-  }
-  And(
-    "I enter the details and continue in What confidential information would you like to add page"
-  ) {
-    () =>
-      WhatConfidentialInformationWouldYouLikeToAdd.loadPage
-        .enterConfidentialInfo("Confidential info")
-      submitPage()
-  }
-  And("I select Yes and continue in Do you want to upload any supporting documents page") {
-    () =>
-      DoYouWantToUploadAnySupportingDocuments.loadPage
-      radioOptionSelect("Yes")
-      submitPage()
-  }
-  And("I upload the document and continue in Upload supporting documents page") {
-    () =>
-      UploadSupportingDocuments.loadPage
-        .uploadDocument()
-      submitPage()
-  }
-  And("I select Yes and continue in Do you want this file to be marked as confidential page") {
-    () =>
-      DoYouWantThisFileToBeMarkAsConfidential.loadPage
-      radioOptionSelect("Yes")
-      submitPage()
-  }
+  Given("I am on the ARS Home Page")(() => invokeURL(URL_ARSHomePage))
 
-  Then("I will be navigated to This service is designed for those") {
-    () => ThisServiceIsDesignedForThose.loadPage
-    // ThisServiceIsDesignedForThose.linkNavigationValidation()
-  }
-  Then("I will be navigated to Your EORI details must be up to date to use this service")(
-    () => YourEORIMustBeUpToDate.loadPage
-  )
-  Then("I will be navigated to You must have a commodity code") {
-    () =>
-      YouMustHaveACommodityCode.loadPage
-      YouMustHaveACommodityCode.linkNavigationValidation()
-  }
-  Then("I will be navigated to You have uploaded supporting document") {
-    () => YouHaveUploadedSupportingDocument.loadPage
-  }
-
-  //  Given("I am on the Required Information Page")(() => invokeURL(URL_requiredInformation))
-  //  Given("I am on the Name Of the Goods")(() => invokeURL(URL_nameOfTheGoods))
-  //  Given("I am on the ARS Home Page")(() => invokeURL(URL_ARSHomePage))
-  //  Given("I am on the Upload document page")(() => invokeURL(URL_Upload))
 //  When("I check all the checkboxes and click continue") {
 //    () =>
 //      RequiredInformationPage.loadPage
@@ -220,13 +56,14 @@ class StepDefinitions extends BaseStepDef {
 //
 //  }
 //  When("I select Yes and continue")(() => radioOptionSelect("Yes"))
-//  // When("I select No and continue")(() => radioOptionSelect("No"))
+//  When("I select No and continue")(() => radioOptionSelect("No"))
 //  Then("I will be navigated to Some of the information you provide") {
 //    () => SomeOfTheInfo.loadPage
 //  }
 //  Then("I will be navigated to This service is designed for those") {
-//    () => ThisServiceIsDesignedForThose.loadPage
-//    // ThisServiceIsDesignedForThose.linkNavigationValidation()
+//    () =>
+//      ThisServiceIsDesignedForThose.loadPage
+//      ThisServiceIsDesignedForThose.linkNavigationValidation()
 //  }
 //  When("I Click on continue without selecting option") {
 //    () =>
@@ -314,7 +151,11 @@ class StepDefinitions extends BaseStepDef {
 //      WhatIsTheCommodityCode.errorLoadPage
 //      thereIsAProblemErrorMessageValidation("Commodity code cannot exceed 10 digit")
 //  }
-//
+//  Then("I will be navigated to You must have a commodity code") {
+//    () =>
+//      YouMustHaveACommodityCode.loadPage
+//      YouMustHaveACommodityCode.linkNavigationValidation()
+//  }
 //  When("I enter alphabets in commodity code and continue") {
 //    () =>
 //      WhatIsTheCommodityCode.enterCommodityCode("ABCDEF")

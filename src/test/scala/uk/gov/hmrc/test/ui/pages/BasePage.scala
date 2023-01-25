@@ -33,7 +33,7 @@ trait BasePage extends BrowserDriver with Matchers {
   val radioOptionYes                  = "(//input[@type='radio'])[1]"
   val radioOptionNo                   = "(//input[@type='radio'])[2]"
   val ele_CancelApplication           = "cancel_application"
-  val arsHomePageTitle                = "govuk-heading-xl"
+  // val arsHomePageTitle                = "govuk-heading-xl"
   val arsHomePageText                 = "Your applications and rulings - Advance Ruling Service - GOV.UK"
   val ele_StartNewApplication         = "csrfToken"
   lazy val baseUrl                    = TestConfiguration.environmentHost
@@ -88,13 +88,12 @@ trait BasePage extends BrowserDriver with Matchers {
     assert(driver.findElement(By.xpath("//a[contains(text(),'" + errorMessage + "')]")).isDisplayed)
   }
   def radioOptionSelect(radioOption: String) {
-
+    println("slect option is == " + radioOption)
     radioOption match {
       case "Yes" => driver.findElement(By.xpath(radioOptionYes)).click()
       case "No"  => driver.findElement(By.xpath(radioOptionNo)).click()
       case _     => Thread.sleep(1000)
     }
-    submitPage()
   }
 
 }
