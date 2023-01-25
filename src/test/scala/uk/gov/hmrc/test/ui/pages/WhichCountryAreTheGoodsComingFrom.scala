@@ -32,9 +32,9 @@ object WhichCountryAreTheGoodsComingFrom extends BasePage {
   def enterCountry(countryName: String): Unit = {
     driver.findElement(By.id(countryId)).clear()
     driver.findElement(By.id(countryId)).sendKeys(countryName)
-    Thread.sleep(1000)
+    Thread.sleep(2000)
     // driver.findElement(By.id(countryId)).sendKeys(Keys.ARROW_DOWN)
     driver.findElement(By.id(countryId)).sendKeys(Keys.ENTER)
-    Thread.sleep(1000)
+    Thread.sleep(2000)
   }
 }

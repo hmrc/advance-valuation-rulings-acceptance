@@ -21,7 +21,7 @@ object AreTheGoodsBeingShippedDirectly extends BasePage {
   val pageTitle =
     "Are the " + GoodsName + " being shipped directly from their country of origin to Great Britain? - Advance Ruling Service - GOV.UK"
 
-  def loadPage: this.type = {
+  def loadPage() {
     onPage(this.pageTitle)
     this
   }

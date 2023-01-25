@@ -34,10 +34,8 @@ object RequiredInformationPage extends BasePage {
   val ele_Checkbox8  = "value_7"
   val ele_Continue   = "govuk-button"
 
-  def loadPage: this.type = {
-    //  driver.navigate().to(url)
+  def loadPage() {
     onPage(this.pageTitle)
-    this
   }
 
   def error_LoadPage: this.type = {
