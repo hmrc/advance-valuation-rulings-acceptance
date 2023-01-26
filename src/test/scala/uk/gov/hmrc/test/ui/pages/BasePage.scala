@@ -42,12 +42,12 @@ trait BasePage extends BrowserDriver with Matchers {
   val phone                   = "9876543210"
 
   val URL_nameOfTheGoods: String      =
-    s"$baseUrl/advance-valuation-rulings-frontend/nameOfGoods"
+    s"$baseUrl/advance-valuation-ruling/nameOfGoods"
   val URL_requiredInformation: String =
-    s"$baseUrl/advance-valuation-rulings-frontend/requiredInformation"
+    s"$baseUrl/advance-valuation-rulings/requiredInformation"
   val invalidGoodsName                =
     "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
-  val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-rulings-frontend/accountHome"
+  val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-ruling/accountHome"
   def submitPage(): Unit              = {
     driver.findElement(By.className(continueButton)).click()
     Thread.sleep(1000)
