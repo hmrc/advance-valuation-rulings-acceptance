@@ -37,24 +37,19 @@ trait BasePage extends BrowserDriver with Matchers {
   val arsHomePageText         = "Your applications and rulings - Advance Ruling Service - GOV.UK"
   val ele_StartNewApplication = "csrfToken"
   lazy val baseUrl            = TestConfiguration.environmentHost
-//  val name                            = "Automation test"
-//  val email                           = "automation@test.com"
-//  val phone                           = "9876543210"
-//  val countryName                     = "India"
-//  val GoodsDescription                = "Description of the goods"
-//  val howITMadeDescription            = "Description"
-//  val confidentailInformation         = "confidential info"
-//  val URL_nameOfTheGoods: String      =
-//    s"$baseUrl/advance-valuation-rulings-frontend/nameOfGoods"
-//  val URL_requiredInformation: String =
-  s"$baseUrl/advance-valuation-rulings-frontend/requiredInformation"
-//
-//  val URL_Upload: String =
-//    "https://www.qa.tax.service.gov.uk/advance-valuation-rulings-frontend/uploadSupportingDocuments"
-//  val invalidGoodsName   =
-//    "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
-  val URL_ARSHomePage         = s"$baseUrl/advance-valuation-ruling-frontend/accountHome"
-  def submitPage(): Unit      =
+
+  val name                    = "Automation test"
+  val email                   = "automation@test.com"
+  val phone                   = "9876543210"
+
+  val URL_nameOfTheGoods: String      =
+    s"$baseUrl/advance-valuation-ruling/nameOfGoods"
+  val URL_requiredInformation: String =
+    s"$baseUrl/advance-valuation-ruling/requiredInformation"
+  val invalidGoodsName                =
+    "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
+  val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-ruling/accountHome"
+  def submitPage(): Unit              = {
     driver.findElement(By.className(continueButton)).click()
 
   def invokeURL(URL: String) {
