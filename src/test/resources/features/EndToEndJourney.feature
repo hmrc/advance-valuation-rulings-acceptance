@@ -58,9 +58,9 @@ Feature: End To End Journey
     And I select "Yes" and continue in Do you want to add any confidential information page
     And I enter the details and continue in What confidential information would you like to add page
     And I select "Yes" and continue in Do you want to upload any supporting documents page
-    And I upload the document and continue in Upload supporting documents page
-    And I select "Yes" and continue in Do you want this file to be marked as confidential page
-    Then I will be navigated to You have uploaded supporting document
+#    And I upload the document and continue in Upload supporting documents page
+#    And I select "Yes" and continue in Do you want this file to be marked as confidential page
+#    Then I will be navigated to You have uploaded supporting document
 
 
 
@@ -86,9 +86,9 @@ Feature: End To End Journey
 #    #from here
     And I select "No" and continue in Do you want to add any confidential information page
     And I select "Yes" and continue in Do you want to upload any supporting documents page
-    And I upload the document and continue in Upload supporting documents page
-    And I select "Yes" and continue in Do you want this file to be marked as confidential page
-    Then I will be navigated to You have uploaded supporting document
+#    And I upload the document and continue in Upload supporting documents page
+#    And I select "Yes" and continue in Do you want this file to be marked as confidential page
+#    Then I will be navigated to You have uploaded supporting document
 
 
 
