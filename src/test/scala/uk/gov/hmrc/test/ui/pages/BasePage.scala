@@ -49,7 +49,7 @@ trait BasePage extends BrowserDriver with Matchers {
   val invalidGoodsName                =
     "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
   val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-ruling/accountHome"
-  def submitPage(): Unit              = {
+  def submitPage(): Unit              = 
     driver.findElement(By.className(continueButton)).click()
 
   def invokeURL(URL: String) {
