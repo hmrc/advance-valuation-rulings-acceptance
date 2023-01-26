@@ -48,13 +48,13 @@ trait BasePage extends BrowserDriver with Matchers {
 //    s"$baseUrl/advance-valuation-rulings-frontend/nameOfGoods"
 //  val URL_requiredInformation: String =
   s"$baseUrl/advance-valuation-rulings-frontend/requiredInformation"
-
-  val URL_Upload: String =
-    "https://www.qa.tax.service.gov.uk/advance-valuation-rulings-frontend/uploadSupportingDocuments"
-  val invalidGoodsName   =
-    "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
-  val URL_ARSHomePage    = s"$baseUrl/advance-valuation-rulings-frontend/accountHome"
-  def submitPage(): Unit =
+//
+//  val URL_Upload: String =
+//    "https://www.qa.tax.service.gov.uk/advance-valuation-rulings-frontend/uploadSupportingDocuments"
+//  val invalidGoodsName   =
+//    "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
+  val URL_ARSHomePage         = s"$baseUrl/advance-valuation-ruling-frontend/accountHome"
+  def submitPage(): Unit      =
     driver.findElement(By.className(continueButton)).click()
 
   def invokeURL(URL: String) {
