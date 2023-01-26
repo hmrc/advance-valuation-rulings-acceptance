@@ -44,7 +44,7 @@ trait BasePage extends BrowserDriver with Matchers {
   val URL_nameOfTheGoods: String      =
     s"$baseUrl/advance-valuation-ruling/nameOfGoods"
   val URL_requiredInformation: String =
-    s"$baseUrl/advance-valuation-rulings/requiredInformation"
+    s"$baseUrl/advance-valuation-ruling/requiredInformation"
   val invalidGoodsName                =
     "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
   val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-ruling/accountHome"
