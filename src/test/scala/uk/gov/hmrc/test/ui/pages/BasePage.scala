@@ -38,9 +38,9 @@ trait BasePage extends BrowserDriver with Matchers {
   val ele_StartNewApplication = "csrfToken"
   lazy val baseUrl            = TestConfiguration.environmentHost
 
-  val name                    = "Automation test"
-  val email                   = "automation@test.com"
-  val phone                   = "9876543210"
+  val name  = "Automation test"
+  val email = "automation@test.com"
+  val phone = "9876543210"
 
   val URL_nameOfTheGoods: String      =
     s"$baseUrl/advance-valuation-ruling/nameOfGoods"
@@ -49,7 +49,7 @@ trait BasePage extends BrowserDriver with Matchers {
   val invalidGoodsName                =
     "abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890abcdefhhijklmnopqrstuvwxyz1234567890"
   val URL_ARSHomePage                 = s"$baseUrl/advance-valuation-ruling/accountHome"
-  def submitPage(): Unit              = 
+  def submitPage(): Unit              =
     driver.findElement(By.className(continueButton)).click()
 
   def invokeURL(URL: String) {
