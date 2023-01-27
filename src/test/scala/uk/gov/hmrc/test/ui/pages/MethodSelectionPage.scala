@@ -20,12 +20,17 @@ import org.openqa.selenium.By
 
 object MethodSelectionPage extends BasePage {
 
-  val pageTile                              =
+  val pageTile       =
     "Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
-  val error_PageTile                        =
+  val error_PageTile =
     "Error: Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
-  val ele_Method1                           = "value_0"
-  val ele_Method2                           = "value_1"
+  val ele_Method1    = "value_0"
+  val ele_Method2    = "value_1"
+  val ele_Method3    = "value_2"
+  val ele_Method4    = "value_3"
+  val ele_Method5    = "value_4"
+  val ele_Method6    = "value_5"
+
   def loadPage: this.type                   = {
     onPage(this.pageTile)
     this
@@ -36,8 +41,12 @@ object MethodSelectionPage extends BasePage {
   }
   def selectMethod(methodNumber: Int): Unit =
     methodNumber match {
-      case 1 => driver.findElement(By.id(ele_Method1)).click()
+
       case 2 => driver.findElement(By.id(ele_Method2)).click()
-      case _ => Thread.sleep(1000)
+      case 3 => driver.findElement(By.id(ele_Method3)).click()
+      case 4 => driver.findElement(By.id(ele_Method4)).click()
+      case 5 => driver.findElement(By.id(ele_Method5)).click()
+      case 6 => driver.findElement(By.id(ele_Method6)).click()
+      case _ => driver.findElement(By.id(ele_Method1)).click()
     }
 }

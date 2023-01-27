@@ -21,7 +21,7 @@ import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
 import uk.gov.hmrc.test.ui.pages.Turnover.{arsHomePageText, radioOptionSelect, GoodsName}
 
 class StepDefinitions extends BaseStepDef {
-
+  var GoodsnameIs = ""
   When("I click on Start new application in ARS Home") {
     () =>
       onPage(arsHomePageText)
@@ -98,7 +98,7 @@ class StepDefinitions extends BaseStepDef {
   }
   And("I enter Name of the Goods {string} and continue in What is the name of the goods page") {
     (goodsName: String) =>
-      // GoodsName = goodsName
+      GoodsName = goodsName
       NameOfTheGoods.loadPage
         .enterGoodsName(GoodsName)
       submitPage()
