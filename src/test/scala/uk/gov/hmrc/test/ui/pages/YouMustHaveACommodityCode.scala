@@ -33,7 +33,8 @@ object YouMustHaveACommodityCode extends BasePage {
     "https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling"
   val btn_FindYourCommodityCode           =
     "//a[@href='https://www.gov.uk/trade-tariff']"
-  def loadPage: this.type                 = {
+
+  def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }

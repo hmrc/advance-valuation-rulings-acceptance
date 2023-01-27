@@ -31,22 +31,24 @@ object MethodSelectionPage extends BasePage {
   val ele_Method5    = "value_4"
   val ele_Method6    = "value_5"
 
-  def loadPage: this.type                   = {
+  def loadPage: this.type = {
     onPage(this.pageTile)
     this
   }
-  def errorLoadPage: this.type              = {
+
+  def errorLoadPage: this.type = {
     onPage(this.error_PageTile)
     this
   }
+
   def selectMethod(methodNumber: Int): Unit =
     methodNumber match {
-
+      case 1 => driver.findElement(By.id(ele_Method1)).click()
       case 2 => driver.findElement(By.id(ele_Method2)).click()
       case 3 => driver.findElement(By.id(ele_Method3)).click()
       case 4 => driver.findElement(By.id(ele_Method4)).click()
       case 5 => driver.findElement(By.id(ele_Method5)).click()
-      case 6 => driver.findElement(By.id(ele_Method6)).click()
       case _ => driver.findElement(By.id(ele_Method1)).click()
+
     }
 }

@@ -19,22 +19,19 @@ package uk.gov.hmrc.test.ui.pages
 import org.openqa.selenium.{By, Keys}
 
 object WhichCountryAreTheGoodsComingFrom extends BasePage {
+  val pageTitle = "Which country are the {0} coming from? - Advance Ruling Service - GOV.UK"
+  val countryId = "countryId"
 
-  // import uk.gov.hmrc.test.ui.conf.TestConfiguration
-
-  // val pageTitle           = "Which country are the goods coming from - Advance Ruling Service - GOV.UK"
-  val pageTitle                               = "Which country are the {0} coming from? - Advance Ruling Service - GOV.UK"
-  val countryId                               = "countryId"
-  def loadPage: this.type                     = {
+  def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
+
   def enterCountry(countryName: String): Unit = {
     driver.findElement(By.id(countryId)).clear()
     driver.findElement(By.id(countryId)).sendKeys(countryName)
-    Thread.sleep(2000)
-    // driver.findElement(By.id(countryId)).sendKeys(Keys.ARROW_DOWN)
+    Thread.sleep(1000)
     driver.findElement(By.id(countryId)).sendKeys(Keys.ENTER)
-    Thread.sleep(2000)
+    Thread.sleep(1000)
   }
 }

@@ -20,19 +20,19 @@ import org.openqa.selenium.By
 
 object UploadSupportingDocuments extends BasePage {
 
-  val pageTitle           =
+  val pageTitle          =
     "Upload supporting documents for the " + GoodsName + " - Advance Ruling Service - GOV.UK"
-  val ele_UpliadDocument  = "//input[@id='file-upload-1']"
+  val ele_UploadDocument = "//input[@id='file-upload-1']"
+  val uploadFilePath     = "/Users/sitaramireddytanunboddi/Desktop/ARS/ARS-365.xlsx"
+
   def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
-  def uploadDocument() {
-    // driver.findElement(By.xpath(ele_UpliadDocument)).click()
-    Thread.sleep(1000)
 
+  def uploadDocument() {
     driver
-      .findElement(By.xpath(ele_UpliadDocument))
-      .sendKeys("/Users/sitaramireddytanunboddi/Desktop/ARS/ARS-365.xlsx")
+      .findElement(By.xpath(ele_UploadDocument))
+      .sendKeys(uploadFilePath)
   }
 }

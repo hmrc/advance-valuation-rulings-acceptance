@@ -18,8 +18,9 @@ package uk.gov.hmrc.test.ui.pages
 
 object DoYouWantToAddAnyConfidentialInformation extends BasePage {
 
-  val pageTitle           =
+  val pageTitle =
     "Do you want to add any confidential information about the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
+
   def loadPage: this.type = {
     onPage(this.pageTitle)
     this

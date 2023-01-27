@@ -20,12 +20,14 @@ import org.openqa.selenium.By
 
 object HowWouldYouDescribeTheGoods extends BasePage {
 
-  val pageTitle                                        = "How would you describe the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
-  val ele_GoodsDescription                             = "value"
-  def loadPage: this.type                              = {
+  val pageTitle            = "How would you describe the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
+  val ele_GoodsDescription = "value"
+
+  def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
+
   def enterGoodsDescription(Description: String): Unit = {
     driver.findElement(By.id(ele_GoodsDescription)).clear()
     driver.findElement(By.id(ele_GoodsDescription)).sendKeys(Description)

@@ -39,7 +39,6 @@ object RequiredInformationPage extends BasePage {
   }
 
   def error_LoadPage: this.type = {
-    //  driver.navigate().to(url)
     onPage(this.errorPageTitle)
     this
   }
@@ -62,25 +61,6 @@ object RequiredInformationPage extends BasePage {
       driver.findElement(By.id(ele_Checkbox7)).click()
     if (!driver.findElement(By.id(ele_Checkbox8)).isSelected)
       driver.findElement(By.id(ele_Checkbox8)).click()
-
-    // PlanningToImportGoods
     this
   }
-
-  def notSelectAllCheckbox() {
-    val rand = new scala.util.Random
-    val i    = rand.nextInt(7)
-
-    if (i != 0) driver.findElement(By.id(ele_Checkbox1)).click()
-    if (i != 1) driver.findElement(By.id(ele_Checkbox2)).click()
-    if (i != 2) driver.findElement(By.id(ele_Checkbox3)).click()
-    if (i != 3) driver.findElement(By.id(ele_Checkbox4)).click()
-    if (i != 4) driver.findElement(By.id(ele_Checkbox5)).click()
-    if (i != 5) driver.findElement(By.id(ele_Checkbox6)).click()
-    if (i != 6) driver.findElement(By.id(ele_Checkbox7)).click()
-    if (i != 7) driver.findElement(By.id(ele_Checkbox8)).click()
-    submitPage()
-
-  }
-
 }

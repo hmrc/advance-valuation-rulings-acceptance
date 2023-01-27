@@ -20,12 +20,14 @@ import org.openqa.selenium.By
 
 object HowAreTheGoodsMade extends BasePage {
 
-  val pageTitle                               = "How are the " + GoodsName + " made? - Advance Ruling Service - GOV.UK"
-  val ele_HowItMade                           = "value"
-  def loadPage: this.type                     = {
+  val pageTitle     = "How are the " + GoodsName + " made? - Advance Ruling Service - GOV.UK"
+  val ele_HowItMade = "value"
+
+  def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
+
   def enterHowItMade(howItMade: String): Unit = {
     driver.findElement(By.id(ele_HowItMade)).clear()
     driver.findElement(By.id(ele_HowItMade)).sendKeys(howItMade)

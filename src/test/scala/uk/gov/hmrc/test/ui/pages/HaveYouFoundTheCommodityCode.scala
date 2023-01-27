@@ -20,11 +20,11 @@ import org.openqa.selenium.By
 
 object HaveYouFoundTheCommodityCode extends BasePage {
 
-  val goodsNameDisaply    = "Have you found the commodity code for the " + GoodsName + " ?"
-  val pageTitle           = "Have you found the commodity code for the - Advance Ruling Service - GOV.UK"
+  val goodsNameDisaply = "Have you found the commodity code for the " + GoodsName + " ?"
+  val pageTitle        = "Have you found the commodity code for the - Advance Ruling Service - GOV.UK"
+
   def loadPage: this.type = {
     onPage(this.pageTitle)
-    println("Name of the goods is -  " + GoodsName)
     assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisaply)
     this
   }

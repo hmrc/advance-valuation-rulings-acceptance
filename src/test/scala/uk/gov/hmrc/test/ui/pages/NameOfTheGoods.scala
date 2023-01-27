@@ -24,14 +24,16 @@ object NameOfTheGoods extends BasePage {
   val errorPageTitle = "Error: What is the name of the goods? - Advance Ruling Service - GOV.UK"
   val ele_GoodsName  = "value"
 
-  def loadPage: this.type                     = {
+  def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
-  def errorLoadPage: this.type                = {
+
+  def errorLoadPage: this.type = {
     onPage(this.errorPageTitle)
     this
   }
+
   def enterGoodsName(goodsName: String): Unit = {
     driver.findElement(By.id(ele_GoodsName)).clear()
     driver.findElement(By.id(ele_GoodsName)).sendKeys(goodsName)

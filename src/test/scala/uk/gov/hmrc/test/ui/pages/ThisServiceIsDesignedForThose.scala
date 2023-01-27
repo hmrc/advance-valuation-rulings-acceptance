@@ -21,7 +21,6 @@ import org.openqa.selenium.By
 object ThisServiceIsDesignedForThose extends BasePage {
 
   val pageTitle =
-    // "To use this service, you must intend to bring goods into Great Britain - Advance Ruling Service - GOV.UK"
     "This service is designed for those who are importing goods into Great Britain - Advance Ruling Service - GOV.UK"
 
   val ele_link_AdvanceTariffRulings = "advance_tariff_rulings_link"
@@ -40,10 +39,11 @@ object ThisServiceIsDesignedForThose extends BasePage {
   def loadPage() {
     onPage(this.pageTitle)
   }
+
   def linkNavigationValidation() {
     assert(
       driver
-        .findElement(By.xpath(ele_link_AdvanceTariffRulings))
+        .findElement(By.id(ele_link_AdvanceTariffRulings))
         .getAttribute("href") == link_AdvanceTariffRulings
     )
     assert(

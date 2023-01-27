@@ -22,20 +22,14 @@ object WhatIsTheCommodityCode extends BasePage {
 
   val goodsNameDisplay  = "What is the commodity code for the " + GoodsName + "?"
   val pageTitle         = "What is the commodity code for the {0}? - Advance Ruling Service - GOV.UK"
-  val errorPageTitle    =
-    "Error: What is the commodity code for the {0}? - Advance Ruling Service - GOV.UK"
   val ele_CommodityCode = "value"
 
-  def loadPage: this.type                    = {
+  def loadPage: this.type = {
     onPage(this.pageTitle)
     assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisplay)
     this
   }
-  def errorLoadPage: this.type               = {
-    onPage(this.errorPageTitle)
-    assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisplay)
-    this
-  }
+
   def enterCommodityCode(Code: String): Unit = {
     driver.findElement(By.id(ele_CommodityCode)).clear()
     driver.findElement(By.id(ele_CommodityCode)).sendKeys(Code)
