@@ -14,25 +14,24 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.cucumber.runner
 
-import org.openqa.selenium.By
+import io.cucumber.junit.{Cucumber, CucumberOptions}
+import org.junit.runner.RunWith
 
-object UploadSupportingDocuments extends BasePage {
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue = Array("uk.gov.hmrc.test.ui.cucumber.stepdefs"),
+  plugin = Array(
+    "pretty",
+    "html:target/cucumber",
+    "json:target/cucumber.json",
+    "junit:target/test-reports/@AcceptanceTest.xml"
+  ),
+  // tags = "@GoodsInformation"
+  // tags = "@RequiredInformationPage"
+  tags = "@AccessibilityTest"
+)
+class AccessibilityTest
 
-  val pageTitle          =
-    "Upload supporting documents for the " + GoodsName + " - Advance Ruling Service - GOV.UK"
-  val ele_UploadDocument = "file-upload-1"
-  val uploadFilePath     = "/Users/sitaramireddytanunboddi/Desktop/ARS/ARS-365.xlsx"
-
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
-
-  def uploadDocument() {
-    driver
-      .findElement(By.id(ele_UploadDocument))
-      .sendKeys(uploadFilePath)
-  }
-}
