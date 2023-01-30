@@ -48,7 +48,7 @@ object MethodSelectionPage extends BasePage {
       case 3 => driver.findElement(By.id(ele_Method3)).click()
       case 4 => driver.findElement(By.id(ele_Method4)).click()
       case 5 => driver.findElement(By.id(ele_Method5)).click()
-      case _ => driver.findElement(By.id(ele_Method1)).click()
+      case _ => driver.findElement(By.id(ele_Method6)).click()
 
     }
 }
