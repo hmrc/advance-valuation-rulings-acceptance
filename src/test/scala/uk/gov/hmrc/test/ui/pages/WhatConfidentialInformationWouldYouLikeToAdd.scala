@@ -16,12 +16,20 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object AddressPage extends BasePage {
+import org.openqa.selenium.By
 
-  val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+object WhatConfidentialInformationWouldYouLikeToAdd extends BasePage {
 
-  def loadPage: this.type = {
+  val pageTitle                                             =
+    "What confidential information would you like to add about the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
+  val ele_ConfidentialInfo                                  = "value"
+  def loadPage: this.type                                   = {
     onPage(this.pageTitle)
     this
   }
+  def enterConfidentialInfo(confidentialInfo: String): Unit = {
+    driver.findElement(By.id(ele_ConfidentialInfo)).clear()
+    driver.findElement(By.id(ele_ConfidentialInfo)).sendKeys(confidentialInfo)
+  }
+
 }

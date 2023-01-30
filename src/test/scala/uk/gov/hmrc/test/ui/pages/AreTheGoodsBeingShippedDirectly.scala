@@ -16,12 +16,14 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object AddressPage extends BasePage {
+object AreTheGoodsBeingShippedDirectly extends BasePage {
 
-  val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+  val pageTitle =
+    "Are the " + GoodsName + " being shipped directly from their country of origin to Great Britain? - Advance Ruling Service - GOV.UK"
 
-  def loadPage: this.type = {
+  def loadPage() {
     onPage(this.pageTitle)
     this
   }
+
 }

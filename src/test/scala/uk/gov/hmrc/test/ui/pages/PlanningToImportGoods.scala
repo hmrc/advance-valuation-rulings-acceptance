@@ -18,17 +18,11 @@ package uk.gov.hmrc.test.ui.pages
 
 object PlanningToImportGoods extends BasePage {
 
-  val pageTile       =
+  val pageTile =
     "To use this service, you must intend to bring goods into Great Britain - Advance Ruling Service - GOV.UK"
-  val error_PageTile =
-    "Error: To use this service, you must intend to bring goods into Great Britain - Advance Ruling Service - GOV.UK"
 
-  def loadPage: this.type       = {
+  def loadPage: this.type = {
     onPage(this.pageTile)
-    this
-  }
-  def error_LoadPage: this.type = {
-    onPage(this.error_PageTile)
     this
   }
 }

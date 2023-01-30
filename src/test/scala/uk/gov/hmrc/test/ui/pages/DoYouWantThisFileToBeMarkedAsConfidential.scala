@@ -16,12 +16,14 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object AddressPage extends BasePage {
+object DoYouWantThisFileToBeMarkedAsConfidential extends BasePage {
 
-  val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+  val pageTitle =
+    "Do you want this file to be marked as confidential? - Advance Ruling Service - GOV.UK"
 
   def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
+
 }

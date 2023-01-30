@@ -16,12 +16,20 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object AddressPage extends BasePage {
+import org.openqa.selenium.By
 
-  val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+object HowWouldYouDescribeTheGoods extends BasePage {
+
+  val pageTitle            = "How would you describe the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
+  val ele_GoodsDescription = "value"
 
   def loadPage: this.type = {
     onPage(this.pageTitle)
     this
+  }
+
+  def enterGoodsDescription(Description: String): Unit = {
+    driver.findElement(By.id(ele_GoodsDescription)).clear()
+    driver.findElement(By.id(ele_GoodsDescription)).sendKeys(Description)
   }
 }

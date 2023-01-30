@@ -14,14 +14,24 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.cucumber.runner
 
-object AddressPage extends BasePage {
+import io.cucumber.junit.{Cucumber, CucumberOptions}
+import org.junit.runner.RunWith
 
-  val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue = Array("uk.gov.hmrc.test.ui.cucumber.stepdefs"),
+  plugin = Array(
+    "pretty",
+    "html:target/cucumber",
+    "json:target/cucumber.json",
+    "junit:target/test-reports/@AcceptanceTest.xml"
+  ),
+  // tags = "@GoodsInformation"
+  // tags = "@RequiredInformationPage"
+  tags = "@AccessibilityTest"
+)
+class AccessibilityTest
 
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
-}

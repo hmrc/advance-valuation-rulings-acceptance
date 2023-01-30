@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
-object AddressPage extends BasePage {
+import uk.gov.hmrc.test.ui.pages._
+import uk.gov.hmrc.test.ui.pages.Turnover.{invokeURL, URL_ARSHomePage}
 
-  val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+class StepDefinitionsBasics extends BaseStepDef {
 
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
+  Given("I am on the ARS Home Page")(() => invokeURL(URL_ARSHomePage))
 }
