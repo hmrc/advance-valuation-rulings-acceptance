@@ -34,4 +34,3 @@ import org.junit.runner.RunWith
   tags = "@AccessibilityTest"
 )
 class AccessibilityTest
-
