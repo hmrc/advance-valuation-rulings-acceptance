@@ -37,6 +37,9 @@ trait BasePage extends BrowserDriver with Matchers {
 
   def invokeURL(URL: String) {
     driver.navigate().to(URL)
+    val titlecheck = driver.getTitle
+    if (titlecheck == "Authority Wizard")
+      submitPage()
   }
 
   def onPage(pageTitle: String): Unit = {
