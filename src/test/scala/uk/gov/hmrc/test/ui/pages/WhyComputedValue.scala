@@ -19,7 +19,7 @@ package uk.gov.hmrc.test.ui.pages
 import org.openqa.selenium.By
 
 object WhyComputedValue extends BasePage {
-  val pageTitle =
+  val pageTitle                     =
     "Please outline why you have not selected Methods 1-4 to value your goods - Advance Ruling Service - GOV.UK"
   private val computedValueTextArea = By.id("value")
   def loadPage() {

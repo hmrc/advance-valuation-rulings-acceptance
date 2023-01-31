@@ -176,17 +176,17 @@ class StepDefinitions extends BaseStepDef {
 
   Then("I will be navigated to Why Computed Value page")(() => WhyComputedValue.loadPage)
 
-  And("And I enter a reason and continue in Why Computed Value page") {
+  And("I enter a reason and continue in Why Computed Value page") {
     () =>
       WhyComputedValue.enterReasonForComputedValue("Reasonable argument with evidence")
       submitPage()
   }
 
-  Then("I will be navigated to Explain Reason Computed value page") {
+  Then("I will be navigated to Explain Reason Computed Value page") {
     () => ExplainWhyComputedValue.loadPage
   }
 
-  And("And I enter a reason and continue in Why Computed Value page") {
+  And("I enter a reason and continue in Explain Reason Computed Value page") {
     () =>
       ExplainWhyComputedValue.enterReasonForComputedValue("Detailed explanation")
       submitPage()

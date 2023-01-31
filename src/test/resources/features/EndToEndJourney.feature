@@ -94,7 +94,7 @@ Feature: End To End Journey
     Then I will be navigated to Why Computed Value page
     And I enter a reason and continue in Why Computed Value page
     Then I will be navigated to Explain Reason Computed Value page
-    And And I enter a reason and continue in Why Computed Value page
+    And I enter a reason and continue in Explain Reason Computed Value page
 
   Scenario: Method 6 flow
     Given I am on the ARS Home Page
