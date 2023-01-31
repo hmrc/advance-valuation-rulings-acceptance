@@ -38,8 +38,11 @@ trait BasePage extends BrowserDriver with Matchers {
   def invokeURL(URL: String) {
     driver.navigate().to(URL)
     val titlecheck = driver.getTitle
-    if (titlecheck == "Authority Wizard")
+    if (titlecheck == "Authority Wizard") {
+      driver.findElement(By.id("redirectionUrl")).clear()
+      driver.findElement(By.id("redirectionUrl")).sendKeys(URL_ARSHomePage )
       submitPage()
+    }
   }
 
   def onPage(pageTitle: String): Unit = {
