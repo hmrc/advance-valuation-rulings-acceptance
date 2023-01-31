@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.webdriver.SingletonDriver
+import org.openqa.selenium.By
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
+object ExplainWhyComputedValue extends BasePage {
+  val pageTitle =
+    "Please explain why you have selected Method 5 to value your goods - Advance Ruling Service - GOV.UK"
+  private val explainTextArea = By.id("value")
+  def loadPage() {
+    onPage(this.pageTitle)
+  }
 
-trait BrowserDriver extends LazyLogging {
-  logger.info(
-    s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-  )
-
-  val browser: Option[String] = sys.props.get("browser")
-  if (browser.isEmpty)
-    sys.props += ("browser" -> "chrome")
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  def enterReasonForComputedValue(reason: String) {
+    explainTextArea.find.enterText(reason)
+  }
 }

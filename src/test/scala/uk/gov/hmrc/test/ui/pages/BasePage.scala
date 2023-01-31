@@ -46,8 +46,6 @@ trait BasePage extends BrowserDriver with Matchers {
     var actual: String = driver.getTitle
     actual = actual.trim
     val expected       = driver.getTitle.trim
-    println("Actual   -" + actual)
-    println("Expected -" + pageTitle)
 
     if (expected != pageTitle)
       throw PageNotFoundException(

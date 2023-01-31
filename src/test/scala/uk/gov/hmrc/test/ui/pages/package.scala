@@ -14,20 +14,24 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui
 
-import uk.gov.hmrc.webdriver.SingletonDriver
-
-import com.typesafe.scalalogging.LazyLogging
+import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
 
-trait BrowserDriver extends LazyLogging {
-  logger.info(
-    s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-  )
+package object pages {
+  implicit class ByExtension(val by: By) extends AnyVal {
+    def find(implicit driver: WebDriver): WebElement = driver.findElement(by)
+  }
 
-  val browser: Option[String] = sys.props.get("browser")
-  if (browser.isEmpty)
-    sys.props += ("browser" -> "chrome")
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  implicit class WebElementExtension(val element: WebElement) extends AnyVal {
+    def click(): Unit = element.click()
+
+    def enterText(text: String): WebElement = {
+      element.clear()
+      element.sendKeys(text)
+      element
+    }
+  }
 }

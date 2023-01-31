@@ -24,12 +24,12 @@ object MethodSelectionPage extends BasePage {
     "Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
   val error_PageTile =
     "Error: Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
-  val ele_Method1    = "value_0"
-  val ele_Method2    = "value_1"
-  val ele_Method3    = "value_2"
-  val ele_Method4    = "value_3"
-  val ele_Method5    = "value_4"
-  val ele_Method6    = "value_5"
+  val methodOne      = By.id("value_0")
+  val methodTwo      = By.id("value_1")
+  val methodThree    = By.id("value_2")
+  val methodFour     = By.id("value_3")
+  val methodFive     = By.id("value_4")
+  val methodSix      = By.id("value_5")
 
   def loadPage: this.type = {
     onPage(this.pageTile)
@@ -43,12 +43,12 @@ object MethodSelectionPage extends BasePage {
 
   def selectMethod(methodNumber: Int): Unit =
     methodNumber match {
-      case 1 => driver.findElement(By.id(ele_Method1)).click()
-      case 2 => driver.findElement(By.id(ele_Method2)).click()
-      case 3 => driver.findElement(By.id(ele_Method3)).click()
-      case 4 => driver.findElement(By.id(ele_Method4)).click()
-      case 5 => driver.findElement(By.id(ele_Method5)).click()
-      case _ => driver.findElement(By.id(ele_Method6)).click()
-
+      case 1 => methodOne.find.click()
+      case 2 => methodTwo.find.click()
+      case 3 => methodThree.find.click()
+      case 4 => methodFour.find.click()
+      case 5 => methodFive.find.click()
+      case 6 => methodSix.find.click()
+      case _ => throw new Exception("Invalid method number")
     }
 }
