@@ -91,6 +91,10 @@ Feature: End To End Journey
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
     And I select Method 5 and continue in Select the method page
+    Then I will be navigated to Why Computed Value page
+    And I enter a reason and continue in Why Computed Value page
+    Then I will be navigated to Explain Reason Computed Value page
+    And I enter a reason and continue in Explain Reason Computed Value page
 
   Scenario: Method 6 flow
     Given I am on the ARS Home Page
