@@ -6,7 +6,6 @@ import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
 
 trait BasePage extends BrowserDriver with Matchers {
-
   val continueButton          = "govuk-button"
   var GoodsName               = "Coffee"
   val radioOptionYes          = "(//input[@type='radio'])[1]"
