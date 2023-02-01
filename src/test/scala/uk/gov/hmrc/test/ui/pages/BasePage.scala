@@ -1,5 +1,4 @@
 
-
 package uk.gov.hmrc.test.ui.pages
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
