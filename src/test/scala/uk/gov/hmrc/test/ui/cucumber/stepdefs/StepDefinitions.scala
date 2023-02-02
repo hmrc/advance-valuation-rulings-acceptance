@@ -191,4 +191,24 @@ class StepDefinitions extends BaseStepDef {
       ExplainWhyComputedValue.enterReasonForComputedValue("Detailed explanation")
       submitPage()
   }
+
+  Then("I will be navigated to Explain Why Transaction of Similar Goods page") {
+    () => WhyTransactionValueOfSimilarGoods.loadPage
+  }
+
+  And("I enter a reason and continue in Explain Why Transaction of Similar Goods page") {
+    () =>
+      WhyTransactionValueOfSimilarGoods.enterReasonForComputedValue("Detailed explanation")
+      submitPage()
+  }
+
+  Then("I will be navigated to Have You Used Method One In the Past page") {
+    () => HaveYouUsedMethodOneInPast.loadPage
+  }
+
+  And("I select {string} and continue in Have You Used Method One In the Past page") {
+    (radioOption: String) =>
+      radioOptionSelect(radioOption)
+      submitPage()
+  }
 }
