@@ -58,6 +58,11 @@ Feature: End To End Journey
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
     And I select Method 2 and continue in Select the method page
+    Then I will be navigated to Explain Why Identical Goods page
+    And I enter a reason and continue in Explain Why Identical Goods page
+    Then I will be navigated to Have You Used Method One In the Past page
+    And I select "Yes" and continue in Have You Used Method One In the Past page
+
 @ZAP
   Scenario: Method 3 flow
     Given I am on the ARS Home Page

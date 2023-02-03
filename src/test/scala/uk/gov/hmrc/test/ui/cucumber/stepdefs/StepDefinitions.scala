@@ -211,4 +211,14 @@ class StepDefinitions extends BaseStepDef {
       radioOptionSelect(radioOption)
       submitPage()
   }
+
+  Then("I will be navigated to Explain Why Identical Goods page") {
+    () => WhyIdenticalGoods.loadPage
+  }
+
+  And("I enter a reason and continue in Explain Why Identical Goods page") {
+    () =>
+      WhyIdenticalGoods.enterReasonForComputedValue("Detailed explanation")
+      submitPage()
+  }
 }
