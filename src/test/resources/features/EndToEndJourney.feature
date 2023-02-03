@@ -69,6 +69,10 @@ Feature: End To End Journey
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
     And I select Method 3 and continue in Select the method page
+    Then I will be navigated to Explain Why Transaction of Similar Goods page
+    And I enter a reason and continue in Explain Why Transaction of Similar Goods page
+    Then I will be navigated to Have You Used Method One In the Past page
+    And I select "Yes" and continue in Have You Used Method One In the Past page
 
   Scenario: Method 4 flow
     Given I am on the ARS Home Page
