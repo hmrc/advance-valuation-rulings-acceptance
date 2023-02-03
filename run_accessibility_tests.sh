@@ -13,4 +13,4 @@ fi
 # relevant pages of an application to ZAP. So tagging a subset of the journey tests or creating a
 # single ZAP focused journey test is sufficient.
 
-sbt -Dbrowser="${BROWSER_TYPE:=$DEFAULT_BROWSER}" -Denvironment="${ENV:=local}" -Dzap.proxy=true "testOnly uk.gov.hmrc.test.ui.cucumber.runner.AccessibilityTest"
+sbt -Dbrowser="${BROWSER_TYPE:=$DEFAULT_BROWSER}" -Denvironment="${ENV:=local}" "testOnly uk.gov.hmrc.test.ui.cucumber.runner.AccessibilityTest"
