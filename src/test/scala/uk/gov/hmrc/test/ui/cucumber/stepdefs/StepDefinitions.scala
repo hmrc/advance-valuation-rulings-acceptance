@@ -20,7 +20,12 @@ import uk.gov.hmrc.test.ui.pages._
 import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
 import uk.gov.hmrc.test.ui.pages.Turnover.{arsHomePageText, radioOptionSelect, GoodsName}
 
+
+
 class StepDefinitions extends BaseStepDef {
+
+
+
   When("I click on Start new application in ARS Home") {
     () =>
       onPage(arsHomePageText)
@@ -146,6 +151,7 @@ class StepDefinitions extends BaseStepDef {
 
   And("I upload the document and continue in Upload supporting documents page") {
     () =>
+
       UploadSupportingDocuments.loadPage
         .uploadDocument()
       submitPage()
