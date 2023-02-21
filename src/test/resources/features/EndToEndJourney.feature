@@ -1,5 +1,4 @@
 @EndToEndJourney
-
 Feature: End To End Journey
 
 #kickout pages

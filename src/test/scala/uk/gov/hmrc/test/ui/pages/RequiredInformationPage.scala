@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 object RequiredInformationPage extends BasePage {
 
   import org.openqa.selenium.By
@@ -24,19 +25,26 @@ object RequiredInformationPage extends BasePage {
     "Information you need to complete an application - Advance Ruling Service - GOV.UK"
   val errorPageTitle =
     "Error: Information you need to complete an application - Advance Ruling Service - GOV.UK"
-  val ele_Checkbox1  = "value_0"
-  val ele_Checkbox2  = "value_1"
-  val ele_Checkbox3  = "value_2"
-  val ele_Checkbox4  = "value_3"
-  val ele_Checkbox5  = "value_4"
-  val ele_Checkbox6  = "value_5"
-  val ele_Checkbox7  = "value_6"
-  val ele_Checkbox8  = "value_7"
-  val ele_Continue   = "govuk-button"
+  val ele_Checkbox1  = By.id("value_0")
+  val ele_Checkbox2  = By.id("value_1")
+  val ele_Checkbox3  = By.id("value_2")
+  val ele_Checkbox4  = By.id("value_3")
+  val ele_Checkbox5  = By.id("value_4")
+  val ele_Checkbox6  = By.id("value_5")
+  val ele_Checkbox7  = By.id("value_6")
+  val ele_Checkbox8  = By.id("value_7")
+  val ele_Continue   = By.id("govuk-button")
 
-  def loadPage() {
-    onPage(this.pageTitle)
-  }
+  private val allBoxes = Seq(
+    ele_Checkbox1,
+    ele_Checkbox2,
+    ele_Checkbox3,
+    ele_Checkbox4,
+    ele_Checkbox5,
+    ele_Checkbox6,
+    ele_Checkbox7,
+    ele_Checkbox8
+  )
 
   def error_LoadPage: this.type = {
     onPage(this.errorPageTitle)
@@ -44,23 +52,9 @@ object RequiredInformationPage extends BasePage {
   }
 
   def selectAllCheckbox(): this.type = {
-
-    if (!driver.findElement(By.id(ele_Checkbox1)).isSelected)
-      driver.findElement(By.id(ele_Checkbox1)).click()
-    if (!driver.findElement(By.id(ele_Checkbox2)).isSelected)
-      driver.findElement(By.id(ele_Checkbox2)).click()
-    if (!driver.findElement(By.id(ele_Checkbox3)).isSelected)
-      driver.findElement(By.id(ele_Checkbox3)).click()
-    if (!driver.findElement(By.id(ele_Checkbox4)).isSelected)
-      driver.findElement(By.id(ele_Checkbox4)).click()
-    if (!driver.findElement(By.id(ele_Checkbox5)).isSelected)
-      driver.findElement(By.id(ele_Checkbox5)).click()
-    if (!driver.findElement(By.id(ele_Checkbox6)).isSelected)
-      driver.findElement(By.id(ele_Checkbox6)).click()
-    if (!driver.findElement(By.id(ele_Checkbox7)).isSelected)
-      driver.findElement(By.id(ele_Checkbox7)).click()
-    if (!driver.findElement(By.id(ele_Checkbox8)).isSelected)
-      driver.findElement(By.id(ele_Checkbox8)).click()
+    allBoxes.foreach {
+      box => if (!driver.findElement(box).isSelected) driver.findElement(box).click()
+    }
     this
   }
 }

@@ -16,14 +16,10 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object DoYouWantToUploadAnySupportingDocuments extends BasePage {
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
+
+object DoYouWantToUploadAnySupportingDocuments extends YesNoPage {
 
   val pageTitle =
     "Do you want to upload any supporting documents? - Advance Ruling Service - GOV.UK"
-
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
-
 }

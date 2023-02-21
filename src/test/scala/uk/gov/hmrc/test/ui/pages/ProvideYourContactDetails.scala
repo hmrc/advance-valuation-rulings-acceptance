@@ -16,20 +16,16 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
+import org.openqa.selenium.By
 object ProvideYourContactDetails extends BasePage {
 
-  val pageTile    =
+  val pageTitle   =
     "Provide the contact details for this application - Advance Ruling Service - GOV.UK"
   val ele_name    = "name"
   val ele_email   = "email"
   val ele_contact = "phone"
-
-  def loadPage: this.type = {
-    onPage(this.pageTile)
-    this
-  }
 
   def enterContactDetails(name: String, email: String, contact: String): Unit = {
     driver.findElement(By.id(ele_name)).clear()

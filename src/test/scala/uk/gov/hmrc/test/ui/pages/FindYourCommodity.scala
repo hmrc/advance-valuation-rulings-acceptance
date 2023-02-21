@@ -16,13 +16,9 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 object FindYourCommodity extends BasePage {
 
-  val pageTile = "Trade Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
-
-  def loadPage: this.type = {
-    onPage(this.pageTile)
-    this
-  }
+  val pageTitle = "Trade Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
 
 }

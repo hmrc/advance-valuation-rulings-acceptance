@@ -16,17 +16,15 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
+import org.openqa.selenium.By
 object WhatConfidentialInformationWouldYouLikeToAdd extends BasePage {
 
-  val pageTitle                                             =
+  val pageTitle            =
     "What confidential information would you like to add about the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
-  val ele_ConfidentialInfo                                  = "value"
-  def loadPage: this.type                                   = {
-    onPage(this.pageTitle)
-    this
-  }
+  val ele_ConfidentialInfo = "value"
+
   def enterConfidentialInfo(confidentialInfo: String): Unit = {
     driver.findElement(By.id(ele_ConfidentialInfo)).clear()
     driver.findElement(By.id(ele_ConfidentialInfo)).sendKeys(confidentialInfo)
