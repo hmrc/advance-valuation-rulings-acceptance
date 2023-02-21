@@ -24,9 +24,9 @@ import java.io.File
 
 object UploadSupportingDocuments extends BasePage {
 
-  val pageTitle          =
-    "Upload supporting documents for the " + GoodsName + " - Advance Ruling Service - GOV.UK"
-  val ele_UploadDocument = "file-upload-1"
+  val pageTitle     = "Upload supporting documents for the goods - Advance Ruling Service - GOV.UK"
+  val ele_UploadDocument = "file-input"
+
 
 
   def loadPage: this.type = {
@@ -35,15 +35,12 @@ object UploadSupportingDocuments extends BasePage {
   }
 
 
-  def uploadDocument() = {
-    val filePath = getClass.getResource("src/test/resources/testdata/abc.json").getPath
+
+  def uploadDocument(filePath: String) = {
     val file = new File(filePath)
     val path = file.getAbsolutePath
     driver.findElement(By.id(ele_UploadDocument)).sendKeys(path)
   }
 
-//  val uploadSelector: String = "input[id='file-to-upload']"
 
-//  val uploadFilePath: String = "src/test/resources/testdata/abc.json"
-//  FileUploadPage.uploadFile(uploadFilePath)
 }

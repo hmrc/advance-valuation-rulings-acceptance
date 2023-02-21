@@ -18,12 +18,11 @@ package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
 import uk.gov.hmrc.test.ui.pages._
 import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
-import uk.gov.hmrc.test.ui.pages.Turnover.{arsHomePageText, radioOptionSelect, GoodsName}
+import uk.gov.hmrc.test.ui.pages.Turnover.{GoodsName, arsHomePageText, radioOptionSelect}
 
 
 
 class StepDefinitions extends BaseStepDef {
-
 
 
   When("I click on Start new application in ARS Home") {
@@ -149,11 +148,11 @@ class StepDefinitions extends BaseStepDef {
       submitPage()
   }
 
-  And("I upload the document and continue in Upload supporting documents page") {
-    () =>
-
+  And("I upload the document {string} and continue in Upload supporting documents page") {
+    (filePath: String) =>
+      val fullFilePath = "src/test/resources/testdata/" + filePath + ".pdf"
       UploadSupportingDocuments.loadPage
-        .uploadDocument()
+        .uploadDocument(fullFilePath)
       submitPage()
   }
   And("I select {string} and continue in Do you want this file to be marked as confidential page") {
@@ -227,4 +226,7 @@ class StepDefinitions extends BaseStepDef {
       WhyIdenticalGoods.enterReasonForComputedValue("Detailed explanation")
       submitPage()
   }
+
+
+
 }

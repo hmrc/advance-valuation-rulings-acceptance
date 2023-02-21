@@ -24,8 +24,16 @@ import org.scalatest.matchers.should.Matchers
 trait BasePage extends BrowserDriver with Matchers {
   val continueButton          = "govuk-button"
   var GoodsName               = "Coffee"
-  val radioOptionYes          = "(//input[@type='radio'])[1]"
-  val radioOptionNo           = "(//input[@type='radio'])[2]"
+//  val radioOptionYes          = "/html//input[@id='value']"
+//  val radioOptionNo           = "/html//input[@id='value-no']"
+
+//  val radioOptionYes          = "input#value"
+//  val radioOptionNo           = "input#value-no"
+
+
+
+  val radioOptionYes          = "input#value"
+  val radioOptionNo           = "input#value-no"
   val arsHomePageText         = "Your applications and rulings - Advance Ruling Service - GOV.UK"
   val ele_StartNewApplication = "csrfToken"
   lazy val baseUrl            = TestConfiguration.environmentHost
@@ -62,8 +70,12 @@ trait BasePage extends BrowserDriver with Matchers {
 
   def radioOptionSelect(radioOption: String) {
     radioOption match {
-      case "Yes" => driver.findElement(By.xpath(radioOptionYes)).click()
-      case "No"  => driver.findElement(By.xpath(radioOptionNo)).click()
+//      case "Yes" => driver.findElement(By.xpath(radioOptionYes)).click()
+//      case "No"  => driver.findElement(By.xpath(radioOptionNo)).click()
+
+
+            case "Yes" => driver.findElement(By.cssSelector(radioOptionYes)).click()
+            case "No"  => driver.findElement(By.cssSelector(radioOptionNo)).click()
       case _     => Thread.sleep(1000)
     }
   }

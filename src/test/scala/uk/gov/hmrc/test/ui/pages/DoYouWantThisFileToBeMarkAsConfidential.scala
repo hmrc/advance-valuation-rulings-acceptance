@@ -16,14 +16,28 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import org.scalatestplus.selenium.Edge.submit
+
 object DoYouWantThisFileToBeMarkAsConfidential extends BasePage {
 
-  val pageTitle =
-    "Do you want this file to be marked as confidential? - Advance Ruling Service - GOV.UK"
+  val pageTitle = "Upload supporting documents for the goods - Advance Ruling Service - GOV.UK"
+  val radioYes = "input#disableUndertakingConfirm"
+  val radioNo = "input#disableUndertakingConfirm-2"
 
   def loadPage: this.type = {
     onPage(this.pageTitle)
     this
   }
+
+
+//  def clickYesToConfirm(areYouSureToConfirm: Boolean = true): Unit = {
+//    if (areYouSureToConfirm) {
+//      clickByCss(radioYes)
+//    }
+//    else {
+//      clickByCss(radioNo)
+//    }
+//    submit()
+//  }
 
 }
