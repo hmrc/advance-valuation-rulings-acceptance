@@ -16,8 +16,9 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
+import org.openqa.selenium.By
 object ThisServiceIsDesignedForThose extends BasePage {
 
   val pageTitle =
@@ -35,10 +36,6 @@ object ThisServiceIsDesignedForThose extends BasePage {
   val link_GeneralInformation   = "https://www.gov.uk/topic/business-tax/import-export"
   val link_HelpAndSupport       =
     "https://www.gov.uk/guidance/hmrc-email-alerts-videos-and-webinars-about-importing-and-exporting"
-
-  def loadPage() {
-    onPage(this.pageTitle)
-  }
 
   def linkNavigationValidation() {
     assert(

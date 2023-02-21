@@ -16,28 +16,24 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
+import org.openqa.selenium.By
 object MethodSelectionPage extends BasePage {
 
-  val pageTile       =
+  val pageTitle       =
     "Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
-  val error_PageTile =
+  val error_pageTitle =
     "Error: Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
-  val methodOne      = By.id("value_0")
-  val methodTwo      = By.id("value_1")
-  val methodThree    = By.id("value_2")
-  val methodFour     = By.id("value_3")
-  val methodFive     = By.id("value_4")
-  val methodSix      = By.id("value_5")
-
-  def loadPage: this.type = {
-    onPage(this.pageTile)
-    this
-  }
+  val methodOne       = By.id("value_0")
+  val methodTwo       = By.id("value_1")
+  val methodThree     = By.id("value_2")
+  val methodFour      = By.id("value_3")
+  val methodFive      = By.id("value_4")
+  val methodSix       = By.id("value_5")
 
   def errorLoadPage: this.type = {
-    onPage(this.error_PageTile)
+    onPage(this.error_pageTitle)
     this
   }
 

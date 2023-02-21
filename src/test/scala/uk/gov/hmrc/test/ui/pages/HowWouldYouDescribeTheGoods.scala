@@ -16,20 +16,14 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
+import org.openqa.selenium.By
 object HowWouldYouDescribeTheGoods extends BasePage {
 
   val pageTitle            = "How would you describe the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
-  val ele_GoodsDescription = "value"
+  val ele_GoodsDescription = By.id("value")
 
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
-
-  def enterGoodsDescription(Description: String): Unit = {
-    driver.findElement(By.id(ele_GoodsDescription)).clear()
-    driver.findElement(By.id(ele_GoodsDescription)).sendKeys(Description)
-  }
+  def enterGoodsDescription(description: String): Unit =
+    ele_GoodsDescription.find.enterText(description)
 }

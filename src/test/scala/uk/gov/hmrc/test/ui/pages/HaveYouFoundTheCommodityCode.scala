@@ -16,14 +16,16 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
+
 import org.openqa.selenium.By
 
-object HaveYouFoundTheCommodityCode extends BasePage {
+object HaveYouFoundTheCommodityCode extends YesNoPage {
 
   val goodsNameDisaply = "Have you found the commodity code for the " + GoodsName + " ?"
   val pageTitle        = "Have you found the commodity code for the - Advance Ruling Service - GOV.UK"
 
-  def loadPage: this.type = {
+  override def loadPage: this.type = {
     onPage(this.pageTitle)
     assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisaply)
     this

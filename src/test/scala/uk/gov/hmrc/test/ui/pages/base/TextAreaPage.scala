@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.base
 
 import org.openqa.selenium.By
 
-object CheckYourVATResult extends BasePage {
+trait TextAreaPage extends BasePage {
+  import uk.gov.hmrc.test.ui.pages._
 
-  val checkYourVatResult   = "Your VAT calculation - Check your VAT flat rate - GOV.UK"
-  val resultOutcome        = "resultOutcome"
-  val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
-  val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
+  val textArea = By.id("value")
 
-  def result: String =
-    // onPage(checkYourVatResult)
-    driver.findElement(By.id(resultOutcome)).getText
-
+  def enterText(content: String) {
+    textArea.find.enterText(content)
+  }
 }

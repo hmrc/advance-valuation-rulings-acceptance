@@ -16,13 +16,10 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object PlanningToImportGoods extends BasePage {
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 
-  val pageTile =
+object PlanningToImportGoods extends YesNoPage {
+
+  val pageTitle =
     "To use this service, you must intend to bring goods into Great Britain - Advance Ruling Service - GOV.UK"
-
-  def loadPage: this.type = {
-    onPage(this.pageTile)
-    this
-  }
 }

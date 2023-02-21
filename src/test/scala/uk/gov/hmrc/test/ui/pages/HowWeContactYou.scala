@@ -16,12 +16,9 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 object HowWeContactYou extends BasePage {
 
-  val pageTile = "How we contact you about your application - Advance Ruling Service - GOV.UK"
+  val pageTitle = "How we contact you about your application - Advance Ruling Service - GOV.UK"
 
-  def loadPage: this.type = {
-    onPage(this.pageTile)
-    this
-  }
 }

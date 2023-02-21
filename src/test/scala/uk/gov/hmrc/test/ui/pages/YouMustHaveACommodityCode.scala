@@ -16,8 +16,9 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
+import org.openqa.selenium.By
 object YouMustHaveACommodityCode extends BasePage {
 
   val pageTitle =
@@ -33,11 +34,6 @@ object YouMustHaveACommodityCode extends BasePage {
     "https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling"
   val btn_FindYourCommodityCode           =
     "//a[@href='https://www.gov.uk/trade-tariff']"
-
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
 
   def linkNavigationValidation(): Unit = {
     assert(

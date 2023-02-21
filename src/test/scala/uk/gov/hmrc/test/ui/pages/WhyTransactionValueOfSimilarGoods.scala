@@ -16,15 +16,15 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.base.BasePage
+
 import org.openqa.selenium.By
 
 object WhyTransactionValueOfSimilarGoods extends BasePage {
-  val pageTitle                     =
+  val pageTitle =
     "Please explain why you have not selected Methods 1 or 2 to value your goods - Advance Ruling Service - GOV.UK"
+
   private val computedValueTextArea = By.id("value")
-  def loadPage() {
-    onPage(this.pageTitle)
-  }
 
   def enterReasonForComputedValue(reason: String) {
     computedValueTextArea.find.enterText(reason)
