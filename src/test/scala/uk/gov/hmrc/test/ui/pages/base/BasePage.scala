@@ -18,31 +18,18 @@ package uk.gov.hmrc.test.ui.pages.base
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 
-import org.openqa.selenium.By
+import org.openqa.selenium.{By, WebDriver}
 import org.scalatest.matchers.should.Matchers
 
 trait BasePage extends BrowserDriver with Matchers {
   val pageTitle: String
+
   val continueButton          = "govuk-button"
   var GoodsName               = "Coffee"
-  // val radioOptionYes          = "(//input[@type='radio'])[1]"
-  // val radioOptionNo           = "(//input[@type='radio'])[2]"
   val ele_StartNewApplication = "csrfToken"
-  lazy val baseUrl            = TestConfiguration.environmentHost
-  val URL_ARSHomePage         = s"$baseUrl/advance-valuation-ruling/accountHome"
 
   def submitPage(): Unit =
     driver.findElement(By.className(continueButton)).click()
-
-  def invokeURL(URL: String) {
-    driver.navigate().to(URL)
-    val titlecheck = driver.getTitle
-    if (titlecheck == "Authority Wizard") {
-      driver.findElement(By.id("redirectionUrl")).clear()
-      driver.findElement(By.id("redirectionUrl")).sendKeys(URL_ARSHomePage)
-      submitPage()
-    }
-  }
 
   def loadPage(): this.type = {
     onPage(this.pageTitle)
@@ -62,5 +49,19 @@ trait BasePage extends BrowserDriver with Matchers {
 case class PageNotFoundException(s: String) extends Exception(s)
 
 object BasePage {
-  val arsHomePageText = "Your applications and rulings - Advance Ruling Service - GOV.UK"
+  lazy val baseUrl = TestConfiguration.environmentHost
+
+  val continueButton                                           = "govuk-button"
+  val arsHomePageText                                          = "Your applications and rulings - Advance Ruling Service - GOV.UK"
+  val URL_ARSHomePage                                          = s"$baseUrl/advance-valuation-ruling/accountHome"
+  val nameOfGoodsUrl                                           = s"$baseUrl/advance-valuation-ruling/nameOfGoods"
+  def invokeURL(URL: String)(implicit driver: WebDriver): Unit = {
+    driver.navigate().to(URL)
+    val titlecheck = driver.getTitle
+    if (titlecheck == "Authority Wizard") {
+      driver.findElement(By.id("redirectionUrl")).clear()
+      driver.findElement(By.id("redirectionUrl")).sendKeys(URL_ARSHomePage)
+      driver.findElement(By.className(continueButton)).click()
+    }
+  }
 }

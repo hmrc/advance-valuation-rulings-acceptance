@@ -19,10 +19,13 @@ package uk.gov.hmrc.test.ui.cucumber.stepdefs
 import uk.gov.hmrc.test.ui.pages._
 import uk.gov.hmrc.test.ui.pages.DoYouWantToUploadAnySupportingDocuments
 import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
 class StepDefinitions extends BaseStepDef {
 
-  Given("I am on the ARS Home Page")(() => NameOfTheGoods.invokeURL(NameOfTheGoods.URL_ARSHomePage))
+  Given("I am on the ARS Home Page")(() => BasePage.invokeURL(BasePage.URL_ARSHomePage))
+
+  Then("I navigate to Name Of Goods page")(() => BasePage.invokeURL(BasePage.nameOfGoodsUrl))
 
   When("I click on Start new application in ARS Home") {
     () =>
@@ -38,9 +41,9 @@ class StepDefinitions extends BaseStepDef {
       submitPage()
   }
   And("I select {booleanValue} and continue in Are you planning to import goods page") {
-    (radioOption: Boolean) =>
+    (option: Boolean) =>
       PlanningToImportGoods.loadPage
-      PlanningToImportGoods.selectRadioOption(radioOption)
+      PlanningToImportGoods.select(option)
       submitPage()
   }
   And("I click on Continue in Some of the information you provide") {
@@ -54,32 +57,31 @@ class StepDefinitions extends BaseStepDef {
       submitPage()
   }
   And("I select {booleanValue} and continue in Check the name and address page") {
-    (radioOption: Boolean) => AddressPage.loadPage.selectRadioOption(radioOption).submitPage()
+    (option: Boolean) => AddressPage.loadPage.select(option).submitPage()
   }
   And("I select {booleanValue} and continue in Have you found the commodity code") {
-    (radioOption: Boolean) =>
-      HaveYouFoundTheCommodityCode.loadPage.selectRadioOption(radioOption).submitPage()
+    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage.select(option).submitPage()
   }
   And(
     "I select {booleanValue} and continue in Do you want to add any confidential information page"
   ) {
-    (radioOption: Boolean) =>
+    (option: Boolean) =>
       DoYouWantToAddAnyConfidentialInformation.loadPage
-        .selectRadioOption(radioOption)
+        .select(option)
         .submitPage()
   }
   And("I select {booleanValue} and continue in Are the Goods being shipped directly page") {
-    (radioOption: Boolean) =>
+    (option: Boolean) =>
       AreTheGoodsBeingShippedDirectly.loadPage
-        .selectRadioOption(radioOption)
+        .select(option)
         .submitPage()
   }
   And(
     "I select {booleanValue} and continue in Do you want to upload any supporting documents page"
   ) {
-    (radioOption: Boolean) =>
+    (option: Boolean) =>
       DoYouWantToUploadAnySupportingDocuments.loadPage
-        .selectRadioOption(radioOption)
+        .select(option)
         .submitPage()
   }
 
@@ -104,7 +106,7 @@ class StepDefinitions extends BaseStepDef {
       submitPage()
   }
   And("I select {booleanValue} and continue in Have you found the commodity code page") {
-    (radioOption: Boolean) => HaveYouFoundTheCommodityCode.loadPage.selectRadioOption(radioOption)
+    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage.select(option)
   }
 
   And("I enter the commodity code {string} and continue in What is the commodity code page") {
@@ -151,8 +153,8 @@ class StepDefinitions extends BaseStepDef {
   And(
     "I select {booleanValue} and continue in Do you want this file to be marked as confidential page"
   ) {
-    (radioOption: Boolean) =>
-      DoYouWantThisFileToBeMarkAsConfidential.loadPage.selectRadioOption(radioOption).submitPage()
+    (option: Boolean) =>
+      DoYouWantThisFileToBeMarkAsConfidential.loadPage.select(option).submitPage()
   }
 
   Then("I will be navigated to This service is designed for those") {
@@ -205,7 +207,7 @@ class StepDefinitions extends BaseStepDef {
   }
 
   And("I select {booleanValue} and continue in Have You Used Method One In the Past page") {
-    (radioOption: Boolean) => HaveYouUsedMethodOneInPast.selectRadioOption(radioOption).submitPage()
+    (option: Boolean) => HaveYouUsedMethodOneInPast.select(option).submitPage()
   }
 
   Then("I will be navigated to Explain Why Identical Goods page") {
@@ -215,6 +217,41 @@ class StepDefinitions extends BaseStepDef {
   And("I enter a reason and continue in Explain Why Identical Goods page") {
     () =>
       WhyIdenticalGoods.enterReasonForComputedValue("Detailed explanation")
+      submitPage()
+  }
+
+  And("I select {booleanValue} and continue in Is There a Sale Involved") {
+    (option: Boolean) => IsThereASaleInvolved.loadPage().select(option).submitPage()
+  }
+
+  And("I select {booleanValue} and continue in Is the sale between related parties") {
+    (option: Boolean) => IsTheSaleBetweenRelatedParties.loadPage().select(option).submitPage()
+  }
+
+  And("I enter {string} and continue in Describe how the parties are related") {
+    (text: String) =>
+      DescribeHowPartiesAreRelated.enterText(text)
+      submitPage()
+  }
+
+  And(
+    "I select {booleanValue} and continue in Are there any restrictions on the use or resale of the goods"
+  )((option: Boolean) => AreThereAnyRestrictionsOnGoods.select(option).submitPage())
+  And("I enter {string} and continue in Describe any restrictions on the use or resale of goods") {
+    (text: String) =>
+      DescribeAnyRestrictions.enterText(text)
+      submitPage()
+  }
+
+  And(
+    "I select {booleanValue} and continue in Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods"
+  )((option: Boolean) => IsSaleSubjectToConditions.select(option).submitPage())
+
+  And(
+    "I enter {string} and continue in Describe the conditions or circumstances which cannot be calculated"
+  ) {
+    (text: String) =>
+      DescribeAnyConditions.enterText(text)
       submitPage()
   }
 }

@@ -18,20 +18,12 @@ package uk.gov.hmrc.test.ui.pages.base
 
 import org.openqa.selenium.By
 
-trait YesNoPage extends BasePage {
+trait TextAreaPage extends BasePage {
   import uk.gov.hmrc.test.ui.pages._
 
-  private val radioOptionYes = "(//input[@type='radio'])[1]"
-  private val radioOptionNo  = "(//input[@type='radio'])[2]"
+  val textArea = By.id("value")
 
-  private val yesRadio = By.xpath(radioOptionYes)
-  private val noRadio  = By.xpath(radioOptionNo)
-
-  def selectYes() = yesRadio.find.click()
-  def selectNo()  = noRadio.find.click()
-
-  def select(value: Boolean) = {
-    if (value) selectYes else selectNo
-    this
+  def enterText(content: String) {
+    textArea.find.enterText(content)
   }
 }
