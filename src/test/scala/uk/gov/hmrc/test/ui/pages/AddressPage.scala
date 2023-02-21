@@ -16,12 +16,10 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object AddressPage extends BasePage {
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
+
+object AddressPage extends YesNoPage {
 
   val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
 
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
 }

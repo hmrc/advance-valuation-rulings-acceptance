@@ -14,12 +14,24 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.cucumber.stepdefs
+package uk.gov.hmrc.test.ui.pages.base
 
-import uk.gov.hmrc.test.ui.pages._
-import uk.gov.hmrc.test.ui.pages.Turnover.{invokeURL, URL_ARSHomePage}
+import org.openqa.selenium.By
 
-class StepDefinitionsBasics extends BaseStepDef {
+trait YesNoPage extends BasePage {
+  import uk.gov.hmrc.test.ui.pages._
 
-  Given("I am on the ARS Home Page")(() => invokeURL(URL_ARSHomePage))
+  private val radioOptionYes = "(//input[@type='radio'])[1]"
+  private val radioOptionNo  = "(//input[@type='radio'])[2]"
+
+  private val yesRadio = By.xpath(radioOptionYes)
+  private val noRadio  = By.xpath(radioOptionNo)
+
+  def selectYes() = yesRadio.find.click()
+  def selectNo()  = noRadio.find.click()
+
+  def selectRadioOption(value: Boolean) = {
+    if (value) selectYes else selectNo
+    this
+  }
 }

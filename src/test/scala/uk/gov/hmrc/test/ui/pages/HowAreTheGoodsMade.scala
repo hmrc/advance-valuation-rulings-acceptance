@@ -16,20 +16,14 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 
+import org.openqa.selenium.By
 object HowAreTheGoodsMade extends BasePage {
 
   val pageTitle     = "How are the " + GoodsName + " made? - Advance Ruling Service - GOV.UK"
-  val ele_HowItMade = "value"
+  val ele_HowItMade = By.id("value")
 
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
-
-  def enterHowItMade(howItMade: String): Unit = {
-    driver.findElement(By.id(ele_HowItMade)).clear()
-    driver.findElement(By.id(ele_HowItMade)).sendKeys(howItMade)
-  }
+  def enterHowItMade(howItMade: String): Unit =
+    ele_HowItMade.find.enterText(howItMade)
 }

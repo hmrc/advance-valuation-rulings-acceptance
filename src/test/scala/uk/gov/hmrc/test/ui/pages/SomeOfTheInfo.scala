@@ -16,15 +16,9 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 object SomeOfTheInfo extends BasePage {
-
-  // import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
   val pageTitle =
     "Some of the information you provide in this application may appear on a public website - Advance Ruling Service - GOV.UK"
-
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
 }

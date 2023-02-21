@@ -16,14 +16,11 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object HaveYouUsedMethodOneInPast extends BasePage {
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
+
+object HaveYouUsedMethodOneInPast extends YesNoPage {
 
   val pageTitle =
     "In the past 90-days, have you used Valuation Method 1 to import any goods? - Advance Ruling Service - GOV.UK"
-
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
 
 }

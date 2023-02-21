@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.base
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 
@@ -22,11 +22,11 @@ import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
 
 trait BasePage extends BrowserDriver with Matchers {
+  val pageTitle: String
   val continueButton          = "govuk-button"
   var GoodsName               = "Coffee"
-  val radioOptionYes          = "(//input[@type='radio'])[1]"
-  val radioOptionNo           = "(//input[@type='radio'])[2]"
-  val arsHomePageText         = "Your applications and rulings - Advance Ruling Service - GOV.UK"
+  // val radioOptionYes          = "(//input[@type='radio'])[1]"
+  // val radioOptionNo           = "(//input[@type='radio'])[2]"
   val ele_StartNewApplication = "csrfToken"
   lazy val baseUrl            = TestConfiguration.environmentHost
   val URL_ARSHomePage         = s"$baseUrl/advance-valuation-ruling/accountHome"
@@ -44,29 +44,23 @@ trait BasePage extends BrowserDriver with Matchers {
     }
   }
 
-  def onPage(pageTitle: String): Unit = {
-    var actual: String = driver.getTitle
-    actual = actual.trim
-    val expected       = driver.getTitle.trim
+  def loadPage(): this.type = {
+    onPage(this.pageTitle)
+    this
+  }
 
-    if (expected != pageTitle)
+  def onPage(pageTitle: String): Unit = {
+    val actual: String = driver.getTitle.trim
+
+    if (actual != pageTitle)
       throw PageNotFoundException(
         s"Expected '$pageTitle' page, but found '$actual' page."
       )
   }
-
-  def arsHomePageValidation(): Unit = {
-    onPage(this.arsHomePageText)
-    assert(driver.findElement(By.name(ele_StartNewApplication)).isDisplayed)
-  }
-
-  def radioOptionSelect(radioOption: String) {
-    radioOption match {
-      case "Yes" => driver.findElement(By.xpath(radioOptionYes)).click()
-      case "No"  => driver.findElement(By.xpath(radioOptionNo)).click()
-      case _     => Thread.sleep(1000)
-    }
-  }
 }
 
 case class PageNotFoundException(s: String) extends Exception(s)
+
+object BasePage {
+  val arsHomePageText = "Your applications and rulings - Advance Ruling Service - GOV.UK"
+}
