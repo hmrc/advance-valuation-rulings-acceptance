@@ -16,21 +16,11 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.BasePage
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 
-import org.openqa.selenium.By
+object HaveTheGoodsBeenSubjectToLegalChallenges extends YesNoPage {
 
-object NameOfTheGoods extends BasePage {
+  val pageTitle =
+    "haveTheGoodsBeenSubjectToLegalChallenges - Advance Ruling Service - GOV.UK"
 
-  val pageTitle      = "What is the name of the goods? - Advance Ruling Service - GOV.UK"
-  val errorPageTitle = "Error: What is the name of the goods? - Advance Ruling Service - GOV.UK"
-  val ele_GoodsName  = By.id("value")
-
-  def errorLoadPage: this.type = {
-    onPage(this.errorPageTitle)
-    this
-  }
-
-  def enterGoodsName(goodsName: String): Unit =
-    ele_GoodsName.find.enterText(goodsName)
 }
