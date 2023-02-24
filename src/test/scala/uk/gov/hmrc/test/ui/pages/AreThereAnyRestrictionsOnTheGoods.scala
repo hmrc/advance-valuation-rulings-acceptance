@@ -14,24 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages.base
+package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 
-trait YesNoPage extends BasePage {
-  import uk.gov.hmrc.test.ui.pages._
+object AreThereAnyRestrictionsOnTheGoods extends YesNoPage {
 
-  private val radioOptionYes = "(//input[@type='radio'])[1]"
-  private val radioOptionNo  = "(//input[@type='radio'])[2]"
-
-  private val yesRadio = By.xpath(radioOptionYes)
-  private val noRadio  = By.xpath(radioOptionNo)
-
-  def selectYes() = yesRadio.find.click()
-  def selectNo()  = noRadio.find.click()
-
-  def select(value: Boolean) = {
-    if (value) selectYes() else selectNo()
-    this
-  }
+  val pageTitle =
+    "Are there any restrictions on the use or resale of the goods? - Advance Ruling Service - GOV.UK"
 }

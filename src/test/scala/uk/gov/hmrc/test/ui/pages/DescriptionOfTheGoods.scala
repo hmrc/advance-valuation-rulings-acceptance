@@ -17,8 +17,21 @@
 package uk.gov.hmrc.test.ui.pages
 
 import uk.gov.hmrc.test.ui.pages.base.BasePage
-object SomeOfTheInfo extends BasePage {
 
-  val pageTitle =
-    "Some of the information you provide in this application may appear on a public website - Advance Ruling Service - GOV.UK"
+import org.openqa.selenium.By
+
+object DescriptionOfTheGoods extends BasePage {
+  val url                                           = s"${BasePage.baseUrl}/advance-valuation-ruling/descriptionOfGoods"
+
+  val pageTitle      = "descriptionOfGoods - Advance Ruling Service - GOV.UK"
+  val errorPageTitle = "Error: descriptionOfGoods - Advance Ruling Service - GOV.UK"
+  val ele_GoodsName  = By.id("value")
+
+  def errorLoadPage: this.type = {
+    onPage(this.errorPageTitle)
+    this
+  }
+
+  def enterGoodsName(goodsName: String): Unit =
+    ele_GoodsName.find.enterText(goodsName)
 }
