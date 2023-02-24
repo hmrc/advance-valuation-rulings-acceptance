@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 
 import org.openqa.selenium.{By, Keys}
 object WhichCountryAreTheGoodsComingFrom extends BasePage {
-  val pageTitle = "Which country are the {0} coming from? - Advance Ruling Service - GOV.UK"
+  val pageTitle = "Which country are the {0} coming from?"
   val countryId = "countryId"
 
   def enterCountry(countryName: String): Unit = {

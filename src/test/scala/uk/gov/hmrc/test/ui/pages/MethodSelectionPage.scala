@@ -22,9 +22,9 @@ import org.openqa.selenium.By
 object MethodSelectionPage extends BasePage {
 
   val pageTitle       =
-    "Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
+    "Select the method you will use to value your goods"
   val error_pageTitle =
-    "Error: Select the method you will use to value your goods - Advance Ruling Service - GOV.UK"
+    "Error: Select the method you will use to value your goods"
   val methodOne       = By.id("value_0")
   val methodTwo       = By.id("value_1")
   val methodThree     = By.id("value_2")

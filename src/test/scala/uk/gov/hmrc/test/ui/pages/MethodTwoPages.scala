@@ -20,25 +20,25 @@ import uk.gov.hmrc.test.ui.pages.base._
 
 object HaveYouUsedMethodOneToImportInPast extends YesNoPage {
   val pageTitle =
-    "In the past 90-days, have you used Valuation Method 1 to import any goods? - Advance Ruling Service - GOV.UK"
+    "In the past 90-days, have you used Valuation Method 1 to import any goods?"
 }
 
 object OutlineWhyNotMethodOne extends TextAreaPage {
   val pageTitle =
-    "Please outline why you have not selected Method 1 to value your goods - Advance Ruling Service - GOV.UK"
+    "Please outline why you have not selected Method 1 to value your goods"
 }
 
 object DescribeTheIdenticalGoods extends TextAreaPage {
   val pageTitle =
-    "Describe the identical goods - Advance Ruling Service - GOV.UK"
+    "Describe the identical goods"
 }
 
 object WillYouBeComparingToIdenticalGoods extends YesNoPage {
   val pageTitle =
-    "Will you be comparing your goods to identical goods imported by another buyer or seller in the past 90-days? - Advance Ruling Service - GOV.UK"
+    "Will you be comparing your goods to identical goods imported by another buyer or seller in the past 90-days?"
 }
 
 object ExplainHowYouWillCompareToIdenticalGoods extends TextAreaPage {
   val pageTitle =
-    "Explain how you are comparing your goods to identical goods imported by another buyer or seller in the past 90 days - Advance Ruling Service - GOV.UK"
+    "Explain how you are comparing your goods to identical goods imported by another buyer or seller in the past 90 days"
 }

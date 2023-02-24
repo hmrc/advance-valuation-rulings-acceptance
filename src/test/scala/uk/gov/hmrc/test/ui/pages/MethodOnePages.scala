@@ -16,33 +16,33 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.{BasePage, TextAreaPage, YesNoPage}
+import uk.gov.hmrc.test.ui.pages.base._
 
 object IsThereASaleInvolved extends YesNoPage {
-  override val pageTitle: String = "Is there a sale involved? - Advance Ruling Service - GOV.UK"
+  override val pageTitle: String = "Is there a sale involved?"
 }
 object IsTheSaleBetweenRelatedParties extends YesNoPage {
   override val pageTitle: String =
-    "Is the sale between related parties? - Advance Ruling Service - GOV.UK"
+    "Is the sale between related parties?"
 }
 object DescribeHowPartiesAreRelated extends TextAreaPage {
   override val pageTitle: String =
-    "Describe how the parties are related - Advance Ruling Service - GOV.UK"
+    "Describe how the parties are related"
 }
 object AreThereAnyRestrictionsOnGoods extends YesNoPage {
   override val pageTitle: String =
-    "Are there any restrictions on the use or resale of the goods? - Advance Ruling Service - GOV.UK"
+    "Are there any restrictions on the use or resale of the goods?"
 }
 
 object DescribeAnyRestrictions extends TextAreaPage {
   override val pageTitle: String =
-    "Describe any restrictions on the use or resale of goods - Advance Ruling Service - GOV.UK"
+    "Describe any restrictions on the use or resale of goods"
 }
 object IsSaleSubjectToConditions extends YesNoPage {
   override val pageTitle: String =
-    "Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods? - Advance Ruling Service - GOV.UK"
+    "Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods?"
 }
 object DescribeAnyConditions extends TextAreaPage {
   override val pageTitle: String =
-    "Describe the conditions or circumstances which cannot be calculated - Advance Ruling Service - GOV.UK"
+    "Describe the conditions or circumstances which cannot be calculated"
 }

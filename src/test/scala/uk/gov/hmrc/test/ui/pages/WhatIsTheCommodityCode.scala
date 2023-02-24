@@ -22,11 +22,11 @@ import org.openqa.selenium.By
 object WhatIsTheCommodityCode extends BasePage {
 
   val goodsNameDisplay  = "What is the commodity code for the " + GoodsName + "?"
-  val pageTitle         = "What is the commodity code for the {0}? - Advance Ruling Service - GOV.UK"
+  val pageTitle         = "What is the commodity code for the {0}?"
   val ele_CommodityCode = "value"
 
-  override def loadPage: this.type = {
-    onPage(this.pageTitle)
+  override def loadPage(): this.type = {
+    super.loadPage()
     assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisplay)
     this
   }

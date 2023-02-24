@@ -23,8 +23,8 @@ import org.openqa.selenium.By
 object DescriptionOfTheGoods extends BasePage {
   val url = s"${BasePage.baseUrl}/advance-valuation-ruling/descriptionOfGoods"
 
-  val pageTitle      = "descriptionOfGoods - Advance Ruling Service - GOV.UK"
-  val errorPageTitle = "Error: descriptionOfGoods - Advance Ruling Service - GOV.UK"
+  val pageTitle      = "descriptionOfGoods"
+  val errorPageTitle = "Error: descriptionOfGoods"
   val ele_GoodsName  = By.id("value")
 
   def errorLoadPage: this.type = {

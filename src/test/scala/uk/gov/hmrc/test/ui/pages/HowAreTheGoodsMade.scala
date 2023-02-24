@@ -21,7 +21,7 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 import org.openqa.selenium.By
 object HowAreTheGoodsMade extends BasePage {
 
-  val pageTitle     = "How are the " + GoodsName + " made? - Advance Ruling Service - GOV.UK"
+  val pageTitle     = "How are the " + GoodsName + " made?"
   val ele_HowItMade = By.id("value")
 
   def enterHowItMade(howItMade: String): Unit =

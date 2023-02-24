@@ -21,5 +21,5 @@ import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 object DoYouWantThisFileToBeMarkedAsConfidential extends YesNoPage {
 
   val pageTitle =
-    "Do you want this file to be marked as confidential? - Advance Ruling Service - GOV.UK"
+    "Do you want this file to be marked as confidential?"
 }
