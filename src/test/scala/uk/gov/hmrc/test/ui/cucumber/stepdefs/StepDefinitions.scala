@@ -21,7 +21,7 @@ import uk.gov.hmrc.test.ui.pages.DoYouWantToUploadAnySupportingDocuments
 import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
 import uk.gov.hmrc.test.ui.pages.base.BasePage
 
-class StepDefinitions extends BaseStepDef {
+class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
 
   Given("I am on the ARS Home Page")(() => BasePage.invokeURL(BasePage.URL_ARSHomePage))
 
@@ -89,6 +89,7 @@ class StepDefinitions extends BaseStepDef {
       ProvideYourContactDetails.enterContactDetails(name, email, phone)
       submitPage()
   }
+  Then("I will be navigated to the Select a Method page")(() => MethodSelectionPage.loadPage())
   And("I select Method {int} and continue in Select the method page") {
     (methodNumber: Int) =>
       MethodSelectionPage.loadPage()
@@ -96,6 +97,9 @@ class StepDefinitions extends BaseStepDef {
       submitPage()
   }
   Then("I navigate to Description of the Goods") {
+    () => BasePage.invokeURL(DescriptionOfTheGoods.url)
+  }
+  Then("I will be navigated to Description of the Goods page") {
     () => BasePage.invokeURL(DescriptionOfTheGoods.url)
   }
   And("I enter {string} as the description and press continue") {
@@ -123,7 +127,6 @@ class StepDefinitions extends BaseStepDef {
         .enterCountry(country)
       submitPage()
   }
-
   And("I enter description and continue in How would you describe the Goods page") {
     () =>
       HowWouldYouDescribeTheGoods
@@ -207,25 +210,7 @@ class StepDefinitions extends BaseStepDef {
 
   And("I enter a reason and continue in Explain Why Transaction of Similar Goods page") {
     () =>
-      WhyTransactionValueOfSimilarGoods.enterReasonForComputedValue("Detailed explanation")
-      submitPage()
-  }
-
-  Then("I will be navigated to Have You Used Method One In the Past page") {
-    () => HaveYouUsedMethodOneInPast.loadPage()
-  }
-
-  And("I select {booleanValue} and continue in Have You Used Method One In the Past page") {
-    (option: Boolean) => HaveYouUsedMethodOneInPast.select(option).submitPage()
-  }
-
-  Then("I will be navigated to Explain Why Identical Goods page") {
-    () => WhyIdenticalGoods.loadPage()
-  }
-
-  And("I enter a reason and continue in Explain Why Identical Goods page") {
-    () =>
-      WhyIdenticalGoods.enterReasonForComputedValue("Detailed explanation")
+      WhyTransactionValueOfSimilarGoods.enterText("Detailed explanation")
       submitPage()
   }
 

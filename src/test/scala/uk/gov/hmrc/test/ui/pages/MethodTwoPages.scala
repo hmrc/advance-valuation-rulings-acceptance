@@ -1,0 +1,44 @@
+/*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package uk.gov.hmrc.test.ui.pages
+
+import uk.gov.hmrc.test.ui.pages.base._
+
+object HaveYouUsedMethodOneToImportInPast extends YesNoPage {
+  val pageTitle =
+    "In the past 90-days, have you used Valuation Method 1 to import any goods? - Advance Ruling Service - GOV.UK"
+}
+
+object OutlineWhyNotMethodOne extends TextAreaPage {
+  val pageTitle =
+    "Please outline why you have not selected Method 1 to value your goods - Advance Ruling Service - GOV.UK"
+}
+
+object DescribeTheIdenticalGoods extends TextAreaPage {
+  val pageTitle =
+    "Describe the identical goods - Advance Ruling Service - GOV.UK"
+}
+
+object WillYouBeComparingToIdenticalGoods extends YesNoPage {
+  val pageTitle =
+    "Will you be comparing your goods to identical goods imported by another buyer or seller in the past 90-days? - Advance Ruling Service - GOV.UK"
+}
+
+object ExplainHowYouWillCompareToIdenticalGoods extends TextAreaPage {
+  val pageTitle =
+    "Explain how you are comparing your goods to identical goods imported by another buyer or seller in the past 90 days - Advance Ruling Service - GOV.UK"
+}
