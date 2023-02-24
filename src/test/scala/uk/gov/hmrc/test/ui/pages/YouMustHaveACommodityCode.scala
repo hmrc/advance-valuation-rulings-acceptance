@@ -22,7 +22,7 @@ import org.openqa.selenium.By
 object YouMustHaveACommodityCode extends BasePage {
 
   val pageTitle =
-    "You must have a commodity code in order to carry on with your application - Advance Ruling Service - GOV.UK"
+    "You must have a commodity code in order to carry on with your application"
 
   val ele_ImportingGoodsIntoUk            = "commodity_code_link_one"
   val ele_CustomValueOfYourImportedGoods  = "commodity_code_link_two"

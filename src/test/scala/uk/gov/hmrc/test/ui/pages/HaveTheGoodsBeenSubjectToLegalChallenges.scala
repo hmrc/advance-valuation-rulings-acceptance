@@ -21,6 +21,6 @@ import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 object HaveTheGoodsBeenSubjectToLegalChallenges extends YesNoPage {
 
   val pageTitle =
-    "haveTheGoodsBeenSubjectToLegalChallenges - Advance Ruling Service - GOV.UK"
+    "haveTheGoodsBeenSubjectToLegalChallenges"
 
 }

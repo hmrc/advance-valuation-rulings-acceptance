@@ -20,6 +20,6 @@ import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 
 object AddressPage extends YesNoPage {
 
-  val pageTitle = "Check the name and address for EORI number - Advance Ruling Service - GOV.UK"
+  val pageTitle = "Check the name and address for EORI number"
 
 }

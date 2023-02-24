@@ -22,7 +22,7 @@ import org.openqa.selenium.By
 object ProvideYourContactDetails extends BasePage {
 
   val pageTitle   =
-    "Provide the contact details for this application - Advance Ruling Service - GOV.UK"
+    "Provide the contact details for this application"
   val ele_name    = "name"
   val ele_email   = "email"
   val ele_contact = "phone"

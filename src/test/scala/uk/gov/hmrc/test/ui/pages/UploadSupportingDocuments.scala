@@ -16,19 +16,19 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
 import uk.gov.hmrc.test.ui.pages.base.BasePage
-import java.io.File
 
+import org.openqa.selenium.By
 object UploadSupportingDocuments extends BasePage {
 
-  val pageTitle     = "Upload supporting documents for the goods - Advance Ruling Service - GOV.UK"
-  val ele_UploadDocument = "file-input"
+  val pageTitle          =
+    "Upload supporting documents for the " + GoodsName + ""
+  val ele_UploadDocument = "file-upload-1"
+  val uploadFilePath     = "/Users/sitaramireddytanunboddi/Desktop/ARS/ARS-365.xlsx"
 
-  def uploadDocument(filePath: String) = {
-    val file = new File(filePath)
-    val path = file.getAbsolutePath
-    driver.findElement(By.id(ele_UploadDocument)).sendKeys(path)
+  def uploadDocument() {
+    driver
+      .findElement(By.id(ele_UploadDocument))
+      .sendKeys(uploadFilePath)
   }
-
 }

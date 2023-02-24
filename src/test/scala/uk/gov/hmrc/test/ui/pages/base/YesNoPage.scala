@@ -27,11 +27,15 @@ trait YesNoPage extends BasePage {
   private val yesRadio = By.xpath(radioOptionYes)
   private val noRadio  = By.xpath(radioOptionNo)
 
-  def selectYes() = yesRadio.find.click()
-  def selectNo()  = noRadio.find.click()
-
-  def select(value: Boolean) = {
-    if (value) selectYes() else selectNo()
+  def selectYes(): YesNoPage = {
+    yesRadio.find.click()
     this
   }
+  def selectNo(): YesNoPage  = {
+    noRadio.find.click()
+    this
+  }
+
+  def select(value: Boolean): YesNoPage =
+    if (value) selectYes() else selectNo()
 }
