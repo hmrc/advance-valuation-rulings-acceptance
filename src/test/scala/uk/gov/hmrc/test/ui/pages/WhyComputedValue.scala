@@ -21,7 +21,7 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 import org.openqa.selenium.By
 object WhyComputedValue extends BasePage {
   val pageTitle                     =
-    "Please outline why you have not selected Methods 1-4 to value your goods - Advance Ruling Service - GOV.UK"
+    "Please outline why you have not selected Methods 1-4 to value your goods"
   private val computedValueTextArea = By.id("value")
 
   def enterReasonForComputedValue(reason: String) {

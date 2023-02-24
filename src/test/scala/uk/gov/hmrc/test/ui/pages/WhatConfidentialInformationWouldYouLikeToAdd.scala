@@ -22,7 +22,7 @@ import org.openqa.selenium.By
 object WhatConfidentialInformationWouldYouLikeToAdd extends BasePage {
 
   val pageTitle            =
-    "What confidential information would you like to add about the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
+    "What confidential information would you like to add about the " + GoodsName + "?"
   val ele_ConfidentialInfo = "value"
 
   def enterConfidentialInfo(confidentialInfo: String): Unit = {

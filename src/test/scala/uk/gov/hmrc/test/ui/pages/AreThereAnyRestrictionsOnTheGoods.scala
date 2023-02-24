@@ -21,5 +21,5 @@ import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 object AreThereAnyRestrictionsOnTheGoods extends YesNoPage {
 
   val pageTitle =
-    "Are there any restrictions on the use or resale of the goods? - Advance Ruling Service - GOV.UK"
+    "Are there any restrictions on the use or resale of the goods?"
 }

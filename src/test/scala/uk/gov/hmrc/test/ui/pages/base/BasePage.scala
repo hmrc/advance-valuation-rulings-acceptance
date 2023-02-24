@@ -22,6 +22,7 @@ import org.openqa.selenium.{By, WebDriver}
 import org.scalatest.matchers.should.Matchers
 
 trait BasePage extends BrowserDriver with Matchers {
+  import BasePage._
   val pageTitle: String
 
   val continueButton          = "govuk-button"
@@ -32,7 +33,7 @@ trait BasePage extends BrowserDriver with Matchers {
     driver.findElement(By.className(continueButton)).click()
 
   def loadPage(): this.type = {
-    onPage(this.pageTitle)
+    onPage(this.pageTitle + titleSuffix)
     this
   }
 
@@ -52,7 +53,8 @@ object BasePage {
   lazy val baseUrl = TestConfiguration.environmentHost
 
   val continueButton                                           = "govuk-button"
-  val arsHomePageText                                          = "Your applications and rulings - Advance Ruling Service - GOV.UK"
+  val titleSuffix                                              = " - Advance Ruling Service - GOV.UK"
+  val arsHomePageText                                          = "Your applications and rulings" + titleSuffix
   val URL_ARSHomePage                                          = s"$baseUrl/advance-valuation-ruling/accountHome"
   val nameOfGoodsUrl                                           = s"$baseUrl/advance-valuation-ruling/nameOfGoods"
   def invokeURL(URL: String)(implicit driver: WebDriver): Unit = {

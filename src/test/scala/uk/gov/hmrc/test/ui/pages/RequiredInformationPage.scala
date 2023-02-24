@@ -22,9 +22,9 @@ object RequiredInformationPage extends BasePage {
   import org.openqa.selenium.By
 
   val pageTitle      =
-    "Information you need to complete an application - Advance Ruling Service - GOV.UK"
+    "Information you need to complete an application"
   val errorPageTitle =
-    "Error: Information you need to complete an application - Advance Ruling Service - GOV.UK"
+    "Error: Information you need to complete an application"
   val ele_Checkbox1  = By.id("value_0")
   val ele_Checkbox2  = By.id("value_1")
   val ele_Checkbox3  = By.id("value_2")

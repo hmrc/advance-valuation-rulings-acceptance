@@ -21,5 +21,5 @@ import uk.gov.hmrc.test.ui.pages.base.YesNoPage
 object PlanningToImportGoods extends YesNoPage {
 
   val pageTitle =
-    "To use this service, you must intend to bring goods into Great Britain - Advance Ruling Service - GOV.UK"
+    "To use this service, you must intend to bring goods into Great Britain"
 }

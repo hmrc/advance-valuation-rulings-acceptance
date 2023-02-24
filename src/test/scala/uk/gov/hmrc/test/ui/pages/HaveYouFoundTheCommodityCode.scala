@@ -23,10 +23,10 @@ import org.openqa.selenium.By
 object HaveYouFoundTheCommodityCode extends YesNoPage {
 
   val goodsNameDisaply = "Have you found the commodity code for the " + GoodsName + " ?"
-  val pageTitle        = "Have you found the commodity code for the - Advance Ruling Service - GOV.UK"
+  val pageTitle        = "Have you found the commodity code for the"
 
   override def loadPage(): this.type = {
-    onPage(this.pageTitle)
+    super.loadPage()
     assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisaply)
     this
   }
