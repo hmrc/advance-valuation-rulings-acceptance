@@ -35,7 +35,7 @@ Feature: End To End Journey
     And I select "No" and continue in Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods
     Then I will be navigated to Description of the Goods page
 
-  Scenario: Method 1 short flow
+  Scenario: Method 1 no sale involved
     Given I am on the ARS Home Page
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
