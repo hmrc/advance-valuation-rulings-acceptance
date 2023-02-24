@@ -14,7 +14,6 @@ Feature: End To End Journey
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "No" and continue in Check the name and address page
     Then I will be navigated to Your EORI details must be up to date to use this service
@@ -24,15 +23,13 @@ Feature: End To End Journey
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
-    Then I navigate to Name Of Goods page
-    And I enter Name of the Goods "Coffee" and continue in What is the name of the goods page
+    Then I navigate to Description of the Goods
+    And I enter "Coffee" as the description and press continue
     And I select "No" and continue in Have you found the commodity code
-    Then I will be navigated to You must have a commodity code
-
+    Then I will be navigated to Have the goods been subject to legal challenges
 
     # End 2 End Flow
 
@@ -41,7 +38,6 @@ Feature: End To End Journey
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
@@ -61,7 +57,6 @@ Feature: End To End Journey
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
@@ -70,23 +65,13 @@ Feature: End To End Journey
     And I enter a reason and continue in Explain Why Identical Goods page
     Then I will be navigated to Have You Used Method One In the Past page
     And I select "Yes" and continue in Have You Used Method One In the Past page
-#   Then I will enter name of the goods in about the goods page
-#  And I select "Yes" and continue in have you found the commodity code page
-#  And I enter commodity code  and continue
-#  And I enter country name in which country are goods coming from
-#  And I select "Yes" and continue in Are the goods being shipped from orgin country to GB
-#  And I enter goods description in how would you describe the goods page
-#  And I enter goods made in how the the goods made page
-#  And I select "No" in add confidential info about goods page
-#  And I select "Yes" in do you want to upload any supporting documents
-#  And I will uplad supporting documents in Upload documents page
+
 @ZAP
   Scenario: Method 3 flow
     Given I am on the ARS Home Page
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
@@ -101,7 +86,6 @@ Feature: End To End Journey
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
@@ -112,7 +96,6 @@ Feature: End To End Journey
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
@@ -127,7 +110,6 @@ Feature: End To End Journey
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
-    And  I click on Continue in Some of the information you provide
     And I click on continue in How We Contact You page
     And I select "Yes" and continue in Check the name and address page
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page

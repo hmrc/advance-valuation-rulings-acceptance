@@ -25,8 +25,6 @@ class StepDefinitions extends BaseStepDef {
 
   Given("I am on the ARS Home Page")(() => BasePage.invokeURL(BasePage.URL_ARSHomePage))
 
-  Then("I navigate to Name Of Goods page")(() => BasePage.invokeURL(BasePage.nameOfGoodsUrl))
-
   When("I click on Start new application in ARS Home") {
     () =>
       onPage(base.BasePage.arsHomePageText)
@@ -36,43 +34,40 @@ class StepDefinitions extends BaseStepDef {
     "I check all the checkboxes and click continue in Information you need to complete an application page"
   ) {
     () =>
-      RequiredInformationPage.loadPage
+      RequiredInformationPage.loadPage()
       RequiredInformationPage.selectAllCheckbox()
       submitPage()
   }
   And("I select {booleanValue} and continue in Are you planning to import goods page") {
     (option: Boolean) =>
-      PlanningToImportGoods.loadPage
+      PlanningToImportGoods.loadPage()
       PlanningToImportGoods.select(option)
-      submitPage()
-  }
-  And("I click on Continue in Some of the information you provide") {
-    () =>
-      SomeOfTheInfo.loadPage
       submitPage()
   }
   And("I click on continue in How We Contact You page") {
     () =>
-      HowWeContactYou.loadPage
+      HowWeContactYou.loadPage()
       submitPage()
   }
   And("I select {booleanValue} and continue in Check the name and address page") {
-    (option: Boolean) => AddressPage.loadPage.select(option).submitPage()
+    (option: Boolean) => AddressPage.loadPage().select(option).submitPage()
   }
   And("I select {booleanValue} and continue in Have you found the commodity code") {
-    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage.select(option).submitPage()
+    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage().select(option).submitPage()
   }
   And(
     "I select {booleanValue} and continue in Do you want to add any confidential information page"
   ) {
     (option: Boolean) =>
-      DoYouWantToAddAnyConfidentialInformation.loadPage
+      DoYouWantToAddAnyConfidentialInformation
+        .loadPage()
         .select(option)
         .submitPage()
   }
   And("I select {booleanValue} and continue in Are the Goods being shipped directly page") {
     (option: Boolean) =>
-      AreTheGoodsBeingShippedDirectly.loadPage
+      AreTheGoodsBeingShippedDirectly
+        .loadPage()
         .select(option)
         .submitPage()
   }
@@ -80,7 +75,8 @@ class StepDefinitions extends BaseStepDef {
     "I select {booleanValue} and continue in Do you want to upload any supporting documents page"
   ) {
     (option: Boolean) =>
-      DoYouWantToUploadAnySupportingDocuments.loadPage
+      DoYouWantToUploadAnySupportingDocuments
+        .loadPage()
         .select(option)
         .submitPage()
   }
@@ -89,48 +85,56 @@ class StepDefinitions extends BaseStepDef {
     "I enter Name- {string} Email- {string},Phone- {string} details and continue in Provide your contact details page"
   ) {
     (name: String, email: String, phone: String) =>
-      ProvideYourContactDetails.loadPage
+      ProvideYourContactDetails.loadPage()
       ProvideYourContactDetails.enterContactDetails(name, email, phone)
       submitPage()
   }
   And("I select Method {int} and continue in Select the method page") {
     (methodNumber: Int) =>
-      MethodSelectionPage.loadPage
+      MethodSelectionPage.loadPage()
       MethodSelectionPage.selectMethod(methodNumber)
       submitPage()
   }
-  And("I enter Name of the Goods {string} and continue in What is the name of the goods page") {
+  Then("I navigate to Description of the Goods") {
+    () => BasePage.invokeURL(DescriptionOfTheGoods.url)
+  }
+  And("I enter {string} as the description and press continue") {
     (goodsName: String) =>
-      NameOfTheGoods.loadPage
+      DescriptionOfTheGoods
+        .loadPage()
         .enterGoodsName(goodsName)
       submitPage()
   }
   And("I select {booleanValue} and continue in Have you found the commodity code page") {
-    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage.select(option)
+    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage().select(option)
   }
 
   And("I enter the commodity code {string} and continue in What is the commodity code page") {
     (commodityCode: String) =>
-      WhatIsTheCommodityCode.loadPage
+      WhatIsTheCommodityCode
+        .loadPage()
         .enterCommodityCode(commodityCode)
       submitPage()
   }
   And("I enter country {string} and continue in Which country are the Goods coming from page") {
     (country: String) =>
-      WhichCountryAreTheGoodsComingFrom.loadPage
+      WhichCountryAreTheGoodsComingFrom
+        .loadPage()
         .enterCountry(country)
       submitPage()
   }
 
   And("I enter description and continue in How would you describe the Goods page") {
     () =>
-      HowWouldYouDescribeTheGoods.loadPage
+      HowWouldYouDescribeTheGoods
+        .loadPage()
         .enterGoodsDescription("Goods Description")
       submitPage()
   }
   And("I enter description and continue in How are the Goods made page") {
     () =>
-      HowAreTheGoodsMade.loadPage
+      HowAreTheGoodsMade
+        .loadPage()
         .enterHowItMade("How it Made Description")
       submitPage()
   }
@@ -139,7 +143,8 @@ class StepDefinitions extends BaseStepDef {
     "I enter the details and continue in What confidential information would you like to add page"
   ) {
     () =>
-      WhatConfidentialInformationWouldYouLikeToAdd.loadPage
+      WhatConfidentialInformationWouldYouLikeToAdd
+        .loadPage()
         .enterConfidentialInfo("Confidential info")
       submitPage()
   }
@@ -155,27 +160,30 @@ class StepDefinitions extends BaseStepDef {
     "I select {booleanValue} and continue in Do you want this file to be marked as confidential page"
   ) {
     (option: Boolean) =>
-      DoYouWantThisFileToBeMarkAsConfidential.loadPage.select(option).submitPage()
+      DoYouWantThisFileToBeMarkAsConfidential.loadPage().select(option).submitPage()
   }
 
   Then("I will be navigated to This service is designed for those") {
     () =>
-      ThisServiceIsDesignedForThose.loadPage
+      ThisServiceIsDesignedForThose.loadPage()
       ThisServiceIsDesignedForThose.linkNavigationValidation()
   }
   Then("I will be navigated to Your EORI details must be up to date to use this service")(
-    () => YourEORIMustBeUpToDate.loadPage
+    () => YourEORIMustBeUpToDate.loadPage()
   )
   Then("I will be navigated to You must have a commodity code") {
     () =>
-      YouMustHaveACommodityCode.loadPage
+      YouMustHaveACommodityCode.loadPage()
       YouMustHaveACommodityCode.linkNavigationValidation()
   }
+  Then("I will be navigated to Have the goods been subject to legal challenges") {
+    () => HaveTheGoodsBeenSubjectToLegalChallenges.loadPage()
+  }
   Then("I will be navigated to You have uploaded supporting document") {
-    () => YouHaveUploadedSupportingDocument.loadPage
+    () => YouHaveUploadedSupportingDocument.loadPage()
   }
 
-  Then("I will be navigated to Why Computed Value page")(() => WhyComputedValue.loadPage)
+  Then("I will be navigated to Why Computed Value page")(() => WhyComputedValue.loadPage())
 
   And("I enter a reason and continue in Why Computed Value page") {
     () =>
@@ -184,7 +192,7 @@ class StepDefinitions extends BaseStepDef {
   }
 
   Then("I will be navigated to Explain Reason Computed Value page") {
-    () => ExplainWhyComputedValue.loadPage
+    () => ExplainWhyComputedValue.loadPage()
   }
 
   And("I enter a reason and continue in Explain Reason Computed Value page") {
@@ -194,7 +202,7 @@ class StepDefinitions extends BaseStepDef {
   }
 
   Then("I will be navigated to Explain Why Transaction of Similar Goods page") {
-    () => WhyTransactionValueOfSimilarGoods.loadPage
+    () => WhyTransactionValueOfSimilarGoods.loadPage()
   }
 
   And("I enter a reason and continue in Explain Why Transaction of Similar Goods page") {
@@ -204,7 +212,7 @@ class StepDefinitions extends BaseStepDef {
   }
 
   Then("I will be navigated to Have You Used Method One In the Past page") {
-    () => HaveYouUsedMethodOneInPast.loadPage
+    () => HaveYouUsedMethodOneInPast.loadPage()
   }
 
   And("I select {booleanValue} and continue in Have You Used Method One In the Past page") {
@@ -212,7 +220,7 @@ class StepDefinitions extends BaseStepDef {
   }
 
   Then("I will be navigated to Explain Why Identical Goods page") {
-    () => WhyIdenticalGoods.loadPage
+    () => WhyIdenticalGoods.loadPage()
   }
 
   And("I enter a reason and continue in Explain Why Identical Goods page") {
