@@ -159,10 +159,9 @@ Feature: End To End Journey
     And I upload the document "abc" and continue in Upload supporting documents page
     And I select "Yes" and continue in Do you want this file to be marked as confidential page
     Then I will be navigated to You have uploaded supporting document
-#
-#
-#
-  @smoke
+
+
+
   Scenario: Confidential information No flow
     Given I am on the ARS Home Page
     Given I am on the ARS Home Page

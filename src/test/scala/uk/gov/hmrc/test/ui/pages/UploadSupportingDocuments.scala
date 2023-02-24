@@ -20,27 +20,15 @@ import org.openqa.selenium.By
 
 import java.io.File
 
-
-
 object UploadSupportingDocuments extends BasePage {
 
   val pageTitle     = "Upload supporting documents for the goods - Advance Ruling Service - GOV.UK"
   val ele_UploadDocument = "file-input"
-
-
-
-  def loadPage: this.type = {
-    onPage(this.pageTitle)
-    this
-  }
-
-
 
   def uploadDocument(filePath: String) = {
     val file = new File(filePath)
     val path = file.getAbsolutePath
     driver.findElement(By.id(ele_UploadDocument)).sendKeys(path)
   }
-
 
 }
