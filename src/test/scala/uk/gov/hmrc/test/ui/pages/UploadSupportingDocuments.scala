@@ -17,7 +17,7 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-
+import uk.gov.hmrc.test.ui.pages.base.BasePage
 import java.io.File
 
 object UploadSupportingDocuments extends BasePage {
