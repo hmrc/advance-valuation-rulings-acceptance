@@ -23,7 +23,8 @@ trait TextAreaPage extends BasePage {
 
   val textArea = By.id("value")
 
-  def enterText(content: String) {
+  def enterText(content: String): TextAreaPage = {
     textArea.find.enterText(content)
+    this
   }
 }
