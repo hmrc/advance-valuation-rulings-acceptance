@@ -21,7 +21,9 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 import org.openqa.selenium.By
 object HowWouldYouDescribeTheGoods extends BasePage {
 
-  val pageTitle            = "How would you describe the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
+//  val pageTitle            = "How would you describe the " + GoodsName + "? - Advance Ruling Service - GOV.UK"
+ //val pageTitle            = "Describe the identical goods - Advance Ruling Service - GOV.UK"
+  val pageTitle            = "descriptionOfGoods - Advance Ruling Service - GOV.UK"
   val ele_GoodsDescription = By.id("value")
 
   def enterGoodsDescription(description: String): Unit =
