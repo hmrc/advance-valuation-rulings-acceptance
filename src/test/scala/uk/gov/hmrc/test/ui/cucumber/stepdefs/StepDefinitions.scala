@@ -233,6 +233,7 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   And(
     "I select {booleanValue} and continue in Are there any restrictions on the use or resale of the goods"
   )((option: Boolean) => AreThereAnyRestrictionsOnGoods.select(option).submitPage())
+
   And("I enter {string} and continue in Describe any restrictions on the use or resale of goods") {
     (text: String) =>
       DescribeAnyRestrictions.enterText(text)
@@ -240,14 +241,25 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   }
 
   And(
+    "I enter {string} and continue in Describe the conditions or circumstances which cannot be calculated"
+  )
+  ((text: String) => DescribeAnyConditions.enterText(text).submitPage())
+
+  And("I enter {string} as the conditions which cannot be calculated and press continue") {
+    (text: String) => DescribeAnyConditions.enterText(text).submitPage()
+  }
+
+  And("I enter {string} as the conditions which cannot be calculated and press continue")
+  ((text: String) => DescribeAnyConditions.enterText(text).submitPage())
+
+  And(
     "I select {booleanValue} and continue in Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods"
   )((option: Boolean) => IsSaleSubjectToConditions.select(option).submitPage())
 
-  And(
-    "I enter {string} and continue in Describe the conditions or circumstances which cannot be calculated"
-  ) {
-    (text: String) =>
-      DescribeAnyConditions.enterText(text)
-      submitPage()
-  }
+  Then("I will be navigated to the Check Your Answers page")(() => CheckYourAnswers.loadPage())
+
+  And("I check my answers and click on continue")(() => CheckYourAnswers.submitPage())
+
+  Then("I will be navigated to the Application Complete page")(() => ApplicationComplete.loadPage())
+
 }

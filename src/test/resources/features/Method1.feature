@@ -17,8 +17,17 @@ Feature: End To End Journey
     And I select "Yes" and continue in Are there any restrictions on the use or resale of the goods
     And I enter "restrictions" and continue in Describe any restrictions on the use or resale of goods
     And I select "Yes" and continue in Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods
-    And I enter "conditions" and continue in Describe the conditions or circumstances which cannot be calculated
+    And I enter "various conditions" as the conditions which cannot be calculated and press continue
     Then I will be navigated to Description of the Goods page
+    And I enter "nice things" as the description and press continue
+    And I select "No" and continue in Have you found the commodity code
+    Then I will be navigated to Have the goods been subject to legal challenges
+    And I select that the goods have not been subject to legal challenges
+    And I select "No" and continue in Do you want to add any confidential information page
+    And I select "No" and continue in Do you want to upload any supporting documents page
+    Then I will be navigated to the Check Your Answers page
+    And I check my answers and click on continue
+    Then I will be navigated to the Application Complete page
 
   Scenario: Method 1 short flow
     Given I am on the ARS Home Page
