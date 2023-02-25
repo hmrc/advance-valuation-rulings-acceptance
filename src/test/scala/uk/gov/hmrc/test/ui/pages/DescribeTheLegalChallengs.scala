@@ -16,15 +16,8 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.BasePage
+import uk.gov.hmrc.test.ui.pages.base._
 
-import org.openqa.selenium.By
-object WhyComputedValue extends BasePage {
-  val pageTitle                     =
-    "Please outline why you have not selected Methods 1-4 to value your goods"
-  private val computedValueTextArea = By.id("value")
-
-  def enterReasonForComputedValue(reason: String) {
-    computedValueTextArea.find.enterText(reason)
-  }
+object SescribeTheLegalChallenges extends TextAreaPage {
+  val pageTitle = "describeTheLegalChallenges"
 }
