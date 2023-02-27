@@ -20,6 +20,6 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 object YouHaveUploadedSupportingDocument extends BasePage {
 
   val pageTitle =
-    "You have uploaded one supporting document for the " + GoodsName + ""
+    "You have uploaded one supporting document"
 
 }

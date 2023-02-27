@@ -21,8 +21,8 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 import org.openqa.selenium.By
 object WhatIsTheCommodityCode extends BasePage {
 
-  val goodsNameDisplay  = "What is the commodity code for the " + GoodsName + "?"
-  val pageTitle         = "What is the commodity code for the {0}?"
+  val goodsNameDisplay  = "What is the commodity code for the goods?"
+  val pageTitle         = "What is the commodity code for the goods?"
   val ele_CommodityCode = "value"
 
   override def loadPage(): this.type = {

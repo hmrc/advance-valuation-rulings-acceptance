@@ -120,13 +120,6 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
         .enterCommodityCode(commodityCode)
       submitPage()
   }
-  And("I enter description and continue in How would you describe the Goods page") {
-    () =>
-      HowWouldYouDescribeTheGoods
-        .loadPage()
-        .enterGoodsDescription("Goods Description")
-      submitPage()
-  }
   And("I enter description and continue in How are the Goods made page") {
     () =>
       HowAreTheGoodsMade
