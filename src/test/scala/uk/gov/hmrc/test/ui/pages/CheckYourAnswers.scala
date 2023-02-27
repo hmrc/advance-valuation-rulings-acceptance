@@ -18,16 +18,8 @@ package uk.gov.hmrc.test.ui.pages
 
 import uk.gov.hmrc.test.ui.pages.base.BasePage
 
-import org.openqa.selenium.{By, Keys}
-object WhichCountryAreTheGoodsComingFrom extends BasePage {
-  val pageTitle = "Which country are the {0} coming from?"
-  val countryId = "countryId"
+object CheckYourAnswers extends BasePage {
 
-  def enterCountry(countryName: String): Unit = {
-    driver.findElement(By.id(countryId)).clear()
-    driver.findElement(By.id(countryId)).sendKeys(countryName)
-    Thread.sleep(1000)
-    driver.findElement(By.id(countryId)).sendKeys(Keys.ENTER)
-    Thread.sleep(1000)
-  }
+  val pageTitle = "Check your answers before sending your application"
+
 }

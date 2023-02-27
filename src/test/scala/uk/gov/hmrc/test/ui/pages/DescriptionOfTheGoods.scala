@@ -16,22 +16,10 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.BasePage
+import uk.gov.hmrc.test.ui.pages.base._
 
-import org.openqa.selenium.By
-
-object DescriptionOfTheGoods extends BasePage {
+object DescriptionOfTheGoods extends TextAreaPage {
   val url = s"${BasePage.baseUrl}/advance-valuation-ruling/descriptionOfGoods"
 
-  val pageTitle      = "descriptionOfGoods"
-  val errorPageTitle = "Error: descriptionOfGoods"
-  val ele_GoodsName  = By.id("value")
-
-  def errorLoadPage: this.type = {
-    onPage(this.errorPageTitle)
-    this
-  }
-
-  def enterGoodsName(goodsName: String): Unit =
-    ele_GoodsName.find.enterText(goodsName)
+  val pageTitle = "descriptionOfGoods"
 }

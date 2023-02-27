@@ -16,11 +16,8 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.YesNoPage
+import uk.gov.hmrc.test.ui.pages.base._
 
-object DoYouWantThisFileToBeMarkAsConfidential extends YesNoPage {
-
-  val pageTitle =
-    "Do you want this file to be marked as confidential?"
-
+object SescribeTheLegalChallenges extends TextAreaPage {
+  val pageTitle = "describeTheLegalChallenges"
 }

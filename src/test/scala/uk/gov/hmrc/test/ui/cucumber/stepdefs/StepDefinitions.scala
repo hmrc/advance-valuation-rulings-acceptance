@@ -106,8 +106,8 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
     (goodsName: String) =>
       DescriptionOfTheGoods
         .loadPage()
-        .enterGoodsName(goodsName)
-      submitPage()
+        .enterText(goodsName)
+        .submitPage()
   }
   And("I select {booleanValue} and continue in Have you found the commodity code page") {
     (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage().select(option)
@@ -118,13 +118,6 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
       WhatIsTheCommodityCode
         .loadPage()
         .enterCommodityCode(commodityCode)
-      submitPage()
-  }
-  And("I enter country {string} and continue in Which country are the Goods coming from page") {
-    (country: String) =>
-      WhichCountryAreTheGoodsComingFrom
-        .loadPage()
-        .enterCountry(country)
       submitPage()
   }
   And("I enter description and continue in How would you describe the Goods page") {
@@ -163,7 +156,7 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
     "I select {booleanValue} and continue in Do you want this file to be marked as confidential page"
   ) {
     (option: Boolean) =>
-      DoYouWantThisFileToBeMarkAsConfidential.loadPage().select(option).submitPage()
+      DoYouWantThisFileToBeMarkedAsConfidential.loadPage().select(option).submitPage()
   }
 
   Then("I will be navigated to This service is designed for those") {
@@ -182,6 +175,19 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   Then("I will be navigated to Have the goods been subject to legal challenges") {
     () => HaveTheGoodsBeenSubjectToLegalChallenges.loadPage()
   }
+  And("I select that the goods been subject to legal challenges") {
+    () =>
+      HaveTheGoodsBeenSubjectToLegalChallenges
+        .selectYes()
+        .submitPage()
+  }
+  And("I select that the goods have not been subject to legal challenges") {
+    () =>
+      HaveTheGoodsBeenSubjectToLegalChallenges
+        .selectNo()
+        .submitPage()
+  }
+
   Then("I will be navigated to You have uploaded supporting document") {
     () => YouHaveUploadedSupportingDocument.loadPage()
   }
@@ -189,9 +195,7 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   Then("I will be navigated to Why Computed Value page")(() => WhyComputedValue.loadPage())
 
   And("I enter a reason and continue in Why Computed Value page") {
-    () =>
-      WhyComputedValue.enterReasonForComputedValue("Reasonable argument with evidence")
-      submitPage()
+    () => WhyComputedValue.enterText("Reasonable argument with evidence").submitPage()
   }
 
   Then("I will be navigated to Explain Reason Computed Value page") {
@@ -199,9 +203,7 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   }
 
   And("I enter a reason and continue in Explain Reason Computed Value page") {
-    () =>
-      ExplainWhyComputedValue.enterReasonForComputedValue("Detailed explanation")
-      submitPage()
+    () => ExplainWhyComputedValue.enterText("Detailed explanation").submitPage()
   }
 
   Then("I will be navigated to Explain Why Transaction of Similar Goods page") {
@@ -231,6 +233,7 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   And(
     "I select {booleanValue} and continue in Are there any restrictions on the use or resale of the goods"
   )((option: Boolean) => AreThereAnyRestrictionsOnGoods.select(option).submitPage())
+
   And("I enter {string} and continue in Describe any restrictions on the use or resale of goods") {
     (text: String) =>
       DescribeAnyRestrictions.enterText(text)
@@ -238,14 +241,25 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   }
 
   And(
+    "I enter {string} and continue in Describe the conditions or circumstances which cannot be calculated"
+  )
+  ((text: String) => DescribeAnyConditions.enterText(text).submitPage())
+
+  And("I enter {string} as the conditions which cannot be calculated and press continue") {
+    (text: String) => DescribeAnyConditions.enterText(text).submitPage()
+  }
+
+  And("I enter {string} as the conditions which cannot be calculated and press continue")
+  ((text: String) => DescribeAnyConditions.enterText(text).submitPage())
+
+  And(
     "I select {booleanValue} and continue in Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods"
   )((option: Boolean) => IsSaleSubjectToConditions.select(option).submitPage())
 
-  And(
-    "I enter {string} and continue in Describe the conditions or circumstances which cannot be calculated"
-  ) {
-    (text: String) =>
-      DescribeAnyConditions.enterText(text)
-      submitPage()
-  }
+  Then("I will be navigated to the Check Your Answers page")(() => CheckYourAnswers.loadPage())
+
+  And("I check my answers and click on continue")(() => CheckYourAnswers.submitPage())
+
+  Then("I will be navigated to the Application Complete page")(() => ApplicationComplete.loadPage())
+
 }
