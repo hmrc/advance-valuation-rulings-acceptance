@@ -26,7 +26,6 @@ trait BasePage extends BrowserDriver with Matchers {
   val pageTitle: String
 
   val continueButton          = "govuk-button"
-  var GoodsName               = "No name of goods found"
   val ele_StartNewApplication = "csrfToken"
 
   def submitPage(): Unit =
