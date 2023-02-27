@@ -22,7 +22,7 @@ import org.openqa.selenium.By
 object UploadSupportingDocuments extends BasePage {
 
   val pageTitle          =
-    "Upload supporting documents for the " + GoodsName + ""
+    "Upload supporting documents for the goods"
   val ele_UploadDocument = "file-upload-1"
   val uploadFilePath     = "/Users/sitaramireddytanunboddi/Desktop/ARS/ARS-365.xlsx"
 

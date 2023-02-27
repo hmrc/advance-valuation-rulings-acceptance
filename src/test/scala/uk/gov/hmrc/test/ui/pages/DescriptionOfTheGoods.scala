@@ -21,5 +21,5 @@ import uk.gov.hmrc.test.ui.pages.base._
 object DescriptionOfTheGoods extends TextAreaPage {
   val url = s"${BasePage.baseUrl}/advance-valuation-ruling/descriptionOfGoods"
 
-  val pageTitle = "descriptionOfGoods"
+  val pageTitle = "Give a short description of the goods"
 }

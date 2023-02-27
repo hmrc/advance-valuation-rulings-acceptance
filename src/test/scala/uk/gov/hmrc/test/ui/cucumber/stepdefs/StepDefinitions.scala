@@ -64,13 +64,6 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
         .select(option)
         .submitPage()
   }
-  And("I select {booleanValue} and continue in Are the Goods being shipped directly page") {
-    (option: Boolean) =>
-      AreTheGoodsBeingShippedDirectly
-        .loadPage()
-        .select(option)
-        .submitPage()
-  }
   And(
     "I select {booleanValue} and continue in Do you want to upload any supporting documents page"
   ) {
@@ -120,31 +113,6 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
         .enterCommodityCode(commodityCode)
       submitPage()
   }
-  And("I enter description and continue in How would you describe the Goods page") {
-    () =>
-      HowWouldYouDescribeTheGoods
-        .loadPage()
-        .enterGoodsDescription("Goods Description")
-      submitPage()
-  }
-  And("I enter description and continue in How are the Goods made page") {
-    () =>
-      HowAreTheGoodsMade
-        .loadPage()
-        .enterHowItMade("How it Made Description")
-      submitPage()
-  }
-
-  And(
-    "I enter the details and continue in What confidential information would you like to add page"
-  ) {
-    () =>
-      WhatConfidentialInformationWouldYouLikeToAdd
-        .loadPage()
-        .enterConfidentialInfo("Confidential info")
-      submitPage()
-  }
-
   And("I upload the document and continue in Upload supporting documents page") {
     () =>
       UploadSupportingDocuments
