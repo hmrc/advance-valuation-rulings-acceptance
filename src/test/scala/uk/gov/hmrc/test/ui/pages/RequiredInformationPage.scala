@@ -31,8 +31,6 @@ object RequiredInformationPage extends BasePage {
   val ele_Checkbox4  = By.id("value_3")
   val ele_Checkbox5  = By.id("value_4")
   val ele_Checkbox6  = By.id("value_5")
-  val ele_Checkbox7  = By.id("value_6")
-  val ele_Checkbox8  = By.id("value_7")
   val ele_Continue   = By.id("govuk-button")
 
   private val allBoxes = Seq(
@@ -41,9 +39,7 @@ object RequiredInformationPage extends BasePage {
     ele_Checkbox3,
     ele_Checkbox4,
     ele_Checkbox5,
-    ele_Checkbox6,
-    ele_Checkbox7,
-    ele_Checkbox8
+    ele_Checkbox6
   )
 
   def error_LoadPage: this.type = {
