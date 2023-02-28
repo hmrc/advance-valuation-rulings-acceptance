@@ -17,21 +17,20 @@
 package uk.gov.hmrc.test.ui.pages
 
 import uk.gov.hmrc.test.ui.pages.base.BasePage
+
 object RequiredInformationPage extends BasePage {
 
   import org.openqa.selenium.By
 
-  val pageTitle      =
-    "Information you need to complete an application"
-  val errorPageTitle =
-    "Error: Information you need to complete an application"
-  val ele_Checkbox1  = By.id("value_0")
-  val ele_Checkbox2  = By.id("value_1")
-  val ele_Checkbox3  = By.id("value_2")
-  val ele_Checkbox4  = By.id("value_3")
-  val ele_Checkbox5  = By.id("value_4")
-  val ele_Checkbox6  = By.id("value_5")
-  val ele_Continue   = By.id("govuk-button")
+  val pageTitle     =
+    "Before you start your application"
+  val ele_Checkbox1 = By.id("value_0")
+  val ele_Checkbox2 = By.id("value_1")
+  val ele_Checkbox3 = By.id("value_2")
+  val ele_Checkbox4 = By.id("value_3")
+  val ele_Checkbox5 = By.id("value_4")
+  val ele_Checkbox6 = By.id("value_5")
+  val ele_Continue  = By.id("govuk-button")
 
   private val allBoxes = Seq(
     ele_Checkbox1,
@@ -41,11 +40,6 @@ object RequiredInformationPage extends BasePage {
     ele_Checkbox5,
     ele_Checkbox6
   )
-
-  def error_LoadPage: this.type = {
-    onPage(this.errorPageTitle)
-    this
-  }
 
   def selectAllCheckbox(): this.type = {
     allBoxes.foreach {
