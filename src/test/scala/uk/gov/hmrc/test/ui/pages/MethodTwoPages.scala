@@ -41,4 +41,20 @@ object WillYouBeComparingToIdenticalGoods extends YesNoPage {
 object ExplainHowYouWillCompareToIdenticalGoods extends TextAreaPage {
   val pageTitle =
     "Explain how you are comparing your goods to identical goods imported by another buyer or seller in the past 90 days"
+
 }
+  object DescriptionOfTheGoodsPage extends TextAreaPage {
+    val pageTitle =
+      "descriptionOfGoods - Advance Ruling Service - GOV.UK"
+}
+
+object EnterIntegerInCommidityCodePage extends TextAreaPage {
+  val pageTitle =
+    "What is the commodity code for the goods? - Advance Ruling Service - GOV.UK"
+}
+
+//object EnterIntegerInCommidityCodePage extends TextAreaPage {
+//  val pageTitle =
+//    "What is the commodity code for the goods? - Advance Ruling Service - GOV.UK"
+//}
+

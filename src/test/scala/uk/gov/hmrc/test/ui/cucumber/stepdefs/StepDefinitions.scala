@@ -52,9 +52,15 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   And("I select {booleanValue} and continue in Check the name and address page") {
     (option: Boolean) => AddressPage.loadPage().select(option).submitPage()
   }
-  And("I select {booleanValue} and continue in Have you found the commodity code") {
-    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage().select(option).submitPage()
-  }
+
+
+  //  And("I select {booleanValue} on have you found commodity code goods page") {
+  //    ((option: Boolean) =>
+  //      HaveYouFoundTheCommodityCode.select(option).submitPage())
+  //
+  //  }}
+  //
+
   And(
     "I select {booleanValue} and continue in Do you want to add any confidential information page"
   ) {
@@ -102,6 +108,22 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
   Then("I will be navigated to Description of the Goods page") {
     () => BasePage.invokeURL(DescriptionOfTheGoods.url)
   }
+
+
+
+  And("I select {booleanValue} and continue in Have you found the commodity code") {
+    (option: Boolean) =>
+//      HaveYouFoundTheCommodityCode.loadPage()
+      HaveYouFoundTheCommodityCodeYesNo.select(option)
+      submitPage()
+  }
+
+  And("I select {booleanValue} and continue in legal challenges page") {
+    (option: Boolean) =>
+      //      HaveYouFoundTheCommodityCode.loadPage()
+      HaveYouFoundTheLegalChallengeYesNo.select(option)
+      submitPage()
+  }
   And("I enter {string} as the description and press continue") {
     (goodsName: String) =>
       DescriptionOfTheGoods
@@ -109,9 +131,9 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
         .enterGoodsName(goodsName)
       submitPage()
   }
-  And("I select {booleanValue} and continue in Have you found the commodity code page") {
-    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage().select(option)
-  }
+//  And("I select {booleanValue} and continue in Have you found the commodity code page") {
+//    (option: Boolean) => HaveYouFoundTheCommodityCode.loadPage().select(option)
+//  }
 
   And("I enter the commodity code {string} and continue in What is the commodity code page") {
     (commodityCode: String) =>
@@ -154,9 +176,9 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
 
   And("I upload the document {string} and continue in Upload supporting documents page") {
     (filePath: String) =>
-      val fullFilePath = "src/test/resources/testdata/" + filePath + ".pdf"
+      //      val fullFilePath = "src/test/resources/testdata/" + filePath + ".pdf"
       UploadSupportingDocuments.loadPage
-        .uploadDocument(fullFilePath)
+        .uploadDocument()
       submitPage()
   }
   And(
@@ -248,4 +270,19 @@ class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
       DescribeAnyConditions.enterText(text)
       submitPage()
   }
+
+//  Then("I will be navigated to Description of the Goods page") {
+//    () => BasePage.invokeURL(DescriptionOfTheGoods.url)
+//  }
+
+  Then("I will be navigated to enter commodity code page") {
+    () => BasePage.invokeURL(EnterCommidityCodePage.url)
+  }
+  Then("I will be navigated to have you found commodity code goods page") {
+    () => BasePage.invokeURL(HaveYouFoundTheCommodityCode.url)
+  }
 }
+
+
+
+

@@ -73,4 +73,12 @@ trait MethodTwoStepDefintions extends BaseStepDef {
         .enterText(description)
         .submitPage()
   }
+
+  And(
+    "I enter {string} in my Description of the Goods page"
+  )((reason: String) => DescriptionOfTheGoodsPage.enterText(reason).submitPage())
+
+  And(
+    "I enter {string} in my enter commodity code"
+  )((reason: String) => EnterIntegerInCommidityCodePage.enterText(reason).submitPage())
 }

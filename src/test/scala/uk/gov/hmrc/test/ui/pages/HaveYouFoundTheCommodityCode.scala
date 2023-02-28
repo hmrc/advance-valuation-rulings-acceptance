@@ -16,18 +16,30 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.YesNoPage
-
+import uk.gov.hmrc.test.ui.pages.base.{BasePage, YesNoPage}
 import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.DescriptionOfTheGoods.onPage
 
-object HaveYouFoundTheCommodityCode extends YesNoPage {
+//object HaveYouFoundTheCommodityCode extends YesNoPage {
+//
+//  val pageTitle =
+//    "Have you found the commodity code for the - Advance Ruling Service - GOV.UK"
+//}
 
-  val goodsNameDisaply = "Have you found the commodity code for the " + GoodsName + " ?"
-  val pageTitle        = "Have you found the commodity code for the"
 
-  override def loadPage(): this.type = {
-    super.loadPage()
-    assert(driver.findElement(By.className("govuk-heading-xl")).getText() == goodsNameDisaply)
-    this
-  }
+
+object HaveYouFoundTheCommodityCode extends BasePage {
+  val url = s"${BasePage.baseUrl}/advance-valuation-ruling/hasCommodityCode"
+
+  val pageTitle      = "Do you have a commodity code for the goods? - Advance Ruling Service - GOV.UK"
+//  val errorPageTitle = "Error: descriptionOfGoods"
+//  val ele_GoodsName  = By.id("value")
+
+//  def errorLoadPage: this.type = {
+//    onPage(this.errorPageTitle)
+//    this
+//  }
+//
+//  def enterGoodsName(goodsName: String): Unit =
+//    ele_GoodsName.find.enterText(goodsName)
 }

@@ -46,3 +46,8 @@ object DescribeAnyConditions extends TextAreaPage {
   override val pageTitle: String =
     "Describe the conditions or circumstances which cannot be calculated"
 }
+
+//object IsSaleSubjectToConditions extends YesNoPage {
+//  override val pageTitle: String =
+//    "Is the sale subject to any conditions or circumstances that could restrict you from valuing the goods?"
+//}
