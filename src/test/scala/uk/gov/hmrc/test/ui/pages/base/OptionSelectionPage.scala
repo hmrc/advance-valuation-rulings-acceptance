@@ -21,14 +21,14 @@ import org.openqa.selenium.By
 trait OptionSelectionPage extends BasePage {
   import uk.gov.hmrc.test.ui.pages._
 
-  val optionOne       = By.id("value_0")
-  val optionTwo       = By.id("value_1")
-  val optionThree     = By.id("value_2")
-  val optionFour      = By.id("value_3")
-  val optionFive      = By.id("value_4")
-  val optionSix       = By.id("value_5")
+  val optionOne   = By.id("value_0")
+  val optionTwo   = By.id("value_1")
+  val optionThree = By.id("value_2")
+  val optionFour  = By.id("value_3")
+  val optionFive  = By.id("value_4")
+  val optionSix   = By.id("value_5")
 
-  def selectOption(optionNumber: Int): Unit =
+  def selectOption(optionNumber: Int): OptionSelectionPage = {
     optionNumber match {
       case 1 => optionOne.find.click()
       case 2 => optionTwo.find.click()
@@ -38,4 +38,6 @@ trait OptionSelectionPage extends BasePage {
       case 6 => optionSix.find.click()
       case _ => throw new Exception("Invalid option number")
     }
+    this
+  }
 }

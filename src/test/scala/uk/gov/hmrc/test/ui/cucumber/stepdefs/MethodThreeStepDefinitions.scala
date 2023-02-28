@@ -19,7 +19,7 @@ package uk.gov.hmrc.test.ui.cucumber.stepdefs
 import uk.gov.hmrc.test.ui.pages._
 
 trait MethodThreeStepDefintions extends BaseStepDef {
-  
+
   Then("I will be navigated to Explain Why Transaction of Similar Goods page") {
     () => ExplainWhyNotMethodOneOrTwo.loadPage()
   }
@@ -31,7 +31,7 @@ trait MethodThreeStepDefintions extends BaseStepDef {
         .submitPage()
   }
 
-   Then("I will be navigated to have you used Valuation Method 1 to import similar goods") {
+  Then("I will be navigated to have you used Valuation Method 1 to import similar goods") {
     () => ExplainWhyNotMethodOneOrTwo.loadPage()
   }
 
@@ -49,14 +49,3 @@ trait MethodThreeStepDefintions extends BaseStepDef {
         .submitPage()
   }
 }
-
-
-  // Then("I will be navigated to Explain Why Transaction of Similar Goods page") {
-  //   () => WhyTransactionValueOfSimilarGoods.loadPage()
-  // }
-
-  // And("I enter a reason and continue in Explain Why Transaction of Similar Goods page") {
-  //   () =>
-  //     WhyTransactionValueOfSimilarGoods.enterText("Detailed explanation")
-  //     submitPage()
-  // }

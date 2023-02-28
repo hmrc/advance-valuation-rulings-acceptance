@@ -24,7 +24,9 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 class StepDefinitions
     extends BaseStepDef
     with MethodTwoStepDefintions
-    with MethodFourStepDefintions {
+    with MethodThreeStepDefintions
+    with MethodFourStepDefintions
+    with MethodSixStepDefintions {
 
   Given("I am on the ARS Home Page")(() => BasePage.invokeURL(BasePage.URL_ARSHomePage))
 
