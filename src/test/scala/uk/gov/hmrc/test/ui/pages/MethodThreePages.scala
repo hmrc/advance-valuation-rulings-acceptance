@@ -18,12 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 import uk.gov.hmrc.test.ui.pages.base._
 
-object OutlineWhyNotMethodOneOrTwo extends TextAreaPage {
-  val pageTitle =
-    "Please explain why you have not selected Methods 1 or 2 to value your goods"
-}
-
-object WhyTransactionValueOfSimilarGoods extends TextAreaPage {
+object ExplainWhyNotMethodOneOrTwo extends TextAreaPage {
   val pageTitle =
     "Please explain why you have not selected Methods 1 or 2 to value your goods"
 }

@@ -24,7 +24,9 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 class StepDefinitions
     extends BaseStepDef
     with MethodTwoStepDefintions
-    with MethodFourStepDefintions {
+    with MethodThreeStepDefintions
+    with MethodFourStepDefintions
+    with MethodSixStepDefintions {
 
   Given("I am on the ARS Home Page")(() => BasePage.invokeURL(BasePage.URL_ARSHomePage))
 
@@ -89,7 +91,7 @@ class StepDefinitions
   And("I select Method {int} and continue in Select the method page") {
     (methodNumber: Int) =>
       MethodSelectionPage.loadPage()
-      MethodSelectionPage.selectMethod(methodNumber)
+      MethodSelectionPage.selectOption(methodNumber)
       submitPage()
   }
   Then("I navigate to Description of the Goods") {
@@ -175,16 +177,6 @@ class StepDefinitions
 
   And("I enter a reason and continue in Explain Reason Computed Value page") {
     () => ExplainWhyComputedValue.enterText("Detailed explanation").submitPage()
-  }
-
-  Then("I will be navigated to Explain Why Transaction of Similar Goods page") {
-    () => WhyTransactionValueOfSimilarGoods.loadPage()
-  }
-
-  And("I enter a reason and continue in Explain Why Transaction of Similar Goods page") {
-    () =>
-      WhyTransactionValueOfSimilarGoods.enterText("Detailed explanation")
-      submitPage()
   }
 
   And("I select {booleanValue} and continue in Is There a Sale Involved") {
