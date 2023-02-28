@@ -21,7 +21,10 @@ import uk.gov.hmrc.test.ui.pages.DoYouWantToUploadAnySupportingDocuments
 import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
 import uk.gov.hmrc.test.ui.pages.base.BasePage
 
-class StepDefinitions extends BaseStepDef with MethodTwoStepDefintions {
+class StepDefinitions
+    extends BaseStepDef
+    with MethodTwoStepDefintions
+    with MethodFourStepDefintions {
 
   Given("I am on the ARS Home Page")(() => BasePage.invokeURL(BasePage.URL_ARSHomePage))
 
