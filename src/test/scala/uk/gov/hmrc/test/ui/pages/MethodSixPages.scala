@@ -18,6 +18,17 @@ package uk.gov.hmrc.test.ui.pages
 
 import uk.gov.hmrc.test.ui.pages.base._
 
-object MethodSelectionPage extends OptionSelectionPage {
-  val pageTitle = "Select the method you will use to value your goods"
+object ExplainWhyNotMethodsOneToFive extends TextAreaPage {
+  val pageTitle =
+    "Explain why you have not selected Methods 1-5 to value your goods"
+}
+
+object WhichMethodWouldYouLikeToAdapt extends OptionSelectionPage {
+  val pageTitle =
+    "Which method would you like to adapt?"
+}
+
+object ExplainHowYouHaveUsedMethodSix extends TextAreaPage {
+  val pageTitle =
+    "Explain how you have used Method 6 to value your goods"
 }
