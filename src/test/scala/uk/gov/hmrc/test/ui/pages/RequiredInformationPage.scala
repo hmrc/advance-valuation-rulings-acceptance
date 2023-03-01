@@ -22,7 +22,7 @@ object RequiredInformationPage extends BasePage {
   import org.openqa.selenium.By
 
   val pageTitle      =
-    "Information you need to complete an application"
+    "Before you start your application"
   val errorPageTitle =
     "Error: Information you need to complete an application"
   val ele_Checkbox1  = By.id("value_0")
