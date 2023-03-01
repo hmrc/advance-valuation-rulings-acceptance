@@ -20,10 +20,10 @@ import uk.gov.hmrc.test.ui.pages.base._
 
 object WhyComputedValue extends TextAreaPage {
   val pageTitle =
-    "Please outline why you have not selected Methods 1-4 to value your goods"
+    "Explain why you have not selected Methods 1-4 to value your goods"
 }
 
 object ExplainWhyComputedValue extends TextAreaPage {
   val pageTitle =
-    "Please explain why you have selected Method 5 to value your goods"
+    "Explain why you have selected Method 5 to value your goods"
 }

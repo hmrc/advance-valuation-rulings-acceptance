@@ -42,6 +42,7 @@ Feature: End To End Journey
     And I enter Name- "Automation Test" Email- "Test@automation.com",Phone- "9876543211" details and continue in Provide your contact details page
     And I select Method 4 and continue in Select the method page
 
+
   Scenario: Method 5 flow
     Given I am on the ARS Home Page
     When I click on Start new application in ARS Home
