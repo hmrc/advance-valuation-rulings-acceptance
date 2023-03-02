@@ -69,6 +69,16 @@ class StepDefinitions
         .select(option)
         .submitPage()
   }
+
+  And(
+    "I select {booleanValue} on You have uploaded supporting document"
+  ) {
+    (option: Boolean) =>
+      YouHaveUploadedSupportingDocument
+        .loadPage()
+        .select(option)
+        .submitPage()
+  }
   And(
     "I select {booleanValue} and continue in Do you want to upload any supporting documents page"
   ) {
@@ -77,6 +87,15 @@ class StepDefinitions
         .loadPage()
         .select(option)
         .submitPage()
+  }
+
+  And("I upload the document {string} and continue in Upload supporting documents page") {
+    (filePath: String) =>
+      val path = getClass.getResource(s"/testdata/${filePath}.json").getPath
+      UploadSupportingDocuments.loadPage()
+        .uploadDocument(path)
+      submitPage()
+      Thread.sleep(5000)
   }
 
   And(
@@ -118,13 +137,7 @@ class StepDefinitions
         .enterCommodityCode(commodityCode)
       submitPage()
   }
-  And("I upload the document and continue in Upload supporting documents page") {
-    () =>
-      UploadSupportingDocuments
-        .loadPage()
-        .uploadDocument()
-      submitPage()
-  }
+
   And(
     "I select {booleanValue} and continue in Do you want this file to be marked as confidential page"
   ) {
