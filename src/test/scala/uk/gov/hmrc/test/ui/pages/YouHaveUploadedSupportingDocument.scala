@@ -16,8 +16,8 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.BasePage
-object YouHaveUploadedSupportingDocument extends BasePage {
+import uk.gov.hmrc.test.ui.pages.base.{BasePage, YesNoPage}
+object YouHaveUploadedSupportingDocument extends YesNoPage {
 
   val pageTitle =
     "You have uploaded one supporting document"

@@ -23,12 +23,11 @@ object UploadSupportingDocuments extends BasePage {
 
   val pageTitle          =
     "Upload supporting documents for the goods"
-  val ele_UploadDocument = "file-upload-1"
-  val uploadFilePath     = "/Users/sitaramireddytanunboddi/Desktop/ARS/ARS-365.xlsx"
+  val ele_UploadDocument = "input#file-input"
 
-  def uploadDocument() {
+  def uploadDocument(uploadFilePath:String) {
     driver
-      .findElement(By.id(ele_UploadDocument))
-      .sendKeys(uploadFilePath)
+      .findElement(By.cssSelector(ele_UploadDocument))
+     .sendKeys(uploadFilePath)
   }
 }
