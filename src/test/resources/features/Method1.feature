@@ -56,6 +56,7 @@ Feature: End To End Journey
     And I select "No" and continue in Is There a Sale Involved
     Then I will be navigated to the Select a Method page
 
+
   Scenario: Method 1 full flow with upload
     Given I am on the ARS Home Page
     When I click on Start new application in ARS Home
