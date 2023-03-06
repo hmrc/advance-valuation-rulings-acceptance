@@ -9,14 +9,14 @@ Feature: End To End Journey
     And I select "No" and continue in Are you planning to import goods page
     Then I will be navigated to This service is designed for those
 
-  Scenario: Your EORI details must be up to date to use this service
+  Scenario: Your EORI number details must be correct to use this service
     Given I am on the ARS Home Page
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
     And I select "Yes" and continue in Are you planning to import goods page
     And I click on continue in How We Contact You page
     And I select "No" and continue in Check the name and address page
-    Then I will be navigated to Your EORI details must be up to date to use this service
+    Then I will be navigated to Your EORI number details must be correct to use this service
 
   Scenario: You must have a commodity code page
     Given I am on the ARS Home Page

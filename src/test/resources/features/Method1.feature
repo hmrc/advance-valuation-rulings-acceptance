@@ -81,9 +81,9 @@ Feature: End To End Journey
     And I select "No" and continue in Do you want to add any confidential information page
     And I select "Yes" and continue in Do you want to upload any supporting documents page
     And I upload the document "abc" and continue in Upload supporting documents page
-   And I select "Yes" and continue in Do you want this file to be marked as confidential page
-   Then I will be navigated to You have uploaded supporting document
-   Then I select "No" on You have uploaded supporting document
+    And I select "Yes" and continue in Do you want this file to be marked as confidential page
+    Then I will be navigated to You have uploaded supporting document
+    Then I select "No" on You have uploaded supporting document
     Then I will be navigated to the Check Your Answers page
     And I check my answers and click on continue
     Then I will be navigated to the Application Complete page

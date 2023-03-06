@@ -17,8 +17,9 @@
 package uk.gov.hmrc.test.ui.pages
 
 import uk.gov.hmrc.test.ui.pages.base.BasePage
+
 object HowWeContactYou extends BasePage {
 
-  val pageTitle = "How we contact you about your application"
+  val pageTitle = "If we need to contact you about your application"
 
 }

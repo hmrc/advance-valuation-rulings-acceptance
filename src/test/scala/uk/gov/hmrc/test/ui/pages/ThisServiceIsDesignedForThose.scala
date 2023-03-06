@@ -22,7 +22,7 @@ import org.openqa.selenium.By
 object ThisServiceIsDesignedForThose extends BasePage {
 
   val pageTitle =
-    "This service is designed for those who are importing goods into Great Britain"
+    "This service is for importing goods into Great Britain"
 
   val ele_link_AdvanceTariffRulings = "advance_tariff_rulings_link"
   val ele_link_AdvanceOriginRulings = "advance_origin_rulings_link"
