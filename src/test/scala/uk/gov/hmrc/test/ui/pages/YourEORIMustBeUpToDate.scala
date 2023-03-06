@@ -20,5 +20,5 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 object YourEORIMustBeUpToDate extends BasePage {
 
   val pageTitle =
-    "Your EORI details must be up to date to use this service"
+    "Your EORI number details must be correct to use this service"
 }

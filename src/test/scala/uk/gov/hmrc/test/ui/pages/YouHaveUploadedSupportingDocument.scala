@@ -16,7 +16,8 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.base.{BasePage, YesNoPage}
+import uk.gov.hmrc.test.ui.pages.base.YesNoPage
+
 object YouHaveUploadedSupportingDocument extends YesNoPage {
 
   val pageTitle =

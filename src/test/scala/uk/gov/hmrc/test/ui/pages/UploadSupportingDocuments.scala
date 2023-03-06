@@ -25,9 +25,9 @@ object UploadSupportingDocuments extends BasePage {
     "Upload supporting documents for the goods"
   val ele_UploadDocument = "input#file-input"
 
-  def uploadDocument(uploadFilePath:String) {
+  def uploadDocument(uploadFilePath: String) {
     driver
       .findElement(By.cssSelector(ele_UploadDocument))
-     .sendKeys(uploadFilePath)
+      .sendKeys(uploadFilePath)
   }
 }

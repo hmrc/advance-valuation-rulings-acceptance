@@ -21,8 +21,7 @@ import uk.gov.hmrc.test.ui.pages.base.BasePage
 import org.openqa.selenium.By
 object ProvideYourContactDetails extends BasePage {
 
-  val pageTitle   =
-    "Provide the contact details for this application"
+  val pageTitle   = "Your contact details"
   val ele_name    = "name"
   val ele_email   = "email"
   val ele_contact = "phone"

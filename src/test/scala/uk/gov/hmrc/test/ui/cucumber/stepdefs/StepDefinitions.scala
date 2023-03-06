@@ -22,7 +22,7 @@ import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
 import uk.gov.hmrc.test.ui.pages.base.BasePage
 
 class StepDefinitions
-  extends BaseStepDef
+    extends BaseStepDef
     with MethodTwoStepDefintions
     with MethodThreeStepDefintions
     with MethodFourStepDefintions
@@ -92,7 +92,8 @@ class StepDefinitions
   And("I upload the document {string} and continue in Upload supporting documents page") {
     (filePath: String) =>
       val path = getClass.getResource(s"/testdata/${filePath}.json").getPath
-      UploadSupportingDocuments.loadPage()
+      UploadSupportingDocuments
+        .loadPage()
         .uploadDocument(path)
       submitPage()
       Thread.sleep(5000)
@@ -150,7 +151,7 @@ class StepDefinitions
       ThisServiceIsDesignedForThose.loadPage()
       ThisServiceIsDesignedForThose.linkNavigationValidation()
   }
-  Then("I will be navigated to Your EORI details must be up to date to use this service")(
+  Then("I will be navigated to Your EORI number details must be correct to use this service")(
     () => YourEORIMustBeUpToDate.loadPage()
   )
   Then("I will be navigated to You must have a commodity code") {
