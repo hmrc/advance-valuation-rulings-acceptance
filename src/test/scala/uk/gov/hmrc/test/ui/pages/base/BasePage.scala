@@ -17,7 +17,6 @@
 package uk.gov.hmrc.test.ui.pages.base
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
-
 import org.openqa.selenium.{By, WebDriver}
 import org.scalatest.matchers.should.Matchers
 
@@ -54,7 +53,7 @@ object BasePage {
   val continueButton                                           = "govuk-button"
   val titleSuffix                                              = " - Advance Ruling Service - GOV.UK"
   val arsHomePageText                                          = "Your applications and rulings" + titleSuffix
-  val URL_ARSHomePage                                          = s"$baseUrl/advance-valuation-ruling/accountHome"
+  val URL_ARSHomePage                                          = s"$baseUrl/advance-valuation-ruling/applications-and-rulings"
   val nameOfGoodsUrl                                           = s"$baseUrl/advance-valuation-ruling/nameOfGoods"
   def invokeURL(URL: String)(implicit driver: WebDriver): Unit = {
     driver.navigate().to(URL)
@@ -62,6 +61,9 @@ object BasePage {
     if (titlecheck == "Authority Wizard") {
       driver.findElement(By.id("redirectionUrl")).clear()
       driver.findElement(By.id("redirectionUrl")).sendKeys(URL_ARSHomePage)
+      driver.findElement(By.cssSelector("input[name='enrolment[0].name']")).sendKeys("HMRC-ATAR-ORG")
+      driver.findElement(By.cssSelector("input[name='enrolment[0].taxIdentifier[0].name']")).sendKeys("EORINumber")
+      driver.findElement(By.cssSelector("input[name='enrolment[0].taxIdentifier[0].value']")).sendKeys("GB070005467000")
       driver.findElement(By.className(continueButton)).click()
     }
   }

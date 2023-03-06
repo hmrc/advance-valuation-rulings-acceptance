@@ -22,7 +22,7 @@ import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.{onPage, submitPage}
 import uk.gov.hmrc.test.ui.pages.base.BasePage
 
 class StepDefinitions
-    extends BaseStepDef
+  extends BaseStepDef
     with MethodTwoStepDefintions
     with MethodThreeStepDefintions
     with MethodFourStepDefintions
