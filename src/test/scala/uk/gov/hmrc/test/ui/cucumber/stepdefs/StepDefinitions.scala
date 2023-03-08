@@ -74,7 +74,18 @@ class StepDefinitions
     "I select {booleanValue} on You have uploaded supporting document"
   ) {
     (option: Boolean) =>
-      YouHaveUploadedSupportingDocument
+      YouHaveUploadedOneSupportingDocument
+        .loadPage()
+        .select(option)
+        .submitPage()
+  }
+
+
+  And(
+    "I select {booleanValue} on You have uploaded second supporting document"
+  ) {
+    (option: Boolean) =>
+      YouHaveUploadedTwoSupportingDocuments
         .loadPage()
         .select(option)
         .submitPage()
@@ -89,9 +100,20 @@ class StepDefinitions
         .submitPage()
   }
 
-  And("I upload the document {string} and continue in Upload supporting documents page") {
+  And("I upload the pdf document {string} and continue in Upload supporting documents page") {
     (filePath: String) =>
-      val path = getClass.getResource(s"/testdata/${filePath}.json").getPath
+      val path = getClass.getResource(s"/testdata/${filePath}").getPath
+      UploadSupportingDocuments
+        .loadPage()
+        .uploadDocument(path)
+      submitPage()
+      Thread.sleep(5000)
+  }
+
+
+  And("I upload the json document {string} and continue in Upload supporting documents page") {
+    (filePath: String) =>
+      val path = getClass.getResource(s"/testdata/${filePath}").getPath
       UploadSupportingDocuments
         .loadPage()
         .uploadDocument(path)
@@ -176,7 +198,11 @@ class StepDefinitions
   }
 
   Then("I will be navigated to You have uploaded supporting document") {
-    () => YouHaveUploadedSupportingDocument.loadPage()
+    () => YouHaveUploadedOneSupportingDocument.loadPage()
+  }
+
+  Then("I will be navigated to You have uploaded second supporting document") {
+    () => YouHaveUploadedTwoSupportingDocuments.loadPage()
   }
 
   Then("I will be navigated to Why Computed Value page")(() => WhyComputedValue.loadPage())
