@@ -20,12 +20,12 @@ import uk.gov.hmrc.test.ui.pages.base._
 
 object HaveYouUsedMethodOneToImportInPast extends YesNoPage {
   val pageTitle =
-    "In the past 90-days, have you used Valuation Method 1 to import any goods?"
+    "In the past 90 days, have you used Valuation Method 1 to import any goods that are identical to the goods being valued?"
 }
 
 object OutlineWhyNotMethodOne extends TextAreaPage {
   val pageTitle =
-    "Please outline why you have not selected Method 1 to value your goods"
+    "Explain why you have not selected Method 1 to value your goods"
 }
 
 object DescribeTheIdenticalGoods extends TextAreaPage {
