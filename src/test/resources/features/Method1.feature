@@ -57,7 +57,7 @@ Feature: End To End Journey
     Then I will be navigated to the Select a Method page
 
 
-  Scenario: Method 1 full flow with upload
+  Scenario: Method 1 full flow with multiple upload
     Given I am on the ARS Home Page
     When I click on Start new application in ARS Home
     And I check all the checkboxes and click continue in Information you need to complete an application page
@@ -80,10 +80,14 @@ Feature: End To End Journey
     And I select that the goods have not been subject to legal challenges
     And I select "No" and continue in Do you want to add any confidential information page
     And I select "Yes" and continue in Do you want to upload any supporting documents page
-    And I upload the document "abc" and continue in Upload supporting documents page
+    And I upload the document "test1.pdf" and continue in Upload supporting documents page
     And I select "Yes" and continue in Do you want this file to be marked as confidential page
     Then I will be navigated to You have uploaded supporting document
-    Then I select "No" on You have uploaded supporting document
+    Then I select "Yes" on You have uploaded supporting document
+    And I upload the document "test2.json" and continue in Upload supporting documents page
+    And I select "Yes" and continue in Do you want this file to be marked as confidential page
+    Then I will be navigated to You have uploaded second supporting document
+    Then I select "No" on You have uploaded second supporting document
     Then I will be navigated to the Check Your Answers page
     And I check my answers and click on continue
     Then I will be navigated to the Application Complete page
