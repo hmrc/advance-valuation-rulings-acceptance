@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.ui.pages.base._
 
 object ExplainWhyNotMethodOneOrTwo extends TextAreaPage {
   val pageTitle =
-    "Please explain why you have not selected Methods 1 or 2 to value your goods"
+    "Explain why you have not selected Methods 1 or 2 to value your goods"
 }
 
 object HaveYouUsedMethodOneToImportSimilarGoods extends YesNoPage {

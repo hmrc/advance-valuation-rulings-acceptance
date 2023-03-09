@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
+import uk.gov.hmrc.test.ui.pages.RequiredInformationPage.submitPage
 import uk.gov.hmrc.test.ui.pages._
 
 trait MethodThreeStepDefintions extends BaseStepDef {
@@ -24,9 +25,27 @@ trait MethodThreeStepDefintions extends BaseStepDef {
     () => ExplainWhyNotMethodOneOrTwo.loadPage()
   }
 
+  Then("I will be navigated to Describe the Similar Goods page") {
+    () => DescribeTheSimilarGoodsPage.loadPage()
+  }
+
+  And("I select {booleanValue} and continue in Have You Used Method One In the Past 90 days") {
+    (option: Boolean) =>
+      HaveYouUsedMethod1InLast90days.loadPage()
+      HaveYouUsedMethod1InLast90days.select(option)
+      submitPage()
+  }
+
   And("I enter a reason and continue in Explain Why Transaction of Similar Goods page") {
     () =>
       ExplainWhyNotMethodOneOrTwo
+        .enterText("Detailed explanation")
+        .submitPage()
+  }
+
+  And("I enter a reason and continue in Describe the Similar Goods page") {
+    () =>
+      DescribeTheSimilarGoodsPage
         .enterText("Detailed explanation")
         .submitPage()
   }

@@ -80,7 +80,6 @@ class StepDefinitions
         .submitPage()
   }
 
-
   And(
     "I select {booleanValue} on You have uploaded second supporting document"
   ) {
@@ -100,18 +99,7 @@ class StepDefinitions
         .submitPage()
   }
 
-  And("I upload the pdf document {string} and continue in Upload supporting documents page") {
-    (filePath: String) =>
-      val path = getClass.getResource(s"/testdata/${filePath}").getPath
-      UploadSupportingDocuments
-        .loadPage()
-        .uploadDocument(path)
-      submitPage()
-      Thread.sleep(5000)
-  }
-
-
-  And("I upload the json document {string} and continue in Upload supporting documents page") {
+  And("I upload the document {string} and continue in Upload supporting documents page") {
     (filePath: String) =>
       val path = getClass.getResource(s"/testdata/${filePath}").getPath
       UploadSupportingDocuments
